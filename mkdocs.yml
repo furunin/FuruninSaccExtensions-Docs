@@ -1,0 +1,72 @@
+site_name: Furunin Sacc Extensions
+site_description: SaccFlightAndVehicles向け拡張ギミックの利用者向けドキュメント
+site_url: https://furunin.github.io/FuruninSaccExtensions-Docs/
+repo_url: https://github.com/furunin/FuruninSaccExtensions-Docs
+repo_name: furunin/FuruninSaccExtensions-Docs
+docs_dir: docs
+site_dir: site
+use_directory_urls: true
+
+theme:
+  name: material
+  language: ja
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: ダークテーマに切り替える
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: ライトテーマに切り替える
+
+plugins:
+  - search:
+      lang: ja
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.details
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+
+nav:
+  - ホーム:
+      - 製品概要: index.md
+      - 対応環境とインストール: getting-started.md
+  - FSE Guided Missiles:
+      - 機能概要: guided-missiles/index.md
+      - 共通セットアップ: guided-missiles/installation.md
+      - SACLOS: guided-missiles/saclos.md
+      - MCLOS: guided-missiles/mclos.md
+      - PassengerSeat／PilotSeat: guided-missiles/operator-seat.md
+      - 操作方法: guided-missiles/operation.md
+      - ミサイルの動作: guided-missiles/behavior.md
+      - Component設定: guided-missiles/components.md
+      - 任意機能: guided-missiles/optional-features.md
+      - トラブルシューティング: guided-missiles/troubleshooting.md
+      - 制限・更新・削除: guided-missiles/maintenance.md
+  - FSE Turret Control:
+      - 機能概要: turret-control/index.md
+      - セットアップ: turret-control/installation.md
+      - 手動照準: turret-control/manual-aim.md
+      - HEAD SLAVE: turret-control/head-slave.md
+      - 追従砲塔: turret-control/followers.md
+      - Sight Camera／Zoom: turret-control/sight-camera.md
+      - Component設定: turret-control/components.md
+      - トラブルシューティング: turret-control/troubleshooting.md
+      - 制限・更新・削除: turret-control/maintenance.md
+  - 共通情報:
+      - ライセンスとクレジット: common/license.md
+      - 文書更新履歴: common/changelog.md
