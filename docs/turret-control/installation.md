@@ -25,7 +25,7 @@ Yaw Pivot
 4. `ControlsRoot`へ機体回転の基準となるTransformを指定します。
 5. `OperatorSeat`へ照準を操作する座席を指定します。
 6. Sight Cameraを使う場合だけ`SightCamera`へCameraを指定します。
-7. `FSE_EXT_Turret`を車両の`SaccEntity.ExtensionUdonBehaviours`へ登録し、Saccの搭乗・所有権・Respawnイベントを受け取れるようにします。
+7. `FSE_EXT_Turret`を車両の`SaccEntity.ExtensionUdonBehaviours`へ登録し、Saccの搭乗・操作担当の切り替え・Respawnイベントを受け取れるようにします。
 
 同じ主照準Transformを書き換える既存砲塔Componentは無効にし、回転の書き手を一つにしてください。
 

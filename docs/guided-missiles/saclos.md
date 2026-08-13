@@ -8,7 +8,7 @@ SACLOSでは、ミサイルが`GuidanceReference`の示す照準線へ自動的�
 2. `Missile`へ同じミサイルの`FSE_MissileController`を指定します。
 3. `FSE_MissileController.GuidanceModule`へ、その`FSE_SACLOSGuidance`を指定します。
 4. 発射装置の`GuidanceReference`へ照準方向を示すTransformを指定します。
-5. Pool内のすべてのミサイルに同じ構成を設定します。
+5. 再利用用ミサイルのすべてに同じ構成を設定します。
 
 ## 調整の考え方
 

@@ -7,10 +7,10 @@
 - 誘導を終了したミサイルは再誘導できません。
 - 指令ワイヤーの垂れは見た目だけで、切断判定は直線です。
 - Zoom状態はほかの参加者へ同期しません。
-- MCLOS用ComponentはPool内の各ミサイルへ個別に設定します。
+- MCLOS用Componentは再利用用ミサイルごとに設定します。
 - PilotSeatでミサイル選択中は飛行入力を抑止しますが、FSEはAuto Hoverを有効化しません。
 - `DFUNC_TakeControl`による実行中の操作席交換には対応しません。
-- 利用可能な信管Componentは同梱されていません。`FuzeModule`は対応する別機能を導入した場合だけ設定します。
+- 現行パッケージにはAPS、ERA、実用的な近接信管は含まれません。Sampleを利用する場合はProjectile Endpointの参照や既定値を変更せず、`FuzeModule`は未設定のままで構いません。
 
 ## 更新
 

@@ -24,14 +24,14 @@
 4. 搭載弾を表示する場合は、対応する表示物を同じ順序で`AmmoMeshes`へ登録します。
 5. 搭載弾表示を使わない場合は`AmmoMeshes`を空配列にします。
 
-## 4. Missile Poolを作成する
+## 4. 再利用用ミサイルを配置する
 
-1. 待機中ミサイルの親となる`Missile Pool`を作成します。
+1. 待機中ミサイルの親となるGameObjectを作成します。
 2. 再利用するミサイルを必要数だけ配置し、待機中は無効にします。
-3. 各ミサイルへ`Rigidbody`、Collider、`FSE_MissileController`、`FSE_ProjectileEndpoint`を追加します。
-4. `FSE_MissileController`へRigidbody、Collider、表示物、飛翔・着弾演出、Endpointを割り当てます。
+3. 各ミサイルへ`Rigidbody`、Collider、`FSE_MissileController`を追加します。
+4. `FSE_MissileController`へRigidbody、Collider、表示物、飛翔・着弾演出を割り当てます。
 5. すべての`FSE_MissileController`を発射装置の`ProjectilePool`へ登録します。
-6. `PoolRoot`へ`Missile Pool`のTransformを指定します。
+6. `PoolRoot`へ待機中ミサイルの親Transformを指定します。
 7. `PrewarmPoolCount`は`ProjectilePool`へ登録した数を超えない値にします。
 
 `WorldParent`には飛翔中のミサイルを車体へ追従させないTransformを指定するか、未設定にします。

@@ -21,9 +21,8 @@
 | `MaxLaunchSightAngle` | 発射方向と誘導基準方向の許容角です。 |
 | `AllowFiringWhenGrounded` | Sacc航空機の`Taxiing`中に発射を許可するかを指定します。 |
 | `MaximumFiringSpeed` | 発射可能な車両合成速度の上限（m/s）です。0以下は無制限です。 |
-| `PrewarmPoolCount` | 起動時に利用可能にするPool内ミサイル数です。 |
+| `PrewarmPoolCount` | 起動時に利用可能にする再利用用ミサイル数です。 |
 | `InheritHostVelocity` | 発射時に車両速度を引き継ぐかを指定します。 |
-| Network Launch項目 | 受信した発射位置、回転、速度の検証範囲です。正規の発射を拒否しない範囲で設定します。 |
 
 ## FSE_MissileController
 
@@ -45,8 +44,6 @@
 | Damage項目 | 直撃損傷、範囲損傷、効果範囲、武器種別をSaccの損傷設計に合わせます。 |
 | `GuidanceModule` | 使用するSACLOSまたはMCLOS誘導Componentです。 |
 | `CommandLink` | 任意の指令ワイヤーComponentです。 |
-| `ProjectileEndpoint` | 同じミサイルの`FSE_ProjectileEndpoint`です。 |
-| `FuzeModule` | 対応する信管を使用する場合の参照です。同梱機能だけを使う場合は未設定にします。 |
 
 ## FSE_SACLOSGuidance
 
@@ -73,10 +70,3 @@
 | `Missile` / `CommandSource` | 同じミサイル本体と操作席側の入力Componentです。 |
 | `MaxPitchRate` / `MaxYawRate` | 最大入力時の上下・左右旋回速度です。 |
 | `MaxLateralAcceleration` | 横方向に曲がる強さの上限です。 |
-
-## FSE_ProjectileEndpoint
-
-| Field | 説明 |
-|---|---|
-| `ProjectileCategoryMask` | 飛翔体の種類を表す値です。配布されたミサイル設定を維持します。 |
-| `Interceptable` / `ProximityDetectable` / `ReactiveArmorApplicable` | 外部Componentが参照する飛翔体属性です。使用する連携機能の仕様に従います。 |

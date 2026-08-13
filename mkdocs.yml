@@ -43,7 +43,7 @@ markdown_extensions:
 
 nav:
   - ホーム:
-      - 製品概要: index.md
+      - ギミック概要: index.md
       - 対応環境とインストール: getting-started.md
   - FSE Guided Missiles:
       - 機能概要: guided-missiles/index.md

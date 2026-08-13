@@ -15,11 +15,11 @@
 2. 対応するSaccFlightAndVehiclesをProjectへ導入します。
 3. Furunin Sacc Extensionsのunitypackageをインポートします。
 4. UnityのConsoleにコンパイルエラーがないことを確認します。
-5. 使用する製品のセットアップへ進みます。
+5. 使用するギミックのセットアップへ進みます。
 
 FSEのScript、ProgramAsset、`.meta`は組として扱ってください。ファイルを個別に移動したり、ProgramAssetを直接編集したりしないでください。
 
-## 製品別セットアップ
+## ギミック別セットアップ
 
 - [FSE Guided Missiles](guided-missiles/installation.md)
 - [FSE Turret Control](turret-control/installation.md)

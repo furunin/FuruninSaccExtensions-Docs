@@ -2,7 +2,7 @@
 
 Furunin Sacc Extensionsは、VRChat向け乗り物アセット「SaccFlightAndVehicles」へ機能を追加する拡張ギミックです。
 
-## 製品一覧
+## ギミック一覧
 
 ### FSE Guided Missiles
 

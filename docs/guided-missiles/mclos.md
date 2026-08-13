@@ -10,7 +10,7 @@ MCLOSでは、射手が飛翔中のミサイルへ上下左右の旋回指令を
 4. `Missile`へ同じミサイルの`FSE_MissileController`を指定します。
 5. `CommandSource`へ操作席側の`FSE_MCLOSInputController`を指定します。
 6. `FSE_MissileController.GuidanceModule`へ、その`FSE_MCLOSGuidance`を指定します。
-7. Pool内のすべてのミサイルへ同じ設定を行います。
+7. 再利用用ミサイルのすべてに同じ設定を行います。
 
 SACLOS構成を元にしたVariantでは、各ミサイルの`SACLOS Guidance`を無効にし、`GuidanceModule`がMCLOS側を参照していることを確認します。
 
