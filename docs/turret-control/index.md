@@ -1,6 +1,6 @@
 # FSE Turret Control
 
-FSE Turret Controlは、照準器や砲塔の上下左右回転を操作し、その向きを同期するギミックです。
+FSE Turret Controlは、照準器や砲塔の上下左右回転を操作し、その向きを同期するギミックです。`FSE_TurretControl` Prefabを車両へ追加し、車両固有の参照を接続して使用できます。
 
 - 上下軸と左右軸を分けた主照準器
 - 主照準へ追従する別砲塔

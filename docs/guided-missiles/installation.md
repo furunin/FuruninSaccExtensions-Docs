@@ -33,7 +33,7 @@
 
 `GuidanceReference`へ照準方向を示すTransformを指定します。青いZ軸が誘導方向です。
 
-FSE Turret Controlを併用する場合は`FSE_EXT_Turret.AimOrigin`を指定できます。固定方向へ発射する構成では、固定Transformも使用できます。
+FSE Turret Controlを併用する場合は、車両へ配置した`FSE_TurretControl` Prefab内の`Aim Origin`を指定できます。固定方向へ発射する構成では、固定Transformも使用できます。
 
 誘導方式にSACLOSを使用しない場合はこの手順は必須ではありません。MCLOSを使用する場合でも、この設定を行うことで照準とランチャーの角度差による発射制限機能を利用することができます。
 
@@ -49,3 +49,13 @@ FSE Turret Controlを併用する場合は`FSE_EXT_Turret.AimOrigin`を指定で
 `FSE_DFUNC_MissileLauncher`を操作席で使用する左右どちらか一方のDialFunctionへ登録します。同じランチャーを複数のDial配列や複数席へ重複登録すると、操作は安全のため無効になります。
 
 任意機能は、基本的な発射と誘導が動作した後に[任意機能](optional-features.md)から追加してください。
+
+## SACLOS／MCLOS Sampleの砲塔構成
+
+`SH-1_SACLOS_Sample`は`FSE_TurretControl` Prefabを組み込み、`GuidanceReference`をPrefab内の`Aim Origin`へ設定しています。`SH-1_MCLOS_Sample`はSACLOS SampleのVariantとして同じ砲塔構成を引き継ぎます。
+
+Sampleでは左Dialに`FSE_DFUNC_HeadSlave`、`FSE_DFUNC_SightZoom`、右DialにGun、`FSE_DFUNC_MissileLauncher`の順で登録されています。Guided Missilesではミサイル選択による既存の連携を使用するため、Prefab内の`FSE_DFUNC_TurretControl`をSampleのDial配列へ追加しないでください。
+
+Sampleと同等の構成を作る場合は、Prefabを車両へ配置し、`OperatorSeat`、`ControlsRoot`、`TurretForwardEmpty`、追従砲塔の配列、`RangefinderText`を車両側へ接続します。Sampleの可動範囲は`UpAngleMax`が20°、`DownAngleMax`が80°、`SideAngleMax`が90°です。Sight Cameraは`MinimumFov`が2°、`MaximumFov`が60°、`RangefinderDistance`が5000 m、`RangefinderUpdateInterval`が0.1秒です。
+
+Target Trackingは任意のAddonで、SACLOS／MCLOSの動作に必須ではありません。

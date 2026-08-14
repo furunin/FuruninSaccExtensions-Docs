@@ -36,7 +36,7 @@ function Ensure-DocumentationEnvironment {
     if (-not (Test-Path -LiteralPath $venvPython -PathType Leaf)) {
         $python = Resolve-Python312
         Write-Host "Creating the documentation virtual environment at $venvPath"
-        & $python.Path @($python.Arguments) -m venv $venvPath
+        $null = & $python.Path @($python.Arguments) -m venv $venvPath
         if ($LASTEXITCODE -ne 0) { throw 'Failed to create the documentation virtual environment.' }
     }
     $venvVersion = & $venvPython -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")'
@@ -46,7 +46,7 @@ function Ensure-DocumentationEnvironment {
     $installedMaterialVersion = & $venvPython -c "import importlib.metadata as m; print(m.version('mkdocs-material'))" 2>$null
     if ($LASTEXITCODE -ne 0 -or $installedMaterialVersion -ne $requiredMaterialVersion) {
         Write-Host 'Installing the pinned documentation dependencies.'
-        & $venvPython -m pip install --requirement $requirementsPath
+        $null = & $venvPython -m pip install --requirement $requirementsPath
         if ($LASTEXITCODE -ne 0) { throw 'Failed to install the documentation dependencies.' }
     }
     return $venvPython

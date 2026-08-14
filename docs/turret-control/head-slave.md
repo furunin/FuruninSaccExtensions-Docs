@@ -4,10 +4,10 @@ HEAD SLAVEは、VRプレイヤーのHMD方向へ主照準器を追従させる�
 
 ## 設定
 
-1. DialFunction用GameObjectへ`FSE_DFUNC_HeadSlave`を追加します。
-2. `TurretController`へ対象の`FSE_EXT_Turret`を指定します。
+1. `FSE_TurretControl` Prefab内の子`FSE_DFUNC_HeadSlave`を使用します。独自構成ではDialFunction用GameObjectへ同名Componentを追加します。
+2. `TurretController`が対象の`FSE_EXT_Turret`を参照していることを確認します。Prefab内では設定済みです。
 3. 選択中だけ表示する物があれば`EnableFunconObjects`へ登録します。不要なら空配列にします。
-4. `FSE_DFUNC_HeadSlave`を操作席のDialFunctionへ登録します。
+4. 子`FSE_DFUNC_HeadSlave`を操作席のDialFunctionへ直接登録します。Prefabのルートは登録しません。
 
 Target Trackingも使う場合は、両方を同時に有効にしないため、`ExclusiveTargetTracking`へ`FSE_DFUNC_TargetTracking`を指定し、Target Tracking側の`ExclusiveHeadSlave`へこのComponentを指定します。後から選択した機能が有効です。
 

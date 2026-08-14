@@ -72,6 +72,15 @@
 | `EnableFunconObjects` | HEAD SLAVE選択中だけ有効にする表示物です。不要なら空配列にします。 |
 | `ExclusiveTargetTracking` | 排他的に切り替える`FSE_DFUNC_TargetTracking`です。 |
 
+## FSE_DFUNC_TurretControl
+
+Pilot Seatで単独の砲塔を手動操作するためのDialFunctionです。`FSE_TurretControl` Prefabでは専用の子オブジェクトに設定済みです。Guided Missilesと組み合わせるPilot構成やPassenger構成では通常は登録しません。
+
+| Field | 説明 |
+|---|---|
+| `TurretController` | 操作対象の`FSE_EXT_Turret`です。Prefab内では設定済みです。 |
+| `EnableFunconObjects` | 選択中だけ有効にする表示物です。不要なら空配列にします。 |
+
 ## FSE_TurretTargetTracker／FSE_DFUNC_TargetTracking
 
 Target Trackingは対応するSacc車両だけを対象にします。`FSE_DFUNC_TargetTracking`を選択した時に、正面付近にある候補を一度だけ取得します。追尾中に候補を周期的に探し直すことはありません。

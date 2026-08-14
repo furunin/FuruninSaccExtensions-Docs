@@ -1,1 +1,11 @@
-requests: {}
+requests:
+  guided-missiles-20260814-turret-prefab-migration:
+    product: guided-missiles
+    task_id: migrate-saclos-turret-prefab-20260814
+    source_commit: 91b271e2705ec03e7d262d391d5805d7a1e0947b
+    applied_date: 2026-08-14
+  turret-control-20260814-standalone-prefab:
+    product: turret-control
+    task_id: standalone-turret-control-prefab
+    source_commit: d9b06f97c271dc404b4248401accf013f87c8938
+    applied_date: 2026-08-14
