@@ -13,3 +13,23 @@ This directory contains release coordination records and is outside `docs/`, so 
 - Do not mix release groups. Only approved requests belonging to the selected release group may enter a release candidate.
 
 The preview and check scripts never commit, push, call the GitHub API, or deploy GitHub Pages.
+
+## Product request intake
+
+The Unity project path is machine-local and must not be committed. Configure it
+after a project-folder move:
+
+```powershell
+.\scripts\Set-DocsProjectRoot.ps1 -UnityProjectRoot "<UNITY_PROJECT_ROOT>"
+```
+
+At the beginning of a documentation chat task, list requests that are `ready`
+and not present in `applied-requests.yml`:
+
+```powershell
+.\scripts\Get-PendingDocumentationRequests.ps1
+```
+
+After applying all requests, run `check-docs.ps1`, update
+`applied-requests.yml`, and commit locally. The intake scripts never edit public
+Markdown, commit, push, or publish.

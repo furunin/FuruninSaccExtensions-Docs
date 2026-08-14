@@ -2,3 +2,4 @@ site/
 .venv-docs/
 __pycache__/
 .cache/
+.fse-docs-local.json
