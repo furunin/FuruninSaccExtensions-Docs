@@ -2,13 +2,13 @@
 
 SACLOSでは、ミサイルが`GuidanceReference`の示す照準線へ自動的に旋回します。射手は飛翔中も照準を目標へ向け続けます。
 
-## 設定手順
+## 導入手順
 
-1. 各ミサイルへ`FSE_SACLOSGuidance`を一つ追加します。
+1. 共通セットアップで作成した各飛翔処理用ミサイルへ空のオブジェクトを作成し、`FSE_SACLOSGuidance`を追加します。
 2. `Missile`へ同じミサイルの`FSE_MissileController`を指定します。
-3. `FSE_MissileController.GuidanceModule`へ、その`FSE_SACLOSGuidance`を指定します。
-4. 発射装置の`GuidanceReference`へ照準方向を示すTransformを指定します。
-5. 再利用用ミサイルのすべてに同じ構成を設定します。
+3. `FSE_MissileController`の`GuidanceModule`へ、3.で作成した`FSE_SACLOSGuidance`を指定します。
+4. 共通セットアップで作成した`FSE_DFUNC_MissileLauncher`の`GuidanceReference`へ照準方向を示すTransformを指定します。
+5. 飛翔処理用ミサイルの全てに同じ構成を設定します。
 
 ## 調整の考え方
 

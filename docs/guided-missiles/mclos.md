@@ -2,22 +2,18 @@
 
 MCLOSでは、射手が飛翔中のミサイルへ直接上下左右への旋回指令を送ります。入力を戻すと、その時点の進行方向を維持します。
 
-## 設定手順
+## 導入手順
 
-1. 操作席側へ`FSE_MCLOSInputController`を一つ追加します。
-2. `Launcher`へ対象の`FSE_DFUNC_MissileLauncher`を指定します。
-3. 各ミサイルへ`FSE_MCLOSGuidance`を追加します。
+1. 共通セットアップで作成した本ギミック用のオブジェクト（例：`FSE Guided Missile`）に`FSE_MCLOSInputController`を追加します。
+2. `Launcher`へ`FSE_DFUNC_MissileLauncher`を指定します。
+3. 共通セットアップで作成した各飛翔処理用ミサイルへ空のオブジェクトを作成し、`FSE_MCLOSGuidance`を追加します。
 4. `Missile`へ同じミサイルの`FSE_MissileController`を指定します。
-5. `CommandSource`へ操作席側の`FSE_MCLOSInputController`を指定します。
-6. `FSE_MissileController.GuidanceModule`へ、その`FSE_MCLOSGuidance`を指定します。
-7. 再利用用ミサイルのすべてに同じ設定を行います。
-
-SACLOS構成を元にしたVariantでは、各ミサイルの`SACLOS Guidance`を無効にし、`GuidanceModule`がMCLOS側を参照していることを確認します。
+5. `CommandSource`へ1.で追加した`FSE_MCLOSInputController`を指定します。
+6. `FSE_MissileController`の`GuidanceModule`へ、3.で作成した`FSE_MCLOSGuidance`を指定します。
+7. 飛翔処理用ミサイルの全てに同じ設定を行います。
 
 ## 入力設定
 
-- Desktopは矢印キーを使用します。
-- VRは右手Secondary Thumbstickを使用します。
 - `InputDeadZone`はVRスティックの中央付近だけに適用されます。
 - `InvertPitch`と`InvertYaw`で操作方向を軸ごとに反転できます。
 - `SyncInterval`は操作の応答性と通信頻度のバランスで設定します。

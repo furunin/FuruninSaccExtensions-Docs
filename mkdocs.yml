@@ -19,6 +19,7 @@ theme:
     - search.highlight
   palette:
     - media: "(prefers-color-scheme: light)"
+      primary: indigo
       scheme: default
       toggle:
         icon: material/brightness-7
@@ -50,17 +51,18 @@ nav:
       - 機能概要: guided-missiles/index.md
       - 導入・基本設定:
           - 共通セットアップ: guided-missiles/installation.md
-          - PassengerSeat／PilotSeat: guided-missiles/operator-seat.md
+          - 誘導方式固有設定:
+              - MCLOS: guided-missiles/mclos.md
+              - SACLOS: guided-missiles/saclos.md
+          - PassengerSeat / PilotSeat: guided-missiles/operator-seat.md
           - Component設定: guided-missiles/components.md
       - 誘導・操作:
-          - MCLOS: guided-missiles/mclos.md
-          - SACLOS: guided-missiles/saclos.md
           - 操作方法: guided-missiles/operation.md
           - ミサイルの動作: guided-missiles/behavior.md
       - 拡張・保守:
           - 任意機能: guided-missiles/optional-features.md
           - トラブルシューティング: guided-missiles/troubleshooting.md
-          - 制限・更新・削除: guided-missiles/maintenance.md
+          - 制限事項: guided-missiles/maintenance.md
   - FSE Turret Control:
       - 機能概要: turret-control/index.md
       - 導入・基本設定:
@@ -69,12 +71,12 @@ nav:
       - 照準機能:
           - 手動照準: turret-control/manual-aim.md
           - HEAD SLAVE: turret-control/head-slave.md
-          - Sight Camera／Zoom／距離計: turret-control/sight-camera.md
+          - Sight Camera / Zoom / 距離計: turret-control/sight-camera.md
       - 砲塔構成:
           - 追従砲塔: turret-control/followers.md
       - 保守:
           - トラブルシューティング: turret-control/troubleshooting.md
-          - 制限・更新・削除: turret-control/maintenance.md
+          - 制限事項: turret-control/maintenance.md
   - 共通情報:
       - ライセンスとクレジット: common/license.md
       - 文書更新履歴: common/changelog.md

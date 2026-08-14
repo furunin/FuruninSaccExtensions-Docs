@@ -16,3 +16,7 @@
 
 - [FSE Guided Missiles](guided-missiles/installation.md)
 - [FSE Turret Control](turret-control/installation.md)
+
+## 更新方法
+
+新しいunitypackageを同じフォルダーへインポートします。

@@ -12,7 +12,7 @@ Furunin Sacc Extensionsは、VRChat向け乗り物アセット「SaccFlightAndVe
 
 ### FSE Turret Control
 
-照準や砲塔の操作、別砲塔の追従、デスクトップ／VR操作対応、照準のHMDへの追従、照準カメラ制御をまとめて扱う砲塔制御機能です。Guided Missiles以外の機関砲や照準器にも使用できます。
+照準器や砲塔の操作、別砲塔の追従、デスクトップ／VR操作対応、照準のHMDへの追従、照準カメラ制御をまとめて扱う砲塔制御機能です。Guided Missiles以外の機関砲や照準器にも使用できます。
 
 [FSE Turret Controlを導入する](turret-control/installation.md)
 

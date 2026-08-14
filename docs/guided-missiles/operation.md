@@ -4,9 +4,9 @@
 
 | 誘導方式 | Desktop | VR |
 |---|---|---|
-| 共通 | 武装を選び、`Space`で発射します。 | DialFunctionで武装を選び、対応するTriggerで発射します。 |
-| SACLOS | 照準器を目標へ向け続けます。FSE Turret Controlを使用する場合は`W/A/S/D`で操作します。 | 手動照準またはHEAD SLAVEで照準器を目標へ向け続けます。 |
+| 共通 | 武装を選び（デフォルトでは`1`、`2`キー）、`Space`で発射します。 | DialFunctionで武装を選び、対応するTriggerで発射します。 |
 | MCLOS | 飛翔中に矢印キーでミサイルの方向を修正します。 | 飛翔中に右手Secondary Thumbstickで方向を修正します。 |
+| SACLOS | 照準器を目標へ向け続けます。FSE Turret Controlを使用する場合は`W/A/S/D`で操作します。 | 手動照準またはHEAD SLAVEで照準器を目標へ向け続けます。 |
 
 MCLOSはキーまたはスティックを戻すと、その時点の進行方向を維持します。
 
