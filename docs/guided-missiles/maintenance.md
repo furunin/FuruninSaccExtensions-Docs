@@ -10,7 +10,8 @@
 - MCLOS用Componentは再利用用ミサイルごとに設定します。
 - PilotSeatでミサイル選択中は飛行入力を抑止しますが、FSEはAuto Hoverを有効化しません。
 - `DFUNC_TakeControl`による実行中の操作席交換には対応しません。
-- 現行パッケージにはAPS、ERA、実用的な近接信管は含まれません。Sampleを利用する場合はProjectile Endpointの参照や既定値を変更せず、`FuzeModule`は未設定のままで構いません。
+- 近接信管は`FSE_ProximityFuze`を`FuzeModule`へ設定したミサイルだけで有効になります。対象は`SaccEntity`または`SaccTarget`で、陣営を自動判定しません。母機や友軍は`IgnoredTargetRoots`で除外します。
+- この近接信管はAPS、ERA、飛翔体迎撃を行いません。
 
 ## 更新
 

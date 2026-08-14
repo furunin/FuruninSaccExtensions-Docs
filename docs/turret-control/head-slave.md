@@ -9,6 +9,8 @@ HEAD SLAVEは、VRプレイヤーのHMD方向へ主照準器を追従させる�
 3. 選択中だけ表示する物があれば`EnableFunconObjects`へ登録します。不要なら空配列にします。
 4. `FSE_DFUNC_HeadSlave`を操作席のDialFunctionへ登録します。
 
+Target Trackingも使う場合は、両方を同時に有効にしないため、`ExclusiveTargetTracking`へ`FSE_DFUNC_TargetTracking`を指定し、Target Tracking側の`ExclusiveHeadSlave`へこのComponentを指定します。後から選択した機能が有効です。
+
 ## 操作
 
 DialFunctionでHEAD SLAVEを選択すると、照準器がHMDの左右・上下方向へ追従します。右Grip操作を使うと、追従方向を小さく微調整できます。

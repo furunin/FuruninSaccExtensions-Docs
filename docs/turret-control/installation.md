@@ -38,7 +38,19 @@ Yaw Pivot
 ## 4. 必要な機能を追加する
 
 - [HEAD SLAVE](head-slave.md)
+- Target Tracking（下記）
 - [追従砲塔](followers.md)
 - [Sight Camera／Zoom](sight-camera.md)
 
 これらを使わない場合、該当する参照や配列は未設定のままにします。
+
+## 5. Target Trackingを追加する（任意）
+
+1. 車両Hierarchyへ`FSE_TurretTargetTracking_Addon` Prefabを配置します。
+2. 両Componentの`TurretController`へ対象の`FSE_EXT_Turret`を指定します。
+3. `FSE_EXT_Turret.TargetTracker`へ`FSE_TurretTargetTracker`を指定します。
+4. HEAD SLAVEも使う場合は、`TargetTracking.ExclusiveHeadSlave`と`HeadSlave.ExclusiveTargetTracking`へ互いのDialFunctionを指定します。
+5. `FSE_DFUNC_TargetTracking`を操作席のDialFunctionへ登録します。
+6. `CandidateLayers`を、追尾を許可する対象車両のLayerに設定します。
+
+必要に応じて、候補検索の基準に`SearchReference`、状態表示にIndicator、状態音にAudio参照を設定します。配置直後は`TurretController`、`SearchReference`、`ExclusiveHeadSlave`が未設定なので、手動で接続してください。

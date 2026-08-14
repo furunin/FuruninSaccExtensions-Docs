@@ -13,3 +13,6 @@
 | 弾薬表示が合わない | `LaunchPoints`と`AmmoMeshes`の数・順序、`MaxAmmo`、再装填状態を確認します。 |
 | 補給されない | Saccの補給通知、補給判定用GameObject、`FSE_ResupplyTriggerBootstrap.ResupplyHost`を確認します。 |
 | 見た目がロールしない | `RollVisualRoot`へ物理rootではなくMeshの共通親を指定し、回転速度が0でないことを確認します。 |
+| 近接起爆しない | `FuzeModule`へ同じミサイルの`FSE_ProximityFuze`が指定され、`Missile`参照が正しいか確認します。`ArmingDelaySeconds`と`ArmingDistance`、`DetonationRadius`、`DetectionLayers`、対象に`SaccEntity`または`SaccTarget`があることを確認します。 |
+| 発射直後に起爆する、または友軍に反応する | `ArmingDelaySeconds`または`ArmingDistance`を大きくし、母機や友軍のrootを`IgnoredTargetRoots`へ指定します。 |
+| 壁越しに近接起爆する | `RequireLineOfSight`を有効にし、壁などのLayerを`OcclusionLayers`へ含めます。 |

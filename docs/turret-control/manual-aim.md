@@ -20,6 +20,10 @@
 
 機体が旋回しても、Grip中に手を固定しているだけでは照準入力が発生しないよう、`ControlsRoot`の回転が補正されます。
 
+## Target Tracking中の手動補正
+
+Target Tracking中も`W/A/S/D`とVRの手動照準で追尾位置へ補正を加えられます。補正は追尾が続く間も保持されます。追尾を失った場合は、その時点の照準角度のまま手動照準へ戻ります。
+
 ## Zoom時の速度
 
 `ScaleManualAimWithSightFov`が有効な場合、実際の`SightCamera.fieldOfView`に合わせてDesktop／VR手動照準とHEAD SLAVEの微調整速度を下げます。HMD方向そのものへのHEAD SLAVE追従倍率は変えません。

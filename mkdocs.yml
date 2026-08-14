@@ -12,6 +12,7 @@ theme:
   language: ja
   features:
     - navigation.sections
+    - navigation.path
     - navigation.top
     - content.code.copy
     - search.suggest
@@ -44,29 +45,36 @@ markdown_extensions:
 nav:
   - ホーム:
       - ギミック概要: index.md
-      - 対応環境とインストール: getting-started.md
+      - 対応環境と導入方法: getting-started.md
   - FSE Guided Missiles:
       - 機能概要: guided-missiles/index.md
-      - 共通セットアップ: guided-missiles/installation.md
-      - SACLOS: guided-missiles/saclos.md
-      - MCLOS: guided-missiles/mclos.md
-      - PassengerSeat／PilotSeat: guided-missiles/operator-seat.md
-      - 操作方法: guided-missiles/operation.md
-      - ミサイルの動作: guided-missiles/behavior.md
-      - Component設定: guided-missiles/components.md
-      - 任意機能: guided-missiles/optional-features.md
-      - トラブルシューティング: guided-missiles/troubleshooting.md
-      - 制限・更新・削除: guided-missiles/maintenance.md
+      - 導入・基本設定:
+          - 共通セットアップ: guided-missiles/installation.md
+          - PassengerSeat／PilotSeat: guided-missiles/operator-seat.md
+          - Component設定: guided-missiles/components.md
+      - 誘導・操作:
+          - MCLOS: guided-missiles/mclos.md
+          - SACLOS: guided-missiles/saclos.md
+          - 操作方法: guided-missiles/operation.md
+          - ミサイルの動作: guided-missiles/behavior.md
+      - 拡張・保守:
+          - 任意機能: guided-missiles/optional-features.md
+          - トラブルシューティング: guided-missiles/troubleshooting.md
+          - 制限・更新・削除: guided-missiles/maintenance.md
   - FSE Turret Control:
       - 機能概要: turret-control/index.md
-      - セットアップ: turret-control/installation.md
-      - 手動照準: turret-control/manual-aim.md
-      - HEAD SLAVE: turret-control/head-slave.md
-      - 追従砲塔: turret-control/followers.md
-      - Sight Camera／Zoom: turret-control/sight-camera.md
-      - Component設定: turret-control/components.md
-      - トラブルシューティング: turret-control/troubleshooting.md
-      - 制限・更新・削除: turret-control/maintenance.md
+      - 導入・基本設定:
+          - セットアップ: turret-control/installation.md
+          - Component設定: turret-control/components.md
+      - 照準機能:
+          - 手動照準: turret-control/manual-aim.md
+          - HEAD SLAVE: turret-control/head-slave.md
+          - Sight Camera／Zoom／距離計: turret-control/sight-camera.md
+      - 砲塔構成:
+          - 追従砲塔: turret-control/followers.md
+      - 保守:
+          - トラブルシューティング: turret-control/troubleshooting.md
+          - 制限・更新・削除: turret-control/maintenance.md
   - 共通情報:
       - ライセンスとクレジット: common/license.md
       - 文書更新履歴: common/changelog.md

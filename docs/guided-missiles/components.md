@@ -44,6 +44,22 @@
 | Damage項目 | 直撃損傷、範囲損傷、効果範囲、武器種別をSaccの損傷設計に合わせます。 |
 | `GuidanceModule` | 使用するSACLOSまたはMCLOS誘導Componentです。 |
 | `CommandLink` | 任意の指令ワイヤーComponentです。 |
+| `FuzeModule` | 任意の`FSE_ProximityFuze`です。未設定なら接触時だけ起爆します。 |
+
+## FSE_ProximityFuze
+
+| Field | 説明 |
+|---|---|
+| `Missile` | 同じミサイルの`FSE_MissileController`です。 |
+| `DetonationRadius` | 近接起爆する半径です。コード既定値は8 mです。 |
+| `ArmingDelaySeconds` | 発射後に信管を有効にするまでの時間です。コード既定値は0.25秒です。 |
+| `ArmingDistance` | 発射地点から信管を有効にするまでの距離です。コード既定値は30 mです。 |
+| `DetectionIntervalSeconds` | 近接対象を確認する間隔です。コード既定値は0.05秒です。 |
+| `DetectionLayers` | 検出する対象のLayerです。コード既定値はすべてのLayerです。 |
+| `OcclusionLayers` | 遮蔽物として判定するLayerです。コード既定値はすべてのLayerです。 |
+| `RequireLineOfSight` | 遮蔽物がない対象だけに反応するかを指定します。コード既定値は有効です。 |
+| `IgnoredTargetRoots` | 近接判定から除外するrootです。コード既定値は空です。 |
+| `EnableDiagnostics` | 調査時だけ診断出力を有効にします。コード既定値は無効です。 |
 
 ## FSE_SACLOSGuidance
 
