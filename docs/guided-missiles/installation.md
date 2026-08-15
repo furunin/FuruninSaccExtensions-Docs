@@ -2,60 +2,57 @@
 
 以下は各誘導方式に共通する手順です。共通セットアップの後に各誘導方式固有の設定を行います。
 
-## 1. 発射装置を配置する
+## 1. 配布Prefabを確認する
 
-1. セットアップを行う車両に本ギミック用のオブジェクト（例：`FSE Guided Missile`）を作成し、`FSE_DFUNC_MissileLauncher`コンポーネントを追加します。
-2. `SAVControl`へ車両の`Sacc Air Vehicle`コンポーネントを、`EntityControl`へ車両の`SaccEntity`を指定します。
-3. `CollisionHostRoot`へ、ミサイル発射直後の衝突判定から除外する車両階層のルートを指定します。
-4. `OperatorSeat`へミサイル操作に使用する席を指定します。
+`SH-1_GuidedMissile_MCLOS`と`SH-1_GuidedMissile_SACLOS`は完成Sampleです。独自車両へ搭載する場合は、両Sampleを改造するのではなく、`FSE_GuidedMissile`を配置して以下の手順で車両固有参照を接続します。
 
-操作席ごとの登録方法は[PassengerSeat／PilotSeat](operator-seat.md)を参照してください。
+## 2. FSE_GuidedMissileを配置する
 
-## 2. 発射位置と搭載弾表示を設定する
+車両階層の下へ`FSE_GuidedMissile`を配置します。配布済みのSubComponent Prefabを展開したり、Prefab Variantを作成したりしません。
 
-1. ミサイルの発射位置を示すオブジェクトを配置します（例：`LaunchPount`）。車両に複数のランチャーを搭載する場合は一つのランチャーにつき一つの発射位置オブジェクトを作成します。青いZ軸が射出方向を向くようにします。
-2. 作成した発射位置オブジェクトを`FSE_DFUNC_MissileLauncher`の`LaunchPoints`へ登録します。ランチャーが複数ある場合は、ここで登録した順番に発射されます。
-3. 搭載弾を表示する場合は、対応するメッシュを発射位置オブジェクトと同じ位置に配置し、同じ順序で`AmmoMeshes`へ登録します。搭載弾表示を使わない場合は`AmmoMeshes`を空配列にします。
+### Prefab内で設定済みの項目
 
-## 3. 飛翔処理用ミサイルを配置する
+`LaunchPoints`、`AmmoMeshes`、`ProjectilePool`、`PoolRoot`、および各飛翔弾の内部参照はPrefab内で接続済みです。ラック容量を変更する場合以外は、これらの配列と順序を変更しません。
 
-1. 飛翔処理用ミサイルを格納する親オブジェクトを作成します（例：`Missile Pool`）。
-2. 1.で作成したオブジェクトの下に実際に飛翔処理を行うミサイルのオブジェクト（例：`Missile`）を配置し、非アクティブにします。
-3. ミサイルオブジェクトへ`Rigidbody`、任意のCollider、`FSE_MissileController`を追加します。
-4. `FSE_MissileController`へRigidbody、Collider、飛翔中の3Dモデル、エフェクトを割り当てます。
-5. 対象の車両から発射されたミサイルがワールド内に同時に複数存在し得る場合は、ミサイルオブジェクトを十分な数だけ複製します。本ギミックはあらかじめ作成したミサイルオブジェクトを使って発射から着弾の処理を行うため、ここで作成するミサイルオブジェクトの数が、ワールドに同時に存在できるミサイルの数になります。ミサイルオブジェクトの数は、ランチャーの数と一致する必要はありません。
-6. すべての`FSE_MissileController`を`FSE_DFUNC_MissileLauncher`の`ProjectilePool`へ登録します。
-7. `PoolRoot`へ1.で作成したオブジェクトを指定します。
+### 車両ごとに接続する項目
 
-`WorldParent`には飛翔中のミサイルを車体へ追従させないTransformを指定するか、未設定にします。
+`FSE_DFUNC_MissileLauncher`で、`SAVControl`へ車両のSacc制御Component、`EntityControl`へ車両の`SaccEntity`、`CollisionHostRoot`へ発射直後の衝突判定から除外する車両階層のroot、`OperatorSeat`へ操作席を指定します。PassengerSeatで操作する場合だけ、同じ席の`SAV_PassengerFunctionsController`を`PassengerFunctionsController`へ指定します。
 
-## 4. 誘導基準を設定する
+## 3. 操作席を設定する
 
-`GuidanceReference`へ照準方向を示すTransformを指定します。青いZ軸が誘導方向です。
+操作席ごとの参照とDialFunctionの登録は[PassengerSeat／PilotSeat](operator-seat.md)を参照してください。
 
-FSE Turret Controlを併用する場合は、車両へ配置した`FSE_TurretControl` Prefab内の`Aim Origin`を指定できます。固定方向へ発射する構成では、固定Transformも使用できます。
+## 4. 照準器を車両へ接続する
 
-誘導方式にSACLOSを使用しない場合はこの手順は必須ではありません。MCLOSを使用する場合でも、この設定を行うことで照準とランチャーの角度差による発射制限機能を利用することができます。
+### FSE_TurretControl
 
-## 5. 各誘導方式の固有設定をする
+`FSE_TurretControl`内の`FSE_EXT_Turret`で、`OperatorSeat`、`ControlsRoot`、`TurretForwardEmpty`を車両側の対象へ接続します。`AimYawRotator`、`AimPitchRotator`、`AimOrigin`、`SightCamera`、Sight Controllerの参照はPrefab内で接続済みのため、通常変更しません。
+
+車両の砲塔またはランチャーメッシュを照準器へ追従させる場合だけ、`TurretGunYawRotators`と`TurretGunPitchRotators`へそのTransformを登録します。追従させる車両側Transformがない構成では、両配列を空のままにします。
+
+### Sight Cameraと距離表示
+
+操作席の`EnableInSeat`へ、Sight Cameraと照準器の操作に必要なGameObjectを登録します。座席使用中にSight Cameraが有効になり、その`TargetTexture`を使用するMaterialが車両のSight表示へ設定されていることを確認します。距離表示を使用する場合は、`FSE_SightController.RangefinderText`へ表示用Textを指定します。
+
+## 5. 発射位置と搭載弾表示を調整する
+
+各`Launch Point`を発射位置へ置き、ローカルの正Z方向を発射方向へ向けます。対応する`Missile Round_Stowed`はラック上の表示位置へ置きます。`LaunchPoints`、`AmmoMeshes`、`ProjectilePool`は同じ順序で対応するため、いずれかの順序だけを変更しません。
+
+## 6. 誘導方式を選択する
 
 - [MCLOSを設定する](mclos.md)
 - [SACLOSを設定する](saclos.md)
 
 二つの誘導Componentを同じミサイルの`GuidanceModule`へ同時に指定しないでください。
 
-## 6. DialFunctionへ登録する
+## 7. 補給を設定する
 
-`FSE_DFUNC_MissileLauncher`を操作席で使用する左右どちらか一方のDialFunctionへ登録します。同じランチャーを複数のDial配列や複数席へ重複登録すると、操作は安全のため無効になります。
+搭乗せずに補給できる構成では、`InVehicleOnly`の下に有効な`ResupplyTrigger`を一つ配置します。`PilotOnly`の下へは配置せず、同じ補給範囲に別のSacc補給Triggerを重複配置しません。
+
+## 8. 設定を確認する
+
+`FSE_DFUNC_MissileLauncher`を操作席で使用する左右どちらか一方のDialFunctionへ一度だけ登録します。同じランチャーを複数のDial配列や複数席へ登録すると、操作は安全のため無効になります。
 
 任意機能は、基本的な発射と誘導が動作した後に[任意機能](optional-features.md)から追加してください。
 
-## SACLOS／MCLOS Sampleの砲塔構成
-
-`SH-1_SACLOS_Sample`は`FSE_TurretControl` Prefabを組み込み、`GuidanceReference`をPrefab内の`Aim Origin`へ設定しています。`SH-1_MCLOS_Sample`はSACLOS SampleのVariantとして同じ砲塔構成を引き継ぎます。
-
-Sampleでは左Dialに`FSE_DFUNC_HeadSlave`、`FSE_DFUNC_SightZoom`、右DialにGun、`FSE_DFUNC_MissileLauncher`の順で登録されています。Guided Missilesではミサイル選択による既存の連携を使用するため、Prefab内の`FSE_DFUNC_TurretControl`をSampleのDial配列へ追加しないでください。
-
-Sampleと同等の構成を作る場合は、Prefabを車両へ配置し、`OperatorSeat`、`ControlsRoot`、`TurretForwardEmpty`、追従砲塔の配列、`RangefinderText`を車両側へ接続します。Sampleの可動範囲は`UpAngleMax`が20°、`DownAngleMax`が80°、`SideAngleMax`が90°です。Sight Cameraは`MinimumFov`が2°、`MaximumFov`が60°、`RangefinderDistance`が5000 m、`RangefinderUpdateInterval`が0.1秒です。
-
-Target Trackingは任意のAddonで、SACLOS／MCLOSの動作に必須ではありません。
+Sampleでは、左Dialへ`FSE_DFUNC_HeadSlave`、`FSE_DFUNC_SightZoom`、右DialへGun、`FSE_DFUNC_MissileLauncher`の順で登録されています。ミサイル選択時の既存連携を使用するため、`FSE_DFUNC_TurretControl`をSampleのDial配列へ追加しません。Target Trackingは任意のAddonで、MCLOS／SACLOSの動作に必須ではありません。

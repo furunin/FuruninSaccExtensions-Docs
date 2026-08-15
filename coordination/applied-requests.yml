@@ -9,3 +9,13 @@ requests:
     task_id: standalone-turret-control-prefab
     source_commit: d9b06f97c271dc404b4248401accf013f87c8938
     applied_date: 2026-08-14
+  guided-missiles-20260814-distribution-prefabs:
+    product: guided-missiles
+    task_id: guided-missile-prefab-label-20260814
+    source_commit: 7bc406d37d493fb2357fc454cd16700f89db1ea0
+    applied_date: 2026-08-15
+  guided-missiles-20260815-current-prefab-setup-guide:
+    product: guided-missiles
+    task_id: guided-missile-current-prefab-docs-20260815
+    source_commit: 7ec958e8884fe629c896e0dfe8aec92f02bfd932
+    applied_date: 2026-08-15

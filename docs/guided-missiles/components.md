@@ -2,6 +2,16 @@
 
 ここでは利用者が接続または調整する項目をComponentごとに説明します。
 
+## 配布Prefabの設定状態
+
+### FSE_GuidedMissile
+
+`FSE_GuidedMissile`では、`LaunchPoints`、`AmmoMeshes`、`ProjectilePool`、`PoolRoot`と、飛翔弾内部の参照が接続済みです。独自車両へ配置した後は、`SAVControl`、`EntityControl`、`CollisionHostRoot`、`OperatorSeat`、PassengerSeat構成の`PassengerFunctionsController`を車両側の対象へ接続します。
+
+### Missile Round_InFlight
+
+配布される`Missile Round_InFlight`では、`FuzeModule`は未設定で、`FlightTrails`は空です。`FuzeModule`が未設定の状態では、ミサイルは接触時だけ起爆します。
+
 ## FSE_DFUNC_MissileLauncher
 
 | Field | 説明 |
@@ -33,7 +43,7 @@
 | `FlightParticles` / `FlightTrails` / `FlightSounds` | 飛翔中にミサイルへ追従する演出です。 |
 | `FlightEffectsDelaySeconds` | 飛翔演出を開始するまでの時間です。誘導や衝突は遅延しません。 |
 | `ExplosionParticles` / `ExplosionSounds` | 通常着弾時の演出です。 |
-| `FlyStraightTime` / `Acceleration` / `MaxSpeed` | 直進時間、加速度、最高速度です。 |
+| `FlyStraightTime` / `Acceleration` / `MaxSpeed` | 直進時間、加速度、最高速度です。加速度のInspector表示名は`Acceleration`です。 |
 | `MaxLifetime` / `BallisticLifetime` | 動力飛翔時間と、その後の重力飛行時間です。 |
 | `AlignToVelocityDuringBallistic` | 弾道飛行中に表示方向を速度方向へ合わせます。 |
 | `AirPhysicsStrength` | 動力飛翔中の横滑りを抑える強さです。 |
@@ -51,15 +61,15 @@
 | Field | 説明 |
 |---|---|
 | `Missile` | 同じミサイルの`FSE_MissileController`です。 |
-| `DetonationRadius` | 近接起爆する半径です。コード既定値は8 mです。 |
-| `ArmingDelaySeconds` | 発射後に信管を有効にするまでの時間です。コード既定値は0.25秒です。 |
-| `ArmingDistance` | 発射地点から信管を有効にするまでの距離です。コード既定値は30 mです。 |
-| `DetectionIntervalSeconds` | 近接対象を確認する間隔です。コード既定値は0.05秒です。 |
-| `DetectionLayers` | 検出する対象のLayerです。コード既定値はすべてのLayerです。 |
-| `OcclusionLayers` | 遮蔽物として判定するLayerです。コード既定値はすべてのLayerです。 |
-| `RequireLineOfSight` | 遮蔽物がない対象だけに反応するかを指定します。コード既定値は有効です。 |
-| `IgnoredTargetRoots` | 近接判定から除外するrootです。コード既定値は空です。 |
-| `EnableDiagnostics` | 調査時だけ診断出力を有効にします。コード既定値は無効です。 |
+| `DetonationRadius` | 近接起爆する半径です。 |
+| `ArmingDelaySeconds` | 発射後に信管を有効にするまでの時間です。 |
+| `ArmingDistance` | 発射地点から信管を有効にするまでの距離です。 |
+| `DetectionIntervalSeconds` | 近接対象を確認する間隔です。 |
+| `DetectionLayers` | 検出する対象のLayerです。 |
+| `OcclusionLayers` | 遮蔽物として判定するLayerです。 |
+| `RequireLineOfSight` | 遮蔽物がない対象だけに反応するかを指定します。 |
+| `IgnoredTargetRoots` | 近接判定から除外するrootです。 |
+| `EnableDiagnostics` | 調査時だけ診断出力を有効にします。通常運用では無効にします。 |
 
 ## FSE_SACLOSGuidance
 
