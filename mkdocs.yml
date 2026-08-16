@@ -51,10 +51,10 @@ nav:
       - 機能概要: guided-missiles/index.md
       - 導入・基本設定:
           - 共通セットアップ: guided-missiles/installation.md
+          - 操作席の設定: guided-missiles/operator-seat.md
           - 誘導方式固有設定:
               - MCLOS: guided-missiles/mclos.md
               - SACLOS: guided-missiles/saclos.md
-          - PassengerSeat / PilotSeat: guided-missiles/operator-seat.md
           - Component設定: guided-missiles/components.md
       - 誘導・操作:
           - 操作方法: guided-missiles/operation.md

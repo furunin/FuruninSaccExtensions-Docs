@@ -11,7 +11,8 @@ FSE Guided Missilesは、Sacc車両へ誘導ミサイルを搭載するための
 
 ### 完成Sample
 
-`SH-1_GuidedMissile_MCLOS`と`SH-1_GuidedMissile_SACLOS`は、SH-1車両用に接続済みの完成Sampleです。まずは使用する誘導方式のSampleを開き、座席、照準器、補給、発射位置の接続例を確認してください。
+- `SH-1_GuidedMissile_MCLOS`：
+`SH-1_GuidedMissile_MCLOS`と`SH-1_GuidedMissile_SACLOS`は、SaccFlightAndVehiclesのヘリコプターSH-1用にセットアップ済みの完成サンプルです。座席、照準器、補給、発射位置の設定例を確認することができます。
 
 ### 再利用用Prefab
 

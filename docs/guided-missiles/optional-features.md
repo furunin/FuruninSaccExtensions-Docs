@@ -1,7 +1,5 @@
 # 任意機能
 
-以下は基本的な発射と誘導が動作した後に追加します。
-
 ## 指令ワイヤー
 
 1. 各ミサイルへ`FSE_CommandLinkController`を追加します。
@@ -29,20 +27,12 @@
 
 近接起爆で与えるのは範囲ダメージのみです。直撃と同じタイミングでは接触起爆が優先されます。
 
-## Sacc補給
-
-車両の補給通知が`FSE_DFUNC_MissileLauncher`へ届くようにします。開始時から補給区域内に置く車両では、必要な場合に`FSE_ResupplyTriggerBootstrap`を追加し、`ResupplyHost`へ車両側の補給判定用GameObjectを指定します。
-
 ## 発射・飛翔・着弾演出
 
 - 発射地点に残る音とパーティクルは`FSE_DFUNC_MissileLauncher`へ設定します。
 - ミサイルに追従するParticle、Trail、AudioSourceは`FSE_MissileController`へ設定します。
 - 着弾時のParticleとAudioSourceも各ミサイルへ設定します。
 - 使用しない演出配列は空にします。
-
-## 照準器との連携
-
-可動照準器、照準カメラ、HEAD SLAVE、追従砲塔が必要な場合は[FSE Turret Control](../turret-control/installation.md)を追加し、その`Aim Origin`をランチャーの`GuidanceReference`へ指定します。
 
 ## FSE_CommandLinkController設定
 
@@ -67,9 +57,3 @@
 | `OcclusionLayers` / `RequireLineOfSight` | 遮蔽物として判定するLayerと、遮蔽確認の有効化です。 |
 | `IgnoredTargetRoots` | 母機や友軍など、近接判定から除外するrootです。 |
 | `EnableDiagnostics` | 調査時だけ診断出力を有効にします。通常運用では無効にします。 |
-
-## FSE_ResupplyTriggerBootstrap設定
-
-| Field | 説明 |
-|---|---|
-| `ResupplyHost` | 初期化後に有効化する車両側の補給判定用GameObjectです。不要な構成ではComponent自体を追加しません。 |
