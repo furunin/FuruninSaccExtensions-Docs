@@ -2,10 +2,11 @@
 
 | 症状 | 確認項目 |
 |---|---|
-| 発射できない、またはランチャーを選択できない | `OperatorSeat`、残弾、再装填、`FireCooldown`、`ProjectilePool`、`LaunchPoints`、`MaxLaunchSightAngle`、地上発射設定、速度上限を確認します。ランチャーは操作席の左右どちらか一方のDialFunctionへ一度だけ登録します。PilotSeatでは`SAVControl`を設定し、PassengerSeatでは`OperatorSeat.PassengerFunctions`と同じControllerを`PassengerFunctionsController`へ指定します。座席に着席して通常操作を行った後に再試行し、Consoleに`[FSE MissileLauncher] Operator seat, control, or dial registration is invalid.`が出ていないか確認します。 |
+| 発射できない、またはランチャーを選択できない | `OperatorSeat`、残弾、再装填、`FireCooldown`、`ProjectilePool`、`LaunchPoints`、`MaxLaunchSightAngle`、地上発射設定、速度上限を確認します。ランチャーは操作席の左右どちらか一方のDialFunctionへ一度だけ登録します。ランチャーだけを登録するDialは配列サイズを`1`にし、element 0へ`FSE_DFUNC_MissileLauncher`を指定します。element 0を未設定にはしません。PilotSeatでは`SAVControl`を設定し、PassengerSeatでは`OperatorSeat.PassengerFunctions`と同じControllerを`PassengerFunctionsController`へ指定します。座席に着席して通常操作を行った後に再試行し、Consoleに`[FSE MissileLauncher] Operator seat, control, or dial registration is invalid.`が出ていないか確認します。 |
+| ランチャーだけを登録したDialで選択表示がない | 配列サイズが`1`のDialでは、選択中でもDialのハイライターは表示されません。element 0に`FSE_DFUNC_MissileLauncher`が指定され、設定した席へ座っていることを確認します。 |
 | PilotSeatから操作できない | `SAVControl`が設定され、ランチャーが`SaccEntity`の左右どちらか一方へ一度だけ登録され、`PassengerFunctionsController`が未設定か確認します。 |
 | PassengerSeatから操作できない | `OperatorSeat.PassengerFunctions`と`PassengerFunctionsController`が同じControllerを参照し、ランチャーがそのControllerの左右どちらか一方へ一度だけ登録されているか確認します。`FSE_EXT_Turret`は同じControllerの`PassengerExtensions`へ登録します。 |
-| SH-1でランチャー選択が不安定 | `CoPilotFunctions.Dial_Functions_R`に、無効な`DFUNC_TakeControl`、`FSE_DFUNC_MissileLauncher`の順で項目が残っているか確認します。`DFUNC_TakeControl`を削除または`EditorOnly`に指定しません。 |
+| SH-1でランチャー選択が不安定 | `CoPilotFunctions.Dial_Functions_R`に、無効な`DFUNC_TakeControl`、`FSE_DFUNC_MissileLauncher`の順で項目が残っているか確認します。現在の完成Sampleはこの2項目構成を使用します。`DFUNC_TakeControl`を削除または`EditorOnly`に指定しません。 |
 | Sight Cameraが表示されない | Sight Cameraと照準器の操作用Objectが操作席の`EnableInSeat`へ登録され、Sight Cameraの`TargetTexture`を使用するMaterialが車両のSight表示へ設定されているか確認します。 |
 | WASDで照準できない | PassengerSeat構成では`FSE_EXT_Turret`が操作席の`PassengerExtensions`へ登録され、`FSE_EXT_Turret.OperatorSeat`が同じ席を参照しているか確認します。 |
 | 発射直後に母機へ当たる | `CollisionHostRoot`、`LaunchPoint`の位置と青いZ軸、ミサイルColliderを確認します。 |

@@ -6,6 +6,12 @@
 
 `OperatorSeat`は実際にランチャーを操作する席を参照します。ランチャーはその席で使うDialFunctionの左右どちらか一方へ一度だけ登録します。
 
+ランチャーだけを登録するDialでは、`Dial_Functions_L`または`Dial_Functions_R`の配列サイズを`1`にし、element 0へ`FSE_DFUNC_MissileLauncher`を指定できます。席へ座るとランチャーが自動で選択されるため、キーまたはスティックで選択し直す必要はありません。element 0を未設定にはしません。
+
+複数のDialFunctionを登録するDialは、従来どおりキーまたはスティックでランチャーを選択します。既存の複数項目構成を変更する必要はありません。
+
+ランチャーが選択されても、発射、MCLOS入力、Dialのロックは、設定した席へ座って通常の車両操作を開始した後に有効になります。
+
 ## PassengerSeatで操作する
 
 ### 必須参照
@@ -44,7 +50,7 @@ PilotSeatでミサイルを選択している間は、機体操作と照準操�
 
 ### 右Dialの構成
 
-SH-1 Sampleの`CoPilotFunctions.Dial_Functions_R`には、無効な`DFUNC_TakeControl`を先頭、`FSE_DFUNC_MissileLauncher`を次の項目として登録します。この2項目構成を維持します。ランチャーだけの1項目にすると、Passenger Functionsの使用状態が確定する前にランチャー選択が試行されます。
+SH-1 Sampleの`CoPilotFunctions.Dial_Functions_R`には、無効な`DFUNC_TakeControl`を先頭、`FSE_DFUNC_MissileLauncher`を次の項目として登録します。現在の完成Sampleはこの2項目構成のまま使用します。
 
 ### Take Controlを使用しない理由
 
