@@ -11,6 +11,7 @@ $requirementsPath = Join-Path $repositoryRoot 'requirements-docs.txt'
 $venvPath = Join-Path $repositoryRoot '.venv-docs'
 $venvPython = Join-Path $venvPath 'Scripts\python.exe'
 $requiredMaterialVersion = '9.7.7'
+$requiredMikeVersion = '2.2.0'
 
 function Resolve-Python312 {
     $candidates = @(
@@ -44,7 +45,10 @@ function Ensure-DocumentationEnvironment {
         throw "The existing .venv-docs environment uses Python $venvVersion. Remove it and rerun this script with Python 3.12 available."
     }
     $installedMaterialVersion = & $venvPython -c "import importlib.metadata as m; print(m.version('mkdocs-material'))" 2>$null
-    if ($LASTEXITCODE -ne 0 -or $installedMaterialVersion -ne $requiredMaterialVersion) {
+    $materialVersionMatches = $LASTEXITCODE -eq 0 -and $installedMaterialVersion -eq $requiredMaterialVersion
+    $installedMikeVersion = & $venvPython -c "import importlib.metadata as m; print(m.version('mike'))" 2>$null
+    $mikeVersionMatches = $LASTEXITCODE -eq 0 -and $installedMikeVersion -eq $requiredMikeVersion
+    if (-not $materialVersionMatches -or -not $mikeVersionMatches) {
         Write-Host 'Installing the pinned documentation dependencies.'
         $null = & $venvPython -m pip install --requirement $requirementsPath
         if ($LASTEXITCODE -ne 0) { throw 'Failed to install the documentation dependencies.' }

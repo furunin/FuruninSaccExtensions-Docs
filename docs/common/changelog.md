@@ -1,5 +1,10 @@
 # 文書更新履歴
 
+## v0.1.0（2026-08-23）
+
+- FSE Guided MissilesとFSE Turret Controlの初版文書を公開しました。
+- Unityへの導入、基本設定、操作方法、動作、トラブルシューティングを掲載しました。
+
 ## 2026-08-13
 
 - Furunin Sacc Extensionsの公開ドキュメントサイトを新設しました。

@@ -1,0 +1,18 @@
+release:
+  version: v0.1.0
+  release_date: 2026-08-23
+  product:
+    branch: master
+    tag: v0.1.0
+    commit: 8f22ac2a05f6ef4585a0be4be4b24a789b403d18
+    package:
+      name: FuruninSaccExtension_v0.1.0.unitypackage
+      size_bytes: 427674
+      sha256: CFFF24316617BB6153353B845795A66058D12274023E33FD812A71A0EB65DA80
+  documentation:
+    branch: main
+    tag: v0.1.0
+    mike_version: 0.1.0
+    aliases:
+      - latest
+    mike_tool_version: 2.2.0

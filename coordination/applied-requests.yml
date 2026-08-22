@@ -29,3 +29,13 @@ requests:
     task_id: desktop-headslave-sh1-keys
     source_commit: 2da204d54257b3337180fd9c904c644dec6d48c1
     applied_date: 2026-08-22
+  orchestrator-20260822-v0.1.0-release:
+    product: orchestrator
+    task_id: v010-documentation-handoff
+    source_commit: e9f9affe028e1a5afa7a2c938d3d4898a36a7caa
+    applied_date: 2026-08-23
+  turret-control-20260822-hide-turret-forward-empty:
+    product: turret-control
+    task_id: hide-turret-forward-empty
+    source_commit: 1155bf4c8e2ad60ab1a0e499355b6a313e6f04bd
+    applied_date: 2026-08-23
