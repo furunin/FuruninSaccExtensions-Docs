@@ -6,8 +6,7 @@ FSE Turret Controlは、照準器や砲塔の上下左右回転を操作し、�
 - 主照準へ追従する別砲塔
 - Desktopの`W/A/S/D`操作
 - VR右手Gripによる手動照準
-- HMD方向へ追従するHEAD SLAVE
-- 対応するSacc車両をロックオンするTarget Tracking
+- 頭または視点の方向へ追従するHEAD SLAVE
 - Sight Cameraの直接FOV操作、Zoom、距離計
 - Sight CameraのFOVに応じた手動照準速度補正
 

@@ -9,7 +9,6 @@
 | `AimYawRotator` | 照準器を左右へ動かす主軸です。 |
 | `AimPitchRotator` | 照準器を上下へ動かす主軸です。Yaw軸の子にします。 |
 | `ControlsRoot` | VR操作で機体回転を相殺する基準Transformです。 |
-| `TurretForwardEmpty` | 砲塔の基準方向に使用するTransformです。 |
 | `AimOrigin` | 最終的な照準方向を示すTransformです。 |
 | `OperatorSeat` | 照準を操作する座席です。 |
 
@@ -19,7 +18,7 @@
 |---|---|
 | `SightCamera` | 照準映像とFOV連動感度に使用するCameraです。 |
 | `SightCameraExcludedLayers` | Sight Cameraだけから除外するLayerです。 |
-| `ScaleManualAimWithSightFov` | Camera FOVに応じて手動照準と微調整速度を変えます。 |
+| `ScaleManualAimWithSightFov` | Camera FOVに応じて手動照準と、右GripによるHEAD SLAVEの照準補正速度を変えます。 |
 | `ZoomReferenceFov` | 通常速度の基準にするFOVです。 |
 | `MinManualAimScale` | FOV連動速度の下限です。0ならFOV比をそのまま使用します。 |
 
@@ -41,7 +40,7 @@
 | `VJoyRollAsYaw` | 右手Controllerのロールを左右入力に使います。 |
 | `TurningResponseDesktop` | Desktop入力の応答速度です。 |
 | `UpAngleMax` / `DownAngleMax` / `SideAngleMax` | 主照準器の可動範囲です。 |
-| `InvertVRPitch` | VR手動照準と微調整の上下方向を反転します。 |
+| `InvertVRPitch` | VR手動照準と、右GripによるHEAD SLAVEの照準補正の上下方向を反転します。 |
 
 ### 同期
 
@@ -52,17 +51,17 @@
 | `networkSmoothing` | 他の参加者側で砲塔の動きを滑らかに表示する強さです。 |
 | `maxRemoteExtrapolation` | 次の更新が届くまで、直前の動きから表示方向を予測する時間の上限です。 |
 
-これらは、他の参加者から見える砲塔の動きを調整する上級者向け設定です。照準速度や角度制限を変更する項目ではなく、通常は既定値を使用します。`updateInterval`は`0.2`秒（下限`0.05`秒）です。他の参加者から見た動きが段階的な場合は小さくできますが、通信回数が増えます。`networkSmoothing`は`6`で、大きくすると受信した方向へ速く追従し、小さくすると滑らかになる一方で遅れが増えます。`maxRemoteExtrapolation`は`0.5`秒で、通信が不安定な環境で停止感を減らせますが、大きすぎると実際の照準方向を一時的に行き過ぎる可能性があります。変更する場合は、複数クライアントで遅れ、振動、行き過ぎを確認してください。
+これらは、他の参加者から見える砲塔の動きを調整する上級者向け設定です。照準速度や角度制限を変更する項目ではなく、通常は既定値を使用します。動きが段階的に見える場合は`updateInterval`を小さくできますが、通信回数が増えます。`networkSmoothing`を大きくすると受信した方向へ速く追従し、小さくすると滑らかになる一方で遅れが増えます。`maxRemoteExtrapolation`を大きくすると更新の停止感を減らせますが、実際の照準方向を一時的に行き過ぎることがあります。変更する場合は、複数クライアントで遅れ、振動、行き過ぎを確認してください。
 
 ### HEAD SLAVE
 
 | Field | 説明 |
 |---|---|
-| `HeadSlaveVROnly` | VR以外でHEAD SLAVEを無効にします。 |
-| `HeadSlaveSmoothingHalfLife` / `HeadSlaveDeadZoneDeg` | HMD追従の平滑化と微小動作を無視する角度です。 |
+| `HeadSlaveVROnly` | 有効ならVRだけ、無効ならDesktopとVRでHEAD SLAVEを使用できます。 |
+| `HeadSlaveSmoothingHalfLife` / `HeadSlaveDeadZoneDeg` | 頭または視点への追従の平滑化と、微小な動きを無視する角度です。 |
 | `HeadSlaveMaxYawSlewRate` / `HeadSlaveMaxPitchSlewRate` | 最大追従速度です。 |
-| `HeadSlaveYawOffsetLimit` / `HeadSlavePitchOffsetLimit` | 右Grip微調整の最大範囲です。 |
-| `HeadSlaveTrimRate` | 微調整速度です。 |
+| `HeadSlaveYawOffsetLimit` / `HeadSlavePitchOffsetLimit` | HMD追従方向に対して、右Grip操作で追加できる左右・上下の照準補正角の上限です。 |
+| `HeadSlaveTrimRate` | 右Grip操作による照準補正が反映される速度です。 |
 
 ## FSE_DFUNC_HeadSlave
 
@@ -70,7 +69,6 @@
 |---|---|
 | `TurretController` | 操作対象の`FSE_EXT_Turret`です。 |
 | `EnableFunconObjects` | HEAD SLAVE選択中だけ有効にする表示物です。不要なら空配列にします。 |
-| `ExclusiveTargetTracking` | 排他的に切り替える`FSE_DFUNC_TargetTracking`です。 |
 
 ## FSE_DFUNC_TurretControl
 
@@ -80,30 +78,6 @@ Pilot Seatで単独の砲塔を手動操作するためのDialFunctionです。`
 |---|---|
 | `TurretController` | 操作対象の`FSE_EXT_Turret`です。Prefab内では設定済みです。 |
 | `EnableFunconObjects` | 選択中だけ有効にする表示物です。不要なら空配列にします。 |
-
-## FSE_TurretTargetTracker／FSE_DFUNC_TargetTracking
-
-Target Trackingは対応するSacc車両だけを対象にします。`FSE_DFUNC_TargetTracking`を選択した時に、正面付近にある候補を一度だけ取得します。追尾中に候補を周期的に探し直すことはありません。
-
-| Field | 説明 |
-|---|---|
-| `TurretController` | 操作対象の`FSE_EXT_Turret`です。TrackerとDFUNCの両方に設定します。 |
-| `SearchReference` | 候補を探す基準Transformです。必要に応じて設定します。 |
-| `FunctionController` | Trackerと組み合わせる`FSE_DFUNC_TargetTracking`です。 |
-| `CandidateLayers` / `OcclusionLayers` | 追尾候補のLayerと、照準線を遮るLayerです。 |
-| `MaximumDetectionDistance` | 候補を探す最大距離です。コード既定値は3000 mです。 |
-| `SearchHorizontalHalfAngle` / `SearchVerticalHalfAngle` | 候補を探す左右・上下の半角です。コード既定値は30°／20°です。 |
-| `MinimumAcquireInterval` / `RequireLineOfSight` | 再選択時の最短検索間隔と、遮蔽確認の有効化です。 |
-| `MaximumTrackingYawSlewRate` / `MaximumTrackingPitchSlewRate` | 追尾中の左右・上下の最大旋回速度です。コード既定値は90°/秒／60°/秒です。 |
-| `ValidationInterval` | 追尾対象を再確認する間隔です。コード既定値は0.1秒です。 |
-| `OcclusionGraceSeconds` / `RangeGraceSeconds` / `OutOfTraverseGraceSeconds` | 遮蔽、距離超過、可動範囲超過で追尾を解除するまでの猶予です。 |
-| `TraverseMarginDegrees` | 可動範囲の判定へ加える余裕角です。 |
-| `TrackAirVehicles` / `TrackGroundVehicles` / `TrackSeaVehicles` / `TrackAAGunVehicles` | 追尾を許可するSacc車両の種類です。 |
-| `ExclusiveHeadSlave` | 排他的に切り替える`FSE_DFUNC_HeadSlave`です。 |
-| `EnableWhenSelected` / `EnableWhenLocked` / `EnableWhenNoTarget` | 選択中、追尾中、対象なしの各状態で表示するObjectです。 |
-| `LockSound` / `UnlockSound` / `NoTargetSound` | 各状態の任意Audioです。 |
-
-必要に応じて追尾状態のIndicatorやAudio参照を設定できます。
 
 ## FSE_SightController
 

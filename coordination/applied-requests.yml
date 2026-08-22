@@ -24,3 +24,8 @@ requests:
     task_id: launcher-size1-selection-20260816
     source_commit: a2112672f3d4a356ba558c46b2ccf3b561b1acf5
     applied_date: 2026-08-16
+  turret-control-20260822-desktop-headslave-sh1-keys:
+    product: turret-control
+    task_id: desktop-headslave-sh1-keys
+    source_commit: 2da204d54257b3337180fd9c904c644dec6d48c1
+    applied_date: 2026-08-22
