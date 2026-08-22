@@ -44,6 +44,12 @@ markdown_extensions:
   - toc:
       permalink: true
 
+extra:
+  version:
+    provider: mike
+    default: latest
+    alias: true
+
 nav:
   - ホーム:
       - ギミック概要: index.md
