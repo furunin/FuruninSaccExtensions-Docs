@@ -18,11 +18,3 @@ MCLOSでは、射手が飛翔中のミサイルへ直接上下左右への旋回
   
     - `FSE_MCLOS Guidance`の`Missile`に、同じミサイルの`Missile Round_InFlight`オブジェクトを指定します。
     - `Missile Round_InFlight`オブジェクトの`FSE_MissileController`コンポーネントの`GuidanceModule`に、同じミサイルの`FSE_MCLOSGuidance`オブジェクトを指定します。
-
-## 入力設定
-
-- `InputDeadZone`はVRスティックの中央付近だけに適用されます。
-- `InvertPitch`と`InvertYaw`で操作方向を軸ごとに反転できます。
-- `SyncInterval`は操作状態を送る間隔です。
-
-`MaxPitchRate`、`MaxYawRate`、`MaxLateralAcceleration`は、上下・左右の旋回能力を決めます。単一方向と斜め入力のどちらも同じ制限を受けます。

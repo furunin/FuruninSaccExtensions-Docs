@@ -15,12 +15,3 @@ SACLOSでは、ミサイルが`GuidanceReference`の示す照準線へ自動的�
   
     - `FSE_SACLOS Guidance`の`Missile`に、同じミサイルの`Missile Round_InFlight`オブジェクトを指定します。
     - `Missile Round_InFlight`オブジェクトの`FSE_MissileController`コンポーネントの`GuidanceModule`に、同じミサイルの`FSE_SACLOSGuidance`オブジェクトを指定します。
-
-## 調整の考え方
-
-- `GuidanceLookAhead`は照準線上で操舵が目指す距離です。
-- `MinimumCommandDistance`は近距離で操舵目標がミサイルへ近づきすぎることを防ぎます。
-- `MaxGuidanceAngle`は誘導指令を受け付ける角度範囲です。
-- `MaxTurnRate`と`MaxLateralAcceleration`は旋回能力を制限します。過大な値は不自然な急旋回につながります。
-
-照準器が必要な場合は[FSE Turret Control](../turret-control/installation.md)を組み合わせられます。

@@ -1,4 +1,4 @@
-# Component設定
+# 設定項目一覧
 
 ## FSE_EXT_Turret
 

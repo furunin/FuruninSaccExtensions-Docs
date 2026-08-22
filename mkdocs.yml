@@ -46,37 +46,27 @@ markdown_extensions:
 nav:
   - ホーム:
       - ギミック概要: index.md
-      - 対応環境と導入方法: getting-started.md
   - FSE Guided Missiles:
-      - 機能概要: guided-missiles/index.md
+      - 概要: guided-missiles/index.md
       - 導入・基本設定:
           - 共通セットアップ: guided-missiles/installation.md
-          - 操作席の設定: guided-missiles/operator-seat.md
-          - 誘導方式固有設定:
+          - 誘導方式別導入:
               - MCLOS: guided-missiles/mclos.md
               - SACLOS: guided-missiles/saclos.md
-          - Component設定: guided-missiles/components.md
-      - 誘導・操作:
-          - 操作方法: guided-missiles/operation.md
-          - ミサイルの動作: guided-missiles/behavior.md
-      - 拡張・保守:
-          - 任意機能: guided-missiles/optional-features.md
-          - トラブルシューティング: guided-missiles/troubleshooting.md
-          - 制限事項: guided-missiles/maintenance.md
+          - 基本的な設定: guided-missiles/basic-settings.md
+          - 任意機能の導入: guided-missiles/optional-features.md
+          - 設定項目一覧: guided-missiles/components.md
+      - 操作方法: guided-missiles/operation.md
+      - ミサイルの動作: guided-missiles/behavior.md
+      - トラブルシューティング: guided-missiles/troubleshooting.md
   - FSE Turret Control:
-      - 機能概要: turret-control/index.md
+      - 概要: turret-control/index.md
       - 導入・基本設定:
           - セットアップ: turret-control/installation.md
-          - Component設定: turret-control/components.md
-      - 照準機能:
-          - 手動照準: turret-control/manual-aim.md
-          - HEAD SLAVE: turret-control/head-slave.md
-          - Sight Camera / Zoom / 距離計: turret-control/sight-camera.md
-      - 砲塔構成:
-          - 追従砲塔: turret-control/followers.md
-      - 保守:
-          - トラブルシューティング: turret-control/troubleshooting.md
-          - 制限事項: turret-control/maintenance.md
+          - 基本的な設定: turret-control/basic-settings.md
+          - 設定項目一覧: turret-control/components.md
+      - 操作方法: turret-control/operation.md
+      - トラブルシューティング: turret-control/troubleshooting.md
   - 共通情報:
       - ライセンスとクレジット: common/license.md
       - 文書更新履歴: common/changelog.md

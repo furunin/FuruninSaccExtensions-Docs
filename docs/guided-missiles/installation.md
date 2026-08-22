@@ -10,12 +10,6 @@ Guided Missileをセットアップする対象の乗り物にSaccをセット�
 
 `Assets/Furunin/SaccExtensions/Prefabs/Guided Missile/SubComponents/FSE_GuidedMissile`を乗り物の`Sacc Entity`の下へ配置します。
 
-### Prefab内で設定済みの項目
-
-`LaunchPoints`、`AmmoMeshes`、`ProjectilePool`、`PoolRoot`、および各飛翔弾の内部参照はPrefab内で接続済みです。ラック容量を変更する場合以外は、これらの配列と順序を変更しません。
-
-### 乗り物ごとに設定する項目
-
 `FSE_GuidedMissile`オブジェクトの`FSE_DFUNC_MissileLauncher`に以下の設定をします。
 
 - `SAVControl`：乗り物の`Sacc Air Vehicle`コンポーネント
@@ -23,49 +17,34 @@ Guided Missileをセットアップする対象の乗り物にSaccをセット�
 - `CollisionHostRoot`：発射直後の衝突判定から除外するオブジェクト
 - `OperatorSeat`：ミサイルの発射・誘導を行う操作席のオブジェクト
 
-## 3. 操作席を設定する
+## 3. 操作席の設定をする
 
 ### PassengerSeatで操作する場合
 
-1. PassengerSeatの`Sacc Vehicle Seat.Passenger Functions`が参照する`SAV_PassengerFunctionsController`を確認します。
-2. 1.で確認した`SAV_PassengerFunctionsController`を、`FSE_GuidedMissile`の`FSE_DFUNC_MissileLauncher.PassengerFunctionsController`へ指定します。
-3. `SAV_PassengerFunctionsController`の`Dial_Functions_L/R`に`FSE_DFUNC_MissileLauncher`を登録します。
-4. `SAV_PassengerFunctionsController`の`PassengerExtensions`に`FSE_TurretControl`を登録します。
+1. PassengerSeatの`Sacc Vehicle Seat`内`Passenger Functions`が参照する`SAV_PassengerFunctionsController`をクリックします。
+2. `SAV_PassengerFunctionsController`を`FSE_GuidedMissile`の`FSE_DFUNC_MissileLauncher`内`PassengerFunctionsController`へ登録します。
+3. `SAV_PassengerFunctionsController`の`Dial_Functions_L`または`Dial_Functions_R`に`FSE_GuidedMissile`オブジェクトを登録します。
 
 ### PilotSeatで操作する場合
 
 PilotSeatでミサイルを選択している間は、機体操作と照準操作が重ならないように機体操作が抑止されます。
 
 1. `PassengerFunctionsController`は未設定にします。
-2. `FSE_DFUNC_MissileLauncher`を、セットアップ対象の乗り物の`SaccEntity`の`Dial_Functions_L/R`に登録します。
+2. `FSE_DFUNC_MissileLauncher`を、セットアップ対象の乗り物の`SaccEntity`の`Dial_Functions_L`または`Dial_Functions_R`に登録します。
 
-## 4. 照準器を乗り物へ接続する
+## 4. ミサイルの発射位置と搭載弾表示を調整する
 
-`FSE_GuidedMissile/FSE_TurretControl`オブジェクトの`FSE_EXT_Turret`に以下の設定をします。
+`Missile Launcher`以下の各ミサイルの`Launch Point`の位置と回転を調整します。Z軸+（青い矢印）方向が発射方向を向くようにします。メッシュを差し替えることで任意の3Dモデルを使用することができます。
 
-- `ControlsRoot`：VR操作で機体回転を相殺する基準Transform
-- `TurretForwardEmpty`：砲塔の基準方向に使用するTransform
-- `OperatorSeat`：ミサイルの発射・誘導を行う操作席のオブジェクト
-乗り物の砲塔またはランチャーメッシュを照準器へ追従させる場合は、`TurretGunYawRotators`と`TurretGunPitchRotators`へそのTransformを登録します。
+## 5. 照準器を乗り物へ接続する（任意）
 
-操作席の`Sacc Vehicle Seat`オブジェクトの`EnableInSeat`へ、以下のオブジェクトを登録します。
+誘導方式にSACLOSを使用する場合は、誘導の基準となるオブジェクトを指定する必要があります。可動する照準器（砲塔）に基準オブジェクトを配置することでミサイルを任意方向に誘導できますが、固定のオブジェクトを利用することも可能です。砲塔を使用する場合、FSE Turret Controlを利用することができます（[セットアップ手順](../turret-control/installation.md)）。
 
-- `FSE_GuidedMissile/FSE_TurretControl/Yaw Pivot/Pitch Pivot/Aim Origin`
-- `FSE_GuidedMissile/FSE_TurretControl/Sight Display`
+## 6. 誘導方式別の導入をする
 
-## 5. 発射位置と搭載弾表示を調整する
+- [MCLOSを導入する](mclos.md)
+- [SACLOSを導入設定する](saclos.md)
 
-`Missile Launcher`以下の各ミサイルの`Launch Point`のTransformを調整します。青いZ軸の方向が発射方向を向くようにします。対応する`Missile Round_Stowed`はラック上の表示位置へ置きます。
+## 7. 任意機能を導入する
 
-## 6. 誘導方式を選択する
-
-- [MCLOSを設定する](mclos.md)
-- [SACLOSを設定する](saclos.md)
-
-## 7. `ResupplyTrigger`の配置を変更する（任意）
-
-`InVehicleOnly`直下に`ResupplyTrigger`を配置することで、パイロット席に着席しなくてもミサイルを補給できるようになります。`ResupplyTrigger`は、SH-1の場合はデフォルトで`InVehicleOnly/PilotOnly`に配置されています。`ResupplyTrigger`の配置変更を行った場合は、オリジナルの`ResupplyTrigger`オブジェクトを削除、無効化、またはEditorOnlyにしてください。
-
-## 8. 任意機能を設定する
-
-任意機能は、基本的な発射と誘導が動作した後に[任意機能](optional-features.md)から追加してください。
+任意機能は、基本的な発射と誘導が動作した後に[任意機能の導入](optional-features.md)から追加してください。

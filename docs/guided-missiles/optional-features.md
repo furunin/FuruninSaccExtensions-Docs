@@ -1,14 +1,19 @@
-# 任意機能
+# 任意機能の導入
+
+## `ResupplyTrigger`の配置を変更する
+
+`InVehicleOnly`直下に`ResupplyTrigger`を配置することで、パイロット席に着席しなくてもミサイルを補給できるようになります。`ResupplyTrigger`は、SH-1の場合はデフォルトで`InVehicleOnly/PilotOnly`に配置されています。`ResupplyTrigger`の配置変更を行った場合は、オリジナルの`ResupplyTrigger`オブジェクトを削除、無効化、またはEditorOnlyにしてください。
 
 ## 指令ワイヤー
 
-1. 各ミサイルへ`FSE_CommandLinkController`を追加します。
-2. `Missile`へ同じミサイルの`FSE_MissileController`を指定します。
-3. `FSE_MissileController.CommandLink`へそのComponentを指定します。
-4. 表示する場合は`CommandWireRenderer`へLineRendererを指定し、`EnableCommandWire`を有効にします。
-5. 障害物で切断する場合は`EnableWireCutDetection`を有効にし、`WireCutLayers`を地形や障害物のLayerへ設定します。
+飛翔用ミサイルの`FSE_MissileController`内`Command Link`に`FSE_CommandLinkController`を登録し、`EnableCommandWire`を有効にするとミサイルへ操作入力を送る指令ワイヤーが表示されるようになります。`EnableWireCutDetection`を有効にすると、目標と発射位置の間が障害物で遮られた際にワイヤーが切断され、誘導不能になります。
 
 表示と切断判定は個別に有効化できます。`CommandWireSegments`、`CommandWireSagRatio`、`CommandWireMaxSag`は見た目だけを調整し、切断判定は発射位置とミサイルを結ぶ直線で行います。
+
+## 発射・飛翔・着弾演出
+
+- 発射地点に残る音とパーティクルは`FSE_DFUNC_MissileLauncher`へ設定します。
+- ミサイルに追従するParticle、Trail、AudioSourceは`FSE_MissileController`へ設定します。
 
 ## 近接信管
 
@@ -26,13 +31,6 @@
 検出対象は生存している`SaccEntity`または`SaccTarget`です。`DetectionLayers`で対象Layerを絞り、友軍や母機など反応させたくない対象のrootは`IgnoredTargetRoots`へ指定します。`RequireLineOfSight`を有効にした場合、`OcclusionLayers`に含まれる壁などで遮られた対象には反応しません。
 
 近接起爆で与えるのは範囲ダメージのみです。直撃と同じタイミングでは接触起爆が優先されます。
-
-## 発射・飛翔・着弾演出
-
-- 発射地点に残る音とパーティクルは`FSE_DFUNC_MissileLauncher`へ設定します。
-- ミサイルに追従するParticle、Trail、AudioSourceは`FSE_MissileController`へ設定します。
-- 着弾時のParticleとAudioSourceも各ミサイルへ設定します。
-- 使用しない演出配列は空にします。
 
 ## FSE_CommandLinkController設定
 

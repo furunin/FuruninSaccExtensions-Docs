@@ -1,16 +1,4 @@
-# Component設定
-
-ここでは利用者が接続または調整する項目をComponentごとに説明します。
-
-## 配布Prefabの設定状態
-
-### FSE_GuidedMissile
-
-`FSE_GuidedMissile`では、`LaunchPoints`、`AmmoMeshes`、`ProjectilePool`、`PoolRoot`と、飛翔弾内部の参照が接続済みです。独自車両へ配置した後は、`SAVControl`、`EntityControl`、`CollisionHostRoot`、`OperatorSeat`、PassengerSeat構成の`PassengerFunctionsController`を車両側の対象へ接続します。
-
-### Missile Round_InFlight
-
-配布される`Missile Round_InFlight`では、`FuzeModule`は未設定で、`FlightTrails`は空です。`FuzeModule`が未設定の状態では、ミサイルは接触時だけ起爆します。
+# 設定項目一覧
 
 ## FSE_DFUNC_MissileLauncher
 
