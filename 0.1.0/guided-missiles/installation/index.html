@@ -1585,16 +1585,16 @@
 <li>
 <p><code>SAV_PassengerFunctionsController</code>の<code>Dial_Functions_L</code>または<code>Dial_Functions_R</code>に<code>FSE_GuidedMissile</code>オブジェクト（<code>FSE_DFUNC_MissileLauncher</code>）を登録します。</p>
 <p><img alt="SAV_PassengerFunctionsControllerの参照設定" loading="lazy" src="../../assets/images/guided-missiles/installation/3-2_1.png" width="900" /></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>ミサイルの誘導機能は指定した座席から移動させられないため、<code>DFUNC_TakeControl</code>で座席機能を交代しても交代先の座席でミサイルの誘導をすることができません。このセットアップ手順では<code>DFUNC_TakeControl</code>を削除しています。<code>DFUNC_TakeControl</code>を削除せずに共存させ、ミサイル誘導機能を設定した座席で交代先の機能を使用することは可能です。</p>
+</div>
 </li>
 <li>
 <p><code>SAV_PassengerFunctionsController</code>を<code>FSE_GuidedMissile</code>の<code>FSE_DFUNC_MissileLauncher</code>内<code>PassengerFunctionsController</code>へ登録します。</p>
 <p><img alt="FSE_DFUNC_MissileLauncherにSAV_PassengerFunctionsControllerを設定" loading="lazy" src="../../assets/images/guided-missiles/installation/3-3_1.png" width="900" /></p>
 </li>
 </ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>SH-1へ導入する場合は、既存の<code>DFUNC_TakeControl</code>を削除しないでください。<code>FSE_DFUNC_MissileLauncher</code>は、使用する操作席のDialFunctionへ一度だけ登録します。</p>
-</div>
 <h3 id="pilotseat">PilotSeatで操作する場合<a class="headerlink" href="#pilotseat" title="Permanent link">&para;</a></h3>
 <p>PilotSeatでミサイルを選択している間は、機体操作と照準操作が重ならないように機体操作が抑止されます。</p>
 <ol>
