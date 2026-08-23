@@ -28,6 +28,9 @@ Guided Missileをセットアップする対象の乗り物にSaccをセット�
 
     ![SAV_PassengerFunctionsControllerの参照設定](../assets/images/guided-missiles/installation/3-2_1.png){ width="900" loading=lazy }
 
+    !!! Warning
+        ミサイルの誘導機能は指定した座席から移動させられないため、`DFUNC_TakeControl`で座席機能を交代しても交代先の座席でミサイルの誘導をすることができません。このセットアップ手順では`DFUNC_TakeControl`を削除しています。`DFUNC_TakeControl`を削除せずに共存させ、ミサイル誘導機能を設定した座席で交代先の機能を使用することは可能です。
+
 3. `SAV_PassengerFunctionsController`を`FSE_GuidedMissile`の`FSE_DFUNC_MissileLauncher`内`PassengerFunctionsController`へ登録します。
 
     ![FSE_DFUNC_MissileLauncherにSAV_PassengerFunctionsControllerを設定](../assets/images/guided-missiles/installation/3-3_1.png){ width="900" loading=lazy }
