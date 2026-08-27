@@ -39,3 +39,8 @@ requests:
     task_id: hide-turret-forward-empty
     source_commit: 1155bf4c8e2ad60ab1a0e499355b6a313e6f04bd
     applied_date: 2026-08-23
+  turret-control-20260827-desktop-zoom-selection:
+    product: turret-control
+    task_id: desktop-zoom-requires-selection
+    source_commit: ea9f9c33c254601e220ad70770ed23062f6662ba
+    applied_date: 2026-08-27

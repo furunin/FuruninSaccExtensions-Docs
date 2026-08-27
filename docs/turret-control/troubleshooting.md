@@ -12,6 +12,6 @@
 | 追従砲塔が90度ずれる | モデルのforward軸をUnityの青いZ軸へ合わせるWrapperを使用します。 |
 | 照準画面が黒い | Cameraの有効状態、Target Texture、表示Material、座席の`EnableInSeat`を確認します。 |
 | HUDの線が照準画面へ映る | HUD用Layerを`SightCameraExcludedLayers`へ含めます。 |
-| Zoomできない | Prefabのルートではなく子`FSE_DFUNC_SightZoom`をDialFunctionへ登録していること、`SightController`、`MinimumFov`と`MaximumFov`を確認します。段階式DesktopではZoomをDialFunctionで選択してから`Q`／`E`を操作します。 |
+| Zoomできない | Prefabのルートではなく子`FSE_DFUNC_SightZoom`をDialFunctionへ登録していること、`SightController`、`MinimumFov`と`MaximumFov`を確認します。DesktopではSight ZoomをDialFunctionで選択してから`Q`／`E`を操作します。 |
 | Zoom時の照準速度が合わない | Cameraの実FOV、`ZoomReferenceFov`、`MinManualAimScale`を確認します。 |
 | 距離が表示されない、または`RNG ----`になる | 操作席を使用中か、`RangefinderOrigin`またはSight Camera／Aim Originの参照、`RangefinderLayers`、測定範囲内に対象があるか確認します。 |
