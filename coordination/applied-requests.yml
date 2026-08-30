@@ -44,3 +44,8 @@ requests:
     task_id: desktop-zoom-requires-selection
     source_commit: ea9f9c33c254601e220ad70770ed23062f6662ba
     applied_date: 2026-08-27
+  turret-control-20260830-vr-zoom-vehicle-reference:
+    product: turret-control
+    task_id: vr-zoom-vehicle-reference
+    source_commit: b9b1f21f1e4f8352b1ce5d96f5e340006630583b
+    applied_date: 2026-08-30

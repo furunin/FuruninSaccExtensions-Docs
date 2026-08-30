@@ -8,7 +8,7 @@
 
 1. `FSE_TurretControl`オブジェクトの`FSE_EXT_Turret`に以下の設定をします。
 
-    - `ControlsRoot`：機体回転の基準となるTransform
+    - `ControlsRoot`：車両とともに動き、ローカルの+Z軸が車両前方を向くTransform。VR手動照準とVR連続式Zoomの基準になります。
     - `OperatorSeat`：砲塔を操作する座席のオブジェクト
 
     ![FSE_EXT_Turretに参照を設定](../assets/images/turret-control/installation/2-1_1.png){ width="900" loading=lazy }

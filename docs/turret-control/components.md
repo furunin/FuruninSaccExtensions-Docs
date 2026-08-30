@@ -8,7 +8,7 @@
 |---|---|
 | `AimYawRotator` | 照準器を左右へ動かす主軸です。 |
 | `AimPitchRotator` | 照準器を上下へ動かす主軸です。Yaw軸の子にします。 |
-| `ControlsRoot` | VR操作で機体回転を相殺する基準Transformです。 |
+| `ControlsRoot` | VR操作で車両回転を相殺し、VR連続式Zoomの前後方向を決める基準Transformです。ローカルの+Z軸を車両前方へ合わせます。 |
 | `AimOrigin` | 最終的な照準方向を示すTransformです。 |
 | `OperatorSeat` | 照準を操作する座席です。 |
 
@@ -98,4 +98,4 @@ Pilot Seatで単独の砲塔を手動操作するためのDialFunctionです。`
 | `SightController` | 操作する`FSE_SightController`です。 |
 | `UsePresetSteps` | 段階式Zoomを使用します。無効なら連続式です。 |
 | `ContinuousZoomRate` | 連続式Zoomの速度です。 |
-| `VrHandZForFullSpeed` | VR連続式で全速になる前後移動量です。 |
+| `VrHandZForFullSpeed` | VR連続式Zoomが最大速度になる、車両前方基準のController前後移動量（m）です。 |

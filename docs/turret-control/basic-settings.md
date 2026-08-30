@@ -41,26 +41,28 @@ VRでHEAD SLAVEを使用中に右手コントローラーのグリップ（中�
 - `MinimumFov`で連続式選択時に使用するFOV範囲を決めます。
 - `ZoomPresetMagnifications`で、切替式選択時に使用する倍率を設定します。
 
-    !!! note "倍率制御方式ごとのFOV（倍率）設定箇所"
+!!! note "倍率制御方式ごとのFOV（倍率）設定箇所"
 
-        - 連続式：`MaximumFov`で最大FOVを、`MinimumFov`で最小FOVを設定します。
-        - 切替式：`MaximumFov`で1倍時のFOVを設定し、`ZoomPresetMagnifications`でズーム時の倍率を設定します。
+    - 連続式：`MaximumFov`で最大FOVを、`MinimumFov`で最小FOVを設定します。
+    - 切替式：`MaximumFov`で1倍時のFOVを設定し、`ZoomPresetMagnifications`でズーム時の倍率を設定します。
 
-    !!! note "基準FOVと設定したい倍率からFOVを求める方法"
+!!! note "基準FOVと設定したい倍率からFOVを求める方法"
 
-        連続式で最大倍率を指定する場合は、基準FOVと設定したい倍率から、`MinimumFov`へ指定するFOVを次の式で求めます。
+    連続式で最大倍率を指定する場合は、基準FOVと設定したい倍率から、`MinimumFov`へ指定するFOVを次の計算機または式で求めます。
 
-        \[
-        \mathrm{FOV}_{\mathrm{target}}
-        =
-        \frac{360}{\pi}
-        \arctan\left(
-        \frac{
-        \tan\left(\dfrac{\pi\,\mathrm{FOV}_{\mathrm{reference}}}{360}\right)
-        }{\max(1,M)}
-        \right)
-        \]
+    <span data-fov-calculator></span>
 
-        - \(\mathrm{FOV}_{\mathrm{reference}}\)：`MaximumFov`へ指定する基準FOV（度）
-        - \(M\)：設定したい倍率（1以上）
-        - \(\mathrm{FOV}_{\mathrm{target}}\)：`MinimumFov`へ指定するFOV（度）
+    \[
+    \mathrm{FOV}_{\mathrm{target}}
+    =
+    \frac{360}{\pi}
+    \arctan\left(
+    \frac{
+    \tan\left(\dfrac{\pi\,\mathrm{FOV}_{\mathrm{reference}}}{360}\right)
+    }{\max(1,M)}
+    \right)
+    \]
+
+    - \(\mathrm{FOV}_{\mathrm{reference}}\)：`MaximumFov`へ指定する基準FOV（度）
+    - \(M\)：設定したい倍率（1以上）
+    - \(\mathrm{FOV}_{\mathrm{target}}\)：`MinimumFov`へ指定するFOV（度）
