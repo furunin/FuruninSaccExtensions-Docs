@@ -14,6 +14,8 @@
 | `EnableOnSelected` | ミサイル機能の選択中だけ有効にする表示物です。 |
 | `LaunchSound` / `LaunchParticle` | 発射地点で再生する任意の音とパーティクルです。 |
 | `MaxAmmo` | 装填弾と予備弾を合わせた総搭載数です。 |
+| `HUDText_Missile_ammo` / `HUDText_Missile_ammo_TMP` / `HUDText_Missile_ammo_TMPUGUI` | `FSE_DFUNC_MissileLauncher`の総残弾数を表示する任意のText参照です。使用するTextの種類に対応するFieldへ指定します。 |
+| `MissileAnimator` / `AnimFloatName` | `FSE_DFUNC_MissileLauncher`の残弾割合を受け取る任意のAnimatorとFloat Parameter名です。 |
 | `RackReloadTimeSeconds` / `FireCooldown` | ラック再装填時間と発射間隔です。 |
 | `MaxConcurrentGuidedShots` | 同時に誘導状態を維持できる最大数です。 |
 | `MaxLaunchSightAngle` | 発射方向と誘導基準方向の許容角です。 |
@@ -35,7 +37,7 @@
 | `AlignToVelocityDuringBallistic` | 弾道飛行中に表示方向を速度方向へ合わせます。 |
 | `AirPhysicsStrength` | 動力飛翔中の横滑りを抑える強さです。 |
 | `FlightWanderAcceleration` / `FlightWanderFrequency` / `FlightWanderRampTime` | 動力飛翔中の揺らぎの強さ、周波数、立ち上がり時間です。加速度または周波数を0にすると無効です。 |
-| `ColliderActivationDistance` | 母機付近の誤接触を避けるため、Colliderを有効化するまでの距離です。 |
+| `WarheadArmingDelaySeconds` | 発射してから弾頭が作動するまでの時間です。作動前に衝突した場合はダメージと爆発演出を発生させず、待機状態へ戻ります。 |
 | `GuidanceLostTimeout` | 有効な誘導指令を失ってから終了するまでの猶予です。 |
 | `CollisionLayers` / `DamageLayers` | 着弾を検出するLayerと、損傷対象にするLayerです。 |
 | `DirectHitDamage` / `SplashDamage` / `SplashRadius` / `WeaponType` / `MaxSplashTargets` | 直撃損傷、範囲損傷、効果範囲、武器種別、範囲損傷の対象数をSaccの損傷設計に合わせます。 |

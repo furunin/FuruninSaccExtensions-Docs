@@ -8,7 +8,7 @@
 - `UpAngleMax`、`DownAngleMax`、`SideAngleMax`を調整して車体やモデルへ干渉しない範囲にします。
 - `VJoyRollAsYaw`を有効にすると、Controllerのロールを左右照準へ使用します。
 - `InvertVRPitch`を有効にすると、VRモード時の手動照準の上下方向を反転します。
-- `ScaleManualAimWithSightFov`を有効にすると、現在のFOVと`ZoomReferenceFov`に基づいて高倍率時に手動照準速度を下げる補正をします。
+- `ScaleManualAimWithSightFov`を有効にすると、現在のFOVと`Manual Aim Reference FOV`に基づいて高倍率時に手動照準速度を下げる補正をします。無効にした場合、`Manual Aim Reference FOV`は使用されません。
 - `MinManualAimScale`は速度倍率の下限です。0にすると制限を適用せずにFOV比をそのまま使用できます。
 
 ## HEAD SLAVE

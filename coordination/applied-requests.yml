@@ -49,3 +49,73 @@ requests:
     task_id: vr-zoom-vehicle-reference
     source_commit: b9b1f21f1e4f8352b1ce5d96f5e340006630583b
     applied_date: 2026-08-30
+  turret-control-20260902-internal-simplification:
+    product: turret-control
+    task_id: simplify-turret-internals
+    source_commit: a557ff35c2194a46aaa5f491325217bab297332e
+    applied_date: 2026-09-12
+  turret-control-20260902-zoom-seat-exit-events:
+    product: turret-control
+    task_id: simplify-zoom-seat-exit
+    source_commit: ecf523d2d7fb2d74f153c8da911622a93044313a
+    applied_date: 2026-09-12
+  guided-missiles-20260903-setup-editor:
+    product: guided-missiles
+    task_id: guided-missile-setup-editor-20260903
+    source_commit: e549e99400f607cb52ab212e092c4323cf6d9616
+    applied_date: 2026-09-12
+  turret-control-20260903-manual-aim-reference-fov-label:
+    product: turret-control
+    task_id: clarify-manual-aim-reference-fov
+    source_commit: 21de03e3c15ad6fa178e04915796e7fff77cb7e2
+    applied_date: 2026-09-12
+  turret-control-20260903-zoom-deselected-input:
+    product: turret-control
+    task_id: zoom-deselected-input-option
+    source_commit: 57fd2b3bd7fe3bb4197d36391c04c8bb88be54ce
+    applied_date: 2026-09-12
+  guided-missiles-20260904-validator-behavior:
+    product: guided-missiles
+    task_id: guided-missile-validator-relax-20260904
+    source_commit: e549e99400f607cb52ab212e092c4323cf6d9616
+    applied_date: 2026-09-12
+  guided-missiles-20260904-validator-runtime-minimum:
+    product: guided-missiles
+    task_id: guided-missile-validator-runtime-minimum-20260904
+    source_commit: e549e99400f607cb52ab212e092c4323cf6d9616
+    applied_date: 2026-09-12
+  turret-control-20260905-preserve-aim-on-exit:
+    product: turret-control
+    task_id: preserve-aim-on-operator-exit
+    source_commit: 3c342692127005c3d27d9587c64b0d39c6703f7d
+    applied_date: 2026-09-12
+  guided-missiles-20260906-warhead-arming-delay:
+    product: guided-missiles
+    task_id: guided-missiles-shared-warhead-arming-20260906
+    source_commit: cbb3c9b031e34ce5d5d5935a172012f70f476ae7
+    applied_date: 2026-09-12
+  guided-missiles-20260908-seat-role-take-control:
+    product: guided-missiles
+    task_id: seat-role-take-control
+    source_commit: 1bd9a8e8fd248b7361b542f04cf4e56d92ef21f3
+    applied_date: 2026-09-12
+  guided-missiles-20260908-take-control-variant-prefab:
+    product: guided-missiles
+    task_id: take-control-variant-prefab
+    source_commit: 1bd9a8e8fd248b7361b542f04cf4e56d92ef21f3
+    applied_date: 2026-09-12
+  explosive-reactive-armor-20260908-remove-dead-private-state:
+    product: explosive-reactive-armor
+    task_id: era-remove-dead-private-state
+    source_commit: c440d0f62fa7de95c8716b6a020ae34193c8cbb2
+    applied_date: 2026-09-12
+  guided-missiles-20260909-ammo-display-fields:
+    product: guided-missiles
+    task_id: guided-missile-ammo-display-20260909
+    source_commit: 2e2913b19df0e62d3231c7010f12b2fe21eb5096
+    applied_date: 2026-09-12
+  guided-missiles-20260909-remove-unused-distribution-assets:
+    product: guided-missiles
+    task_id: remove-unused-distribution-assets
+    source_commit: dd6096d0c708edec5502681adfc7e20dbf862a09
+    applied_date: 2026-09-12

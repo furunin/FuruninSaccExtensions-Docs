@@ -53,6 +53,19 @@ PilotSeatでミサイルを選択している間は、機体操作と照準操�
 
 ![ミサイルの位置を確認](../assets/images/guided-missiles/installation/4_1.png){ width="900" loading=lazy }
 
+### Guided Missile Setupで独自のミサイルを作成する場合
+
+1. 対象の乗り物をSceneまたはPrefab Modeで開き、`Tools/Furunin Sacc Extensions/Guided Missile Setup`を選択します。
+2. `Launcher`へ配置済みの`FSE_DFUNC_MissileLauncher`を指定します。
+3. `Guidance Type`、`Stowed Visual`、`Stowed Count`、`InFlight Visual`、`InFlight Pool Count`、`Output Name`、`Output Folder`を設定します。VisualにはProject内のPrefabまたはFBXのmodel prefabを指定し、`Output Folder`には`Assets`以下の既存Folderを指定します。
+4. SACLOSを選択した場合は、`Guidance Reference`へ照準器の`Aim Origin`を指定します。
+5. `Create and Setup`を実行します。既存のRoundが登録されている場合は、確認内容を読み、`Replace Listed Rounds and Create`を実行します。生成されたStowedの位置と各`LaunchPoint`の向きを調整します。
+6. `Validate Launcher Setup`を実行し、表示されたエラーを解消します。
+
+生成されるStowed用とInFlight用Prefabは、配布Prefabから独立したPrefabとして保存されます。生成後はCollider、演出、ダメージ、誘導性能を乗り物に合わせて確認してください。
+
+`Validate Launcher Setup`は、使用可能な`LaunchPoint`、待機中のミサイル、Rigidbody、誘導Componentとその必須参照を確認します。Stowed表示と`LaunchPoint`にはそれぞれ乗り物に合うHierarchyを使用できます。`PoolRoot`が未設定の場合は、`ProjectilePool`から待機位置が取得されます。
+
 ## 5. 照準器を乗り物へ接続する
 
 - 誘導方式にSACLOS以外を使用する場合は、この手順は任意です。

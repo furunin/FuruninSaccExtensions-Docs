@@ -19,7 +19,7 @@
 | `SightCamera` | 照準映像とFOV連動感度に使用するCameraです。 |
 | `SightCameraExcludedLayers` | Sight Cameraだけから除外するLayerです。 |
 | `ScaleManualAimWithSightFov` | Camera FOVに応じて手動照準と、右GripによるHEAD SLAVEの照準補正速度を変えます。 |
-| `ZoomReferenceFov` | 通常速度の基準にするFOVです。 |
+| `Manual Aim Reference FOV`（`ZoomReferenceFov`） | 通常速度の基準にするFOVです。`ScaleManualAimWithSightFov`が無効な場合は使用されません。 |
 | `MinManualAimScale` | FOV連動速度の下限です。0ならFOV比をそのまま使用します。 |
 
 ### Turret Gun Followers
@@ -97,5 +97,6 @@ Pilot Seatで単独の砲塔を手動操作するためのDialFunctionです。`
 |---|---|
 | `SightController` | 操作する`FSE_SightController`です。 |
 | `UsePresetSteps` | 段階式Zoomを使用します。無効なら連続式です。 |
+| `AllowZoomWhileDeselected` | 有効にすると、Sight Zoom以外のDialFunctionを選択中でもDesktopとVRのZoom入力を受け付けます。 |
 | `ContinuousZoomRate` | 連続式Zoomの速度です。 |
 | `VrHandZForFullSpeed` | VR連続式Zoomが最大速度になる、車両前方基準のController前後移動量（m）です。 |

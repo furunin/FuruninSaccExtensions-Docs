@@ -14,5 +14,5 @@
 | HUDの線が照準画面へ映る | HUD用Layerを`SightCameraExcludedLayers`へ含めます。 |
 | Zoomできない | Prefabのルートではなく子`FSE_DFUNC_SightZoom`をDialFunctionへ登録していること、`SightController`、`MinimumFov`と`MaximumFov`を確認します。DesktopではSight ZoomをDialFunctionで選択してから`Q`／`E`を操作します。 |
 | VR連続式Zoomの前後方向が合わない | `ControlsRoot`が車両とともに動くTransformを参照し、ローカルの+Z軸が車両前方を向いていることを確認します。 |
-| Zoom時の照準速度が合わない | Cameraの実FOV、`ZoomReferenceFov`、`MinManualAimScale`を確認します。 |
+| Zoom時の照準速度が合わない | Cameraの実FOV、`Manual Aim Reference FOV`、`MinManualAimScale`を確認します。 |
 | 距離が表示されない、または`RNG ----`になる | 操作席を使用中か、`RangefinderOrigin`またはSight Camera／Aim Originの参照、`RangefinderLayers`、測定範囲内に対象があるか確認します。 |
