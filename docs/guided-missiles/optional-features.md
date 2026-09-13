@@ -35,3 +35,15 @@
 - AAM、AGM、Bombなど、別の武器DFUNCが制御するTextやAnimator Parameterは使用しないでください。
 
 ## ミサイル発射による機体の重心位置変化を再現する
+
+`FSE_MissileMassBalance`を使用すると、各Launcherの残弾数と搭載位置に合わせて乗り物の重心位置を変更できます。左右のミサイルを異なる順序で発射する構成にも使用できます。この機能は`SaccEntity.CenterOfMass`の位置だけを変更し、乗り物やミサイルのRigidbodyの質量は変更しません。
+
+1. `SaccEntity.CenterOfMass`へ、ミサイルを含まない状態の重心位置に配置した専用の子Transformを指定します。乗り物のrootは指定しないでください。
+2. 乗り物内のGameObjectへ`FSE_MissileMassBalance`を追加し、`SaccEntity.ExtensionUdonBehaviours`へ登録します。
+3. `EntityControl`へ乗り物の`SaccEntity`を指定し、`Launchers`へ重心計算に使用する`FSE_DFUNC_MissileLauncher`を登録します。同じLauncherは重複して登録しないでください。
+4. 各Launcherの`ProjectilePool`に登録されている飛翔用ミサイルの`Rigidbody`へ、ミサイル1発分の質量を設定します。同じLauncherに属する飛翔用ミサイルには、すべて同じ値を設定してください。質量は0より大きい値にします。
+5. `VehicleMassWithoutMissiles`へミサイルを含まない乗り物の質量を設定します。0の場合は、初期化時の乗り物のRigidbodyの質量を使用します。
+
+`MissileCenterOfMassOffsets`を使用すると、搭載弾表示のTransformから重心位置を補正できます。`MaxAmmo`が搭載弾表示の数を超える場合は、`ReserveMassPoints`へ予備弾の重心位置を指定できます。これらを使用する場合は、`Launchers`と同じ要素数で、同じ順序に登録してください。
+
+`FSE_MissileMassBalance`は1台の乗り物に1つだけ使用してください。`SaccEntity.CenterOfMass`を動的に変更する他のComponentとは併用できません。

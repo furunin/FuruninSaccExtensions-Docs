@@ -119,3 +119,18 @@ requests:
     task_id: remove-unused-distribution-assets
     source_commit: dd6096d0c708edec5502681adfc7e20dbf862a09
     applied_date: 2026-09-12
+  guided-missiles-20260913-missile-mass-balance:
+    product: guided-missiles
+    task_id: guided-missile-mass-balance-implementation-20260913
+    source_commit: c406e5ea9d7f7184faa2ae306965edd011d62589
+    applied_date: 2026-09-13
+  guided-missiles-20260913-missile-mass-auto-source:
+    product: guided-missiles
+    task_id: derive-missile-mass-from-projectile-rigidbody-20260913
+    source_commit: de9d562a9a8b7a94b1901254484b12b99fc1e2ae
+    applied_date: 2026-09-13
+  guided-missiles-20260913-setup-existing-update:
+    product: guided-missiles
+    task_id: guided-missile-setup-update-support-20260913
+    source_commit: ead26d9e4d6114fc9d19e023df5bd2fe3e1ffd5d
+    applied_date: 2026-09-13
