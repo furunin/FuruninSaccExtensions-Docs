@@ -35,4 +35,4 @@ FSE Guided Missilesは、Saccの乗り物へ誘導ミサイルを搭載するた
 
 ## ギミック導入手順
 
-[共通セットアップ](installation.md)を参照してください。
+[導入手順](installation.md)を参照してください。

@@ -26,4 +26,4 @@ FSE Turret Controlは、照準器や砲塔の上下左右回転を操作し、�
 
 ## ギミック導入手順
 
-[セットアップ](installation.md)を参照してください。
+[導入手順](installation.md)を参照してください。

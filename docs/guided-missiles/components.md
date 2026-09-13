@@ -32,7 +32,7 @@
 | `FlightParticles` / `FlightTrails` / `FlightSounds` | 飛翔中にミサイルへ追従する演出です。 |
 | `FlightEffectsDelaySeconds` | 飛翔演出を開始するまでの時間です。誘導や衝突は遅延しません。 |
 | `ExplosionParticles` / `ExplosionSounds` / `ExplosionLifeTime` | 通常着弾時の演出と、着弾後に待機状態へ戻るまでの時間です。 |
-| `FlyStraightTime` / `Acceleration` / `MaxSpeed` | 直進時間、加速度、最高速度です。加速度のInspector表示名は`Acceleration`です。 |
+| `FlyStraightTime` / `Acceleration` / `MaxSpeed` | 直進時間、加速度、最高速度です。 |
 | `MaxLifetime` / `BallisticLifetime` | 動力飛翔時間と、その後の重力飛行時間です。 |
 | `AlignToVelocityDuringBallistic` | 弾道飛行中に表示方向を速度方向へ合わせます。 |
 | `AirPhysicsStrength` | 動力飛翔中の横滑りを抑える強さです。 |
@@ -43,15 +43,6 @@
 | `DirectHitDamage` / `SplashDamage` / `SplashRadius` / `WeaponType` / `MaxSplashTargets` | 直撃損傷、範囲損傷、効果範囲、武器種別、範囲損傷の対象数をSaccの損傷設計に合わせます。 |
 | `GuidanceModule` | 使用するSACLOSまたはMCLOS誘導Componentです。 |
 | `CommandLink` | 任意の指令ワイヤーComponentです。 |
-
-## FSE_SACLOSGuidance
-
-| Field | 説明 |
-|---|---|
-| `Missile` | 同じミサイルの`FSE_MissileController`です。 |
-| `GuidanceLookAhead` / `MinimumCommandDistance` | 照準線上の操舵目標距離と最短距離です。 |
-| `MaxGuidanceAngle` | 誘導指令を有効とする最大角度です。 |
-| `MaxTurnRate` / `MaxLateralAcceleration` | 旋回速度と横加速度の上限です。 |
 
 ## FSE_MCLOSInputController
 
@@ -69,3 +60,23 @@
 | `Missile` / `CommandSource` | 同じミサイル本体と操作席側の入力Componentです。 |
 | `MaxPitchRate` / `MaxYawRate` | 最大入力時の上下・左右旋回速度です。 |
 | `MaxLateralAcceleration` | 横方向に曲がる強さの上限です。 |
+
+## FSE_SACLOSGuidance
+
+| Field | 説明 |
+|---|---|
+| `Missile` | 同じミサイルの`FSE_MissileController`です。 |
+| `GuidanceLookAhead` / `MinimumCommandDistance` | 照準線上の操舵目標距離と最短距離です。 |
+| `MaxGuidanceAngle` | 誘導指令を有効とする最大角度です。 |
+| `MaxTurnRate` / `MaxLateralAcceleration` | 旋回速度と横加速度の上限です。 |
+
+## FSE_CommandLinkController設定
+
+| Field | 説明 |
+|---|---|
+| `Missile` | 同じミサイルの`FSE_MissileController`です。 |
+| `CommandWireRenderer` / `EnableCommandWire` | ワイヤー表示用LineRendererと表示の有効化です。 |
+| Sag項目 | 線の分割数と見た目の垂れを調整します。 |
+| `EnableWireCutDetection` / `WireCutLayers` | 障害物による切断判定と対象Layerです。 |
+| `WireCutCheckInterval` / `WireCutRadius` | 切断検査の間隔と判定線の太さです。 |
+| `EnableDiagnostics` | 調査時だけ診断出力を有効にします。通常運用では無効にします。 |

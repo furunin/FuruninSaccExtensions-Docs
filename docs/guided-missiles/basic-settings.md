@@ -4,7 +4,7 @@
 
 ### `FSE_MissileController`
 
-- `Acceleration`で加速し、`MaxSpeed`で最高速度を制限します。
+- `Acceleration`で発射後の加速度を設定できます。`MaxSpeed`で最高速度を制限します。
 - `AirPhysicsStrength`は動力飛翔中の横滑りを抑えます。
 - Flight Instabilityを有効にすると、動力飛翔中に滑らかな上下左右の揺らぎを加えます。
 - `RollVisualRoot`を設定すると、物理挙動を変えずに見た目だけをロールできます。
@@ -14,8 +14,6 @@
 ### `FSE_MissileController`
 
 `WarheadArmingDelaySeconds`で、発射してから弾頭が作動するまでの時間を設定します。ミサイルが発射機の周辺から安全に離れるために必要な時間を指定してください。
-
-以前のバージョンで作成した独自のInFlight Prefabを更新する場合は、`WarheadArmingDelaySeconds`を確認してください。旧`ColliderActivationDistance`はRuntimeでは使用されません。
 
 ## MCLOS誘導の設定
 

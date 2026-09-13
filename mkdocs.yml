@@ -65,10 +65,7 @@ nav:
   - FSE Guided Missiles:
       - 概要: guided-missiles/index.md
       - 導入・基本設定:
-          - 共通セットアップ: guided-missiles/installation.md
-          - 誘導方式別導入:
-              - MCLOS: guided-missiles/mclos.md
-              - SACLOS: guided-missiles/saclos.md
+          - 導入手順: guided-missiles/installation.md
           - 基本的な設定: guided-missiles/basic-settings.md
           - 任意機能の導入: guided-missiles/optional-features.md
           - 設定項目一覧: guided-missiles/components.md
@@ -78,7 +75,7 @@ nav:
   - FSE Turret Control:
       - 概要: turret-control/index.md
       - 導入・基本設定:
-          - セットアップ: turret-control/installation.md
+          - 導入手順: turret-control/installation.md
           - 基本的な設定: turret-control/basic-settings.md
           - 設定項目一覧: turret-control/components.md
       - 操作方法: turret-control/operation.md

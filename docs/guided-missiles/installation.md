@@ -1,4 +1,4 @@
-# 共通セットアップ
+# 導入手順
 
 以下は各誘導方式に共通する手順です。共通セットアップの後に各誘導方式固有の設定を行います。
 
@@ -21,7 +21,7 @@ Guided Missileをセットアップする対象の乗り物にSaccをセット�
 
 ## 3. 操作席の設定をする
 
-### PassengerSeatで操作する場合
+### 3-A. PassengerSeatで操作する場合
 
 1. PassengerSeatの`Sacc Vehicle Seat`内`Passenger Functions`が参照する`SAV_PassengerFunctionsController`をクリックし、ヒエラルキー上の場所を確認します。
 
@@ -40,53 +40,49 @@ Guided Missileをセットアップする対象の乗り物にSaccをセット�
 
     ![FSE_DFUNC_MissileLauncherにSAV_PassengerFunctionsControllerを設定](../assets/images/guided-missiles/installation/3-3_1.png){ width="900" loading=lazy }
 
-### PilotSeatで操作する場合
+### 3-B. PilotSeatで操作する場合
 
 PilotSeatでミサイルを選択している間は、機体操作と照準操作が重ならないように機体操作が抑止されます。
 
 1. `PassengerFunctionsController`は未設定にします。
 2. `FSE_DFUNC_MissileLauncher`を、セットアップ対象の乗り物の`SaccEntity`の`Dial_Functions_L`または`Dial_Functions_R`に登録します。
 
-## 4. ミサイルの発射位置と搭載弾表示を調整する
+## 4. ミサイルのセットアップをする
 
-`Missile Launcher`以下の`Missile Round_Stowed`の位置と回転を調整します。`Launch Point`のZ軸+（青い矢印）方向が発射方向を向くようにします。メッシュを差し替えることで任意の3Dモデルを使用することができます。
+ミサイルが機能するようにするためには、各ミサイルや照準器の参照設定、誘導方式別のスクリプト設定が必要です。セットアップツールを使うと、誘導方式別のセットアップが完了したミサイルのプレハブの生成、参照設定済みミサイルの配置が自動的に実行され、ギミックを簡単に導入することができます。
 
-![ミサイルの位置を確認](../assets/images/guided-missiles/installation/4_1.png){ width="900" loading=lazy }
+!!! Info  "手動でセットアップを行う場合"
+    セットアップツールを利用せずに導入する場合は、[ミサイルを手動でセットアップする](manual-installation.md)を参照してください。
 
-### Guided Missile Setupで独自のミサイルを作成する場合
+1. メインメニューの`Tools/Furunin Sacc Extensions/Guided Missile Setup`を選択してセットアップツールを開きます。
 
-1. 対象の乗り物をSceneまたはPrefab Modeで開き、`Tools/Furunin Sacc Extensions/Guided Missile Setup`を選択します。
-2. `Launcher`へ配置済みの`FSE_DFUNC_MissileLauncher`を指定します。
-3. `Guidance Type`、`Stowed Visual`、`Stowed Count`、`InFlight Visual`、`InFlight Pool Count`、`Output Name`、`Output Folder`を設定します。VisualにはProject内のPrefabまたはFBXのmodel prefabを指定し、`Output Folder`には`Assets`以下の既存Folderを指定します。
-4. SACLOSを選択した場合は、`Guidance Reference`へ照準器の`Aim Origin`を指定します。
-5. `Create and Setup`を実行します。既存のRoundが登録されている場合は、確認内容を読み、`Replace Listed Rounds and Create`を実行します。生成されたStowedの位置と各`LaunchPoint`の向きを調整します。
-6. `Validate Launcher Setup`を実行し、表示されたエラーを解消します。
+2. ツールの各項目を設定します。
 
-生成されるStowed用とInFlight用Prefabは、配布Prefabから独立したPrefabとして保存されます。生成後はCollider、演出、ダメージ、誘導性能を乗り物に合わせて確認してください。
+    ![ミサイルのセットアップツール](../assets/images/guided-missiles/installation/4-A-1_1.png){ width="300" loading=lazy }
 
-`Validate Launcher Setup`は、使用可能な`LaunchPoint`、待機中のミサイル、Rigidbody、誘導Componentとその必須参照を確認します。Stowed表示と`LaunchPoint`にはそれぞれ乗り物に合うHierarchyを使用できます。`PoolRoot`が未設定の場合は、`ProjectilePool`から待機位置が取得されます。
+    | 項目名 | 説明 |
+    | --- | --- |
+    | `Launcher` | 配置した`FSE_DFUNC_MissileLauncher`を指定します。 |
+    | `Guidance Type` | 使用する誘導方式を選択します。 |
+    | `Stowed Visual` | 格納状態のミサイルの見た目を指定します。プロジェクト内のプレハブまたはFBXを指定します。 |
+    | `Stowed Count` | 格納状態のミサイルの数を指定します。 |
+    | `InFlight Visual` | 飛翔状態のミサイルの見た目を指定します。プロジェクト内のプレハブまたはFBXを指定します。 |
+    | `InFlight Pool Count` | 飛翔状態のミサイルの数を指定します。`Stowed Count`と同じにする必要はありません。 |
+    | `Output Name` | ミサイルの名前を指定します。 |
+    | `Output Folder` | 格納状態/飛翔状態ミサイルのプレハブを保存するフォルダを指定します。 |
+    | `Guidance Reference` | （SACLOSを選択した場合のみ）照準器の`Aim Origin`を指定します。 |
 
-## 5. 照準器を乗り物へ接続する
+    !!! Info  "格納状態と飛翔状態のミサイルの数"
+        格納状態のミサイルの数（`Stowed Count`）は、ミサイルランチャーなど外から見える（表示したい）分だけ設定してください。飛翔状態のミサイルの数（`InFlight Pool Count`）は、同時にワールドに存在することが想定される分だけ設定してください。ギミックをセットアップした乗り物から発射された飛翔状態ミサイルがワールド中に`InFlight Pool Count`個ある状態でさらにミサイルを発射すると、古いミサイルから消滅して新しく発射したミサイルに割り当てられます。
 
-- 誘導方式にSACLOS以外を使用する場合は、この手順は任意です。
-- 誘導方式にSACLOSを使用する場合は、誘導の基準となるオブジェクトを指定する必要があります。可動する照準器（砲塔）に基準オブジェクトを配置することでミサイルを任意方向に誘導できますが、固定のオブジェクトを利用することも可能です。砲塔を使用する場合、`FSE_GuidedMissile`プレハブに付属している`FSE_TurretControl`を利用することができます（[セットアップ手順](../turret-control/installation.md)）。
+3. `Create and Setup`を実行します。既存のRoundが登録されている場合は、確認内容を読み、`Replace Listed Rounds and Create`を実行します。生成されたStowedの位置と各`LaunchPoint`の向きを調整します。
+4. `Validate Launcher Setup`を実行し、エラーがないことを確認します。
+5. 指定したフォルダに生成された格納状態ミサイルのプレハブ（`Missile Round_Stowed`）と飛翔状態ミサイルのプレハブ（`Missile Round_InFlight`）を開き、ミサイルの見た目が各プレハブのZ軸+（青い矢印）方向を向いていることを確認します。向きが合っていない場合はプレハブを開いて見た目の向きを調整し、プレハブを保存してください。
+6. `Missile Launcher`以下に生成された`Missile Round_Stowed`プレハブの位置と回転を調整します。なお、`Missile Round_InFlight`プレハブの位置調整は不要です。
 
-## 6. 誘導方式別の導入をする
+    !!! Note  "生成済みプレハブを利用した設定変更"
+        セットアップ後にミサイルの見た目や飛翔特性などの設定を変更したいときは、生成される格納状態/飛翔状態ミサイルのプレハブを編集することで配置済みのミサイルへ一括で変更を反映することができます。
 
-- [MCLOSを導入する](mclos.md)
-- [SACLOSを導入する](saclos.md)
+## 5. ギミックのカスタマイズをする
 
-## 7. 爆発時のメッシュ非表示設定をする
-
-追加したミサイルや照準器などのメッシュが爆発時に消滅するように設定します。
-
-1. 爆発時のアニメーションを開きます。既存のアニメーションを利用する場合は、複製してからアニメーションコントローラー内で参照されるように設定し、2.の手順に進みます。
-
-    !!! Info  "爆発アニメーションの場所"
-        例として、SaccのSH-1の場合は`Assets/SaccFlightAndVehicles/AssetFiles/SH-1/Animations/Explode_SH1`にあります。
-
-2. 爆発時に非表示にしたいオブジェクト（ミサイルランチャー、照準器、格納中ミサイルなど）を追加し、チェックを外して表示されないようにします。
-
-## 8. 任意機能を導入する
-
-[任意機能の導入](optional-features.md)を参照してください。
+上記の手順で、ギミックが最低限動作するようになります。ミサイルの飛翔特性や誘導に関する設定は[基本的な設定](basic-settings.md)を、任意機能の導入は[任意の設定](optional-features.md)を参照してください。
