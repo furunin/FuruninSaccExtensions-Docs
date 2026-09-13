@@ -7,7 +7,7 @@
 | Field | 説明 |
 |---|---|
 | `AimYawRotator` | 照準器を左右へ動かす主軸です。 |
-| `AimPitchRotator` | 照準器を上下へ動かす主軸です。Yaw軸の子にします。 |
+| `AimPitchRotator` | 照準器を上下へ動かす主軸です。 |
 | `ControlsRoot` | VR操作で車両回転を相殺し、VR連続式Zoomの前後方向を決める基準Transformです。ローカルの+Z軸を車両前方へ合わせます。 |
 | `AimOrigin` | 最終的な照準方向を示すTransformです。 |
 | `OperatorSeat` | 照準を操作する座席です。 |

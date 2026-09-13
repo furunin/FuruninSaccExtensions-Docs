@@ -13,6 +13,9 @@
 
     ![FSE_EXT_Turretに参照を設定](../assets/images/turret-control/installation/2-1_1.png){ width="900" loading=lazy }
 
+    !!! Note "ヨー回転/ピッチ回転軸のいずれか1つしかない照準器を登録する方法"
+        ヨー回転軸のみ、またはピッチ回転軸のみを持つ照準器を制御したい場合は`Aim Yaw Rotator`または`Aim Pitch Rotator`の一方にその照準器が持つ回転軸を登録し、他方は空欄にしてください。
+
 2. 今セットアップしている砲塔以外の砲塔やランチャー等の向きをこの砲塔へ追従させる場合は、`TurretGunYawRotators`と`TurretGunPitchRotators`へそのTransformを登録します。
 3. 操作席の`Sacc Vehicle Seat`オブジェクトの`EnableInSeat`へ、以下のオブジェクトを登録します。
 
@@ -54,3 +57,6 @@
 ### Turret Follower
 
 照準器とは別の砲塔を同じ照準方向へ向ける機能です。使用する場合は`TurretGunYawRotators`と`TurretGunPitchRotators`に砲塔のヨー回転オブジェクトとピッチ回転オブジェクトを登録します。複数の砲塔を追従させることができます。
+
+!!! Note "ヨー回転/ピッチ回転軸のいずれか1つしかない砲塔を登録する方法"
+    ヨー回転軸のみ、またはピッチ回転軸のみを持つ砲塔を制御したい場合は`TurretGunYawRotators`または`TurretGunPitchRotators`の一方にその砲塔が持つ回転軸を登録し、他方は空欄にしてください。
