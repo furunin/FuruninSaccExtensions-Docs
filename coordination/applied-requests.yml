@@ -134,3 +134,8 @@ requests:
     task_id: guided-missile-setup-update-support-20260913
     source_commit: ead26d9e4d6114fc9d19e023df5bd2fe3e1ffd5d
     applied_date: 2026-09-13
+  turret-control-20260912-single-axis-support:
+    product: turret-control
+    task_id: single-axis-support
+    source_commit: f09e045615481289fb6bc02dfc2f9abd28409288
+    applied_date: 2026-09-13
