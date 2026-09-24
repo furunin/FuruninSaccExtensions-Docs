@@ -22,6 +22,16 @@
 | `Manual Aim Reference FOV`（`ZoomReferenceFov`） | 通常速度の基準にするFOVです。`ScaleManualAimWithSightFov`が無効な場合は使用されません。 |
 | `MinManualAimScale` | FOV連動速度の下限です。0ならFOV比をそのまま使用します。 |
 
+### Drive Mode and Animator
+
+| Field | 説明 |
+|---|---|
+| `DriveMode` | `Script`は照準軸と追従砲塔を直接回転させます。`Animator`は角度をAnimatorへ出力し、回転をAnimation Clipに任せます。 |
+| `PrimaryAimAnimator` | 主照準軸のAnimatorです。`Animator`モードでは必須です。`Script`モードでも角度出力に使用できます。 |
+| `TurretGunAnimator` | 追従砲塔へ角度を出力するAnimatorです。未使用なら空欄にできます。 |
+| `CurrentYawAnimatorParameter` / `CurrentPitchAnimatorParameter` | 現在の左右・上下角度を出力するFloat Parameter名です。 |
+| `TargetYawAnimatorParameter` / `TargetPitchAnimatorParameter` | 目標角度を出力するFloat Parameter名です。HEAD SLAVEでは追従の平滑化前の角度、手動操作と他の参加者側では現在角度を出力します。空欄にした項目は出力しません。 |
+
 ### Turret Gun Followers
 
 | Field | 説明 |

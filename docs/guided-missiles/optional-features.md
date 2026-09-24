@@ -16,6 +16,19 @@
 - 発射地点に残る音とパーティクルは`FSE_DFUNC_MissileLauncher`へ設定します。
 - ミサイルに追従するパーティクル、トレイル、音源は`FSE_MissileController`へ設定します。
 
+## ミサイルの迎撃
+
+配布の飛翔用ミサイルには迎撃判定用の`Intercept Proxy`が設定されています。Bomb、AGM、AAM、FSEミサイルの弾体が直接当たると、残りの`Health`にかかわらず破壊されます。Particleなどから`SaccTarget`へダメージを受けた場合は、`Health`が0になると破壊されます。耐久度を調整する場合は、飛翔用ミサイルPrefabの`Intercept Proxy`にある`SaccTarget.Health`を変更します。
+
+弾頭の作動前に迎撃されたミサイルは爆発せずに消滅します。作動後は設定した範囲ダメージと爆発演出が発生します。ロックオン対象の選択は武器側の設定に従います。
+
+既存の独自飛翔用Prefabでも迎撃を使用する場合は、次のように設定します。
+
+1. 配布の`Missile Round_InFlight`テンプレートから`Intercept Proxy`を独自Prefabへ複製します。
+2. 複製先の`FSE_MissileInterceptReceiver`で、`Missile`には同じ飛翔弾の`FSE_MissileController`を、`DamageTarget`、`HitCollider`、`HitRigidbody`には同じ`Intercept Proxy`の各Componentを指定します。
+3. `Intercept Proxy`の`SaccTarget.ExplodeOther`と、飛翔弾の`FSE_MissileController.InterceptReceiver`に、複製先の`FSE_MissileInterceptReceiver`を指定します。`SaccTarget.Health`には0より大きい値を設定します。
+4. `ProjectilePool`に登録されたすべての飛翔弾に、このPrefabの変更が反映されていることを確認します。
+
 ## 指令ワイヤーの表示と切断設定を変更する
 
 飛翔用ミサイルの`FSE_MissileController`内`Command Link`に`FSE_CommandLinkController`を登録し、`EnableCommandWire`を有効にするとミサイルへ操作入力を送る指令ワイヤーが表示されるようになります。`EnableWireCutDetection`を有効にすると、目標と発射位置の間が障害物で遮られた際にワイヤーが切断され、誘導ができなくなります。

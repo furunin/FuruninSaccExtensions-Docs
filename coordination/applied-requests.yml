@@ -139,3 +139,42 @@ requests:
     task_id: single-axis-support
     source_commit: f09e045615481289fb6bc02dfc2f9abd28409288
     applied_date: 2026-09-13
+  guided-missiles-20260923-interception:
+    product: guided-missiles
+    task_id: guided-missiles-interception-20260923
+    source_commit: 2a2fe74f0494b4a613582e7e95d66f8112d675e5
+    applied_date: 2026-09-24
+  turret-control-20260923-primary-aim-animator:
+    product: turret-control
+    task_id: primary-aim-animator-20260923
+    source_commit: 69a4352bf2668f80335ebd9c8556e2259b707d26
+    applied_date: 2026-09-24
+  turret-control-20260924-drive-mode-angle-output:
+    product: turret-control
+    task_id: turret-drive-mode-20260924
+    source_commit: 9054f9be72cc15e6f84e5040bfdef381ed094058
+    applied_date: 2026-09-24
+  guided-missiles-20260923-setup-defaults:
+    product: guided-missiles
+    task_id: guided-setup-defaults-20260924
+    source_commit: d4b65445ddde67b546c07d2aeed1ce1c4da7ff8b
+    applied_date: 2026-09-24
+    documentation_action: no_public_change
+  guided-missiles-20260923-setup-results:
+    product: guided-missiles
+    task_id: guided-missiles-setup-feedback-20260923
+    source_commit: c91902d15e69f8e6a0548132dead43bc89341ba7
+    applied_date: 2026-09-24
+    documentation_action: no_public_change
+  guided-missiles-20260923-template-location:
+    product: guided-missiles
+    task_id: guided-missiles-template-move-20260923
+    source_commit: 04874fdce33155b2d402e52bbc566e1c342bf338
+    applied_date: 2026-09-24
+    documentation_action: no_public_change
+  turret-control-20260923-rest-pose-animator:
+    product: turret-control
+    task_id: turret-rest-pose-animator-20260923
+    source_commit: ed2079d1cfa348a7d7435624528f3477efae97e6
+    applied_date: 2026-09-24
+    documentation_action: no_public_change

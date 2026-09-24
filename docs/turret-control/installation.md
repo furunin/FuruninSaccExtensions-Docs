@@ -61,3 +61,15 @@
 
 !!! Note "ヨー回転/ピッチ回転軸のいずれか1つしかない砲塔を登録する方法"
     `TurretGunYawRotators`と`TurretGunPitchRotators`は同じ要素数にします。ヨー回転軸のみを持つ砲塔では、`TurretGunYawRotators`へ回転軸を登録し、同じindexの`TurretGunPitchRotators`を空欄にしてください。ピッチ回転軸のみを持つ砲塔では逆に設定します。
+
+### Animatorで砲塔を動かす
+
+Animatorで主照準軸と追従砲塔を動かす場合は、次の手順で角度の出力先とAnimation Clipを設定します。
+
+1. `FSE_EXT_Turret`の`Drive Mode`を`Animator`に設定し、`Primary Aim Animator`に主照準軸を動かすAnimatorを指定します。別のAnimatorで追従砲塔を動かす場合は`Turret Gun Animator`にも指定します。同じAnimatorを両方へ指定することもできます。
+2. `Aim Yaw Rotator`と`Aim Pitch Rotator`を`Primary Aim Animator`の子階層へ配置します。両軸を使用する場合はピッチ軸をヨー軸の子にします。`Aim Origin`と`Sight Camera`は、最後に動く主照準軸の子に配置します。
+3. 割り当てたAnimator Controllerに、`CurrentYawAnimatorParameter`と`CurrentPitchAnimatorParameter`で指定した名前のFloat Parameterを作成します。`TargetYawAnimatorParameter`と`TargetPitchAnimatorParameter`にも名前を設定している場合は、そのFloat Parameterも作成します。
+4. モデルに合わせたヨー・ピッチのAnimation Clipを作成し、各Stateの`Motion Time`で`Parameter`を有効にして対応する現在角度のFloatを指定します。Floatの0から1へ、ヨーは`-SideAngleMax`から`+SideAngleMax`、ピッチは`-UpAngleMax`から`+DownAngleMax`まで動くようにします。
+5. Animatorの`Update Mode`を`Normal`、`Culling Mode`を`Always Animate`にし、`Apply Root Motion`を無効にします。照準軸を動かすStateに追加の遷移やDampingを設定しないでください。
+
+`Drive Mode`が`Script`の場合も、割り当てたAnimatorへ角度を出力できます。この場合、Animatorから主照準軸や追従砲塔のTransformを動かさないでください。
