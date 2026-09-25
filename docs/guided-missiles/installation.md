@@ -58,30 +58,37 @@ PilotSeatでミサイルを選択している間は、機体操作と照準操�
 
 2. ツールの各項目を設定します。
 
-    ![ミサイルのセットアップツール](../assets/images/guided-missiles/installation/4-A-1_1.png){ width="300" loading=lazy }
-
     | 項目名 | 説明 |
     | --- | --- |
+    | `Operation` | 新規導入では`Create or Replace Setup`を選択します。 |
     | `Launcher` | 配置した`FSE_DFUNC_MissileLauncher`を指定します。 |
     | `Guidance Type` | 使用する誘導方式を選択します。 |
     | `Stowed Visual` | 格納状態のミサイルの見た目を指定します。プロジェクト内のプレハブまたはFBXを指定します。 |
     | `Stowed Count` | 格納状態のミサイルの数を指定します。 |
     | `InFlight Visual` | 飛翔状態のミサイルの見た目を指定します。プロジェクト内のプレハブまたはFBXを指定します。 |
     | `InFlight Pool Count` | 飛翔状態のミサイルの数を指定します。`Stowed Count`と同じにする必要はありません。 |
-    | `Output Name` | ミサイルの名前を指定します。 |
-    | `Output Folder` | 格納状態/飛翔状態ミサイルのプレハブを保存するフォルダを指定します。 |
+    | `Output Name` | 作成するミサイルの名前を指定します。新規作成時だけ表示されます。 |
+    | `Output Folder` | 格納状態/飛翔状態ミサイルのプレハブを保存するフォルダを指定します。新規作成時だけ表示されます。 |
     | `Guidance Reference` | （SACLOSを選択した場合のみ）照準器の`Aim Origin`を指定します。 |
 
     !!! Info  "格納状態と飛翔状態のミサイルの数"
         格納状態のミサイルの数（`Stowed Count`）は、ミサイルランチャーなど外から見える（表示したい）分だけ設定してください。飛翔状態のミサイルの数（`InFlight Pool Count`）は、同時にワールドに存在することが想定される分だけ設定してください。ギミックをセットアップした乗り物から発射された飛翔状態ミサイルがワールド中に`InFlight Pool Count`個ある状態でさらにミサイルを発射すると、古いミサイルから消滅して新しく発射したミサイルに割り当てられます。
 
-3. `Create and Setup`を実行します。既存のRoundが登録されている場合は、確認内容を読み、`Replace Listed Rounds and Create`を実行します。生成されたStowedの位置と各`LaunchPoint`の向きを調整します。
-4. `Validate Launcher Setup`を実行し、エラーがないことを確認します。
+3. `Create and Setup`を実行します。既存のRoundが登録されている場合は、確認内容を読み、`Replace Listed Rounds and Create`を実行します。生成されたStowedの位置と各`LaunchPoint`の向きを調整します。`Stowed Count`が`MaxAmmo`を超える場合は、画面に表示された値へ`MaxAmmo`が増えます。元から多い場合は減りません。
+4. `Operation`を`Validate Launcher Setup`に切り替え、同名のボタンを実行してエラーがないことを確認します。
 5. 指定したフォルダに生成された格納状態ミサイルのプレハブ（`Missile Round_Stowed`）と飛翔状態ミサイルのプレハブ（`Missile Round_InFlight`）を開き、ミサイルの見た目が各プレハブのZ軸+（青い矢印）方向を向いていることを確認します。向きが合っていない場合はプレハブを開いて見た目の向きを調整し、プレハブを保存してください。
 6. `Missile Launcher`以下に生成された`Missile Round_Stowed`プレハブの位置と回転を調整します。なお、`Missile Round_InFlight`プレハブの位置調整は不要です。
 
     !!! Note  "生成済みプレハブを利用した設定変更"
         セットアップ後にミサイルの見た目や飛翔特性などの設定を変更したいときは、生成される格納状態/飛翔状態ミサイルのプレハブを編集することで配置済みのミサイルへ一括で変更を反映することができます。
+
+### セットアップツールで既存設定を更新する
+
+1. `Operation`で`Update Existing Setup`を選択し、`Launcher`を指定して`Analyze Existing Setup`を実行します。ツールで作成したRound Prefabが認識されると、現在のPrefabの保存先が表示されます。Scene内の乗り物Prefab Variantも解析できます。
+2. 誘導方式、見た目、格納弾と飛翔弾の数を変更し、`Preview Update Existing Setup`の内容を確認してから`Update Existing Setup`を実行します。既存Prefabの保存先が使用されます。共用する格納弾Prefabの見た目を変更すると、そのPrefabを使用するすべての乗り物に反映されます。
+3. `Operation`を`Validate Launcher Setup`に切り替えて検証します。検証はツールで作成していないLauncherにも使用でき、設定を変更しません。ツールで作成した設定なら、更新画面と同じ現在のPrefab保存先も表示されます。
+
+格納弾の数が`MaxAmmo`を超える場合は、更新時も`MaxAmmo`が増えます。SACLOSへ切り替えると既存の`FSE_MCLOSInputController`は無効になり、MCLOSへ戻すと再利用されます。
 
 ## 5. ギミックのカスタマイズをする
 

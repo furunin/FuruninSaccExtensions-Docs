@@ -4,10 +4,16 @@
 
 ### `FSE_MissileController`
 
+- `StraightBoostTime`、`GuidedBoostTime`、`GuidedCoastTime`、`BallisticFlightTime`で、4つの飛翔段階の継続時間をそれぞれ秒単位で設定します。
 - `Acceleration`で発射後の加速度を設定できます。`MaxSpeed`で最高速度を制限します。
+- `FSE_MissileController.Drag`は速度の二乗に応じて、`MissileRigidbody`のRigidbodyの`Drag`は速度に応じて減速させます。両方を併用でき、全飛翔段階に作用します。
 - `AirPhysicsStrength`は動力飛翔中の横滑りを抑えます。
 - Flight Instabilityを有効にすると、動力飛翔中に滑らかな上下左右の揺らぎを加えます。
 - `RollVisualRoot`を設定すると、物理挙動を変えずに見た目だけをロールできます。
+
+### インスペクターの参考グラフ
+
+`Flight & Lifetime`の`Speed vs Time`と`Distance vs Time`は、発射速度を0として直進した場合の参考値です。`Acceleration`、`MaxSpeed`、Rigidbodyの`Drag`、`FSE_MissileController.Drag`を反映し、各飛翔段階の終了位置を色付きの破線で示します。グラフ下には最高速度への到達状況と各段階終了時の累積距離が表示されます。誘導、重力、機体から引き継ぐ速度、飛翔中の揺らぎは再現しません。
 
 ## 弾頭の作動設定
 

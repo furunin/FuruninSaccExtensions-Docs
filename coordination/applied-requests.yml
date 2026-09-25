@@ -178,3 +178,79 @@ requests:
     source_commit: ed2079d1cfa348a7d7435624528f3477efae97e6
     applied_date: 2026-09-24
     documentation_action: no_public_change
+  guided-missiles-20260924-ideal-flight-graphs:
+    product: guided-missiles
+    task_id: guided-missiles-ideal-flight-graphs-20260924
+    source_commit: 2e47138fbb178c8520b009af7e4d3ff0c8364e2d
+    applied_date: 2026-09-25
+  guided-missiles-20260924-ideal-speed-graph:
+    product: guided-missiles
+    task_id: guided-missiles-ideal-speed-inspector-20260924
+    source_commit: 9851d0af1fa68a6f32a41de4a4ab47a5729da0b4
+    applied_date: 2026-09-25
+  guided-missiles-20260924-setup-operation-ui:
+    product: guided-missiles
+    task_id: guided-missiles-setup-operation-ui-20260924
+    source_commit: 5f003588fd0753591bfd97d15b0e53d2248aa1d0
+    applied_date: 2026-09-25
+  guided-missiles-20260924-setup-shared-analysis-display:
+    product: guided-missiles
+    task_id: guided-missiles-setup-shared-analysis-display-20260924
+    source_commit: e8a122157504a74027b2cdabd477512f278ab4ec
+    applied_date: 2026-09-25
+  guided-missiles-20260924-setup-variant-analysis:
+    product: guided-missiles
+    task_id: guided-missiles-setup-operation-name-20260924
+    source_commit: 35a12af7bf35fb1d9e8dfd3b2b024452cef77da1
+    applied_date: 2026-09-25
+  guided-missiles-20260925-combined-drag:
+    product: guided-missiles
+    task_id: guided-missiles-combined-drag-20260925
+    source_commit: 0a7a26a0323ce0d67ac52c393a474dc88be54814
+    applied_date: 2026-09-25
+  guided-missiles-20260925-drag-flight-graphs:
+    product: guided-missiles
+    task_id: guided-missiles-drag-flight-graphs-20260925
+    source_commit: 05d02c245a33dd63160b059d9c5279c7d5457424
+    applied_date: 2026-09-25
+  guided-missiles-20260925-four-phase-times-graph-grid:
+    product: guided-missiles
+    task_id: guided-four-phase-time-graphs-20260925
+    source_commit: e671283045cb98bbad772b4ba425b8243e69d425
+    applied_date: 2026-09-25
+  guided-missiles-20260925-four-phases-effect-groups:
+    product: guided-missiles
+    task_id: guided-missiles-four-phases-effects-20260925
+    source_commit: 372da7a1e47e76444438d024f2ec6b21cc3055ab
+    applied_date: 2026-09-25
+  guided-missiles-20260925-ideal-graph-ballistic-phase:
+    product: guided-missiles
+    task_id: guided-missiles-ideal-graph-ballistic-20260924
+    source_commit: 0378dbfc978ba1cecd55a1f40aeea5fb1f283911
+    applied_date: 2026-09-25
+  guided-missiles-20260925-minimal-phase-legend:
+    product: guided-missiles
+    task_id: guided-legend-labels-20260925
+    source_commit: 3d8a4401708258365a0cf4c9d099a7627994aac6
+    applied_date: 2026-09-25
+  guided-missiles-20260925-missile-numeric-minimums:
+    product: guided-missiles
+    task_id: guided-missile-numeric-min-20260925
+    source_commit: 7045e5c76342093c1cef68bb881f5c645459fe33
+    applied_date: 2026-09-25
+    documentation_action: no_public_change
+  guided-missiles-20260925-phase-guide-legend:
+    product: guided-missiles
+    task_id: guided-phase-legend-only-20260925
+    source_commit: 37a4f1ec23d1ef82e460908aabed1bb85978e1c4
+    applied_date: 2026-09-25
+  guided-missiles-20260925-quadratic-drag:
+    product: guided-missiles
+    task_id: guided-missiles-quadratic-drag-20260925
+    source_commit: e89ea34f363b45f815b68f4501ffbc9e7eb6aba2
+    applied_date: 2026-09-25
+  guided-missiles-20260925-wrapped-phase-legend:
+    product: guided-missiles
+    task_id: guided-legend-wrap-20260925
+    source_commit: 3e5e6e37ee1b2dc4c62b216830099a2673ab6e5b
+    applied_date: 2026-09-25

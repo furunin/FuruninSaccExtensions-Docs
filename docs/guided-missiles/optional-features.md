@@ -14,7 +14,9 @@
 ## 発射・飛翔・着弾演出を設定する
 
 - 発射地点に残る音とパーティクルは`FSE_DFUNC_MissileLauncher`へ設定します。
-- ミサイルに追従するパーティクル、トレイル、音源は`FSE_MissileController`へ設定します。
+- 飛翔用Prefabの`FSE_MissileController`で`Flight & Impact Effect Groups`の`Add Effect Group`を選び、パーティクル・トレイル・音源を子に持つ親Transformを`Group`へ指定します。
+- 各`Group`で再生する`Straight Boost`、`Guided Boost`、`Guided Coast`、`Ballistic Flight`、`Impact`をチェックします。
+- `Impact`用の親Transformは`MissileVisualRoot`の外に配置します。演出グループ同士を親子に重ねないでください。
 
 ## ミサイルの迎撃
 

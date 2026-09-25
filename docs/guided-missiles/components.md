@@ -29,11 +29,11 @@
 |---|---|
 | `MissileRigidbody` / `MissileCollider` / `MissileAnimator` / `MissileVisualRoot` | 飛翔物理、衝突、Animator、表示を担当する参照です。 |
 | `RollVisualRoot` / `RollRateDegreesPerSecond` | 回転させるMeshの共通親と見た目のロール速度です。物理rootは指定しません。 |
-| `FlightParticles` / `FlightTrails` / `FlightSounds` | 飛翔中にミサイルへ追従する演出です。 |
-| `FlightEffectsDelaySeconds` | 飛翔演出を開始するまでの時間です。誘導や衝突は遅延しません。 |
-| `ExplosionParticles` / `ExplosionSounds` / `ExplosionLifeTime` | 通常着弾時の演出と、着弾後に待機状態へ戻るまでの時間です。 |
-| `FlyStraightTime` / `Acceleration` / `MaxSpeed` | 直進時間、加速度、最高速度です。 |
-| `MaxLifetime` / `BallisticLifetime` | 動力飛翔時間と、その後の重力飛行時間です。 |
+| `EffectGroupRoots` / `EffectGroupPhaseMasks` | 演出の親Transformと、再生する飛翔段階・着弾時の組み合わせです。 |
+| `FlightEffectsDelaySeconds` / `ExplosionLifeTime` | 飛翔演出の開始までの時間と、着弾後に待機状態へ戻るまでの時間です。 |
+| `StraightBoostTime` / `GuidedBoostTime` / `GuidedCoastTime` / `BallisticFlightTime` | 直進推進、誘導推進、誘導滑空、弾道飛行の継続時間（秒）です。 |
+| `Acceleration` / `MaxSpeed` / `Drag` | 加速度、推進中の最高速度、速度の二乗に応じた抵抗です。`Drag`の単位は1/mで、Rigidbodyの`Drag`と併用できます。 |
+| `RemoteVisualTimeout` | 他の参加者側で飛翔表示が残った場合、設定された総飛翔時間とこの時間の両方が過ぎると表示を終了します。 |
 | `AlignToVelocityDuringBallistic` | 弾道飛行中に表示方向を速度方向へ合わせます。 |
 | `AirPhysicsStrength` | 動力飛翔中の横滑りを抑える強さです。 |
 | `FlightWanderAcceleration` / `FlightWanderFrequency` / `FlightWanderRampTime` | 動力飛翔中の揺らぎの強さ、周波数、立ち上がり時間です。加速度または周波数を0にすると無効です。 |
