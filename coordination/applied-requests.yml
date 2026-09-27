@@ -312,3 +312,8 @@ requests:
     task_id: v050-changelog-handoff-20260927
     source_commit: 804f99645e49e20d156470290a3905972a4e7332
     applied_date: 2026-09-27
+  guided-missiles-20260928-dual-command-wire:
+    product: guided-missiles
+    task_id: command-wire-dual-visual-20260928
+    source_commit: e0775c5a692fbe4d788ecd3c36b04c63fef005ef
+    applied_date: 2026-09-28

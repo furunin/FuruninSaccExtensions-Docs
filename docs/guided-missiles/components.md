@@ -78,6 +78,7 @@
 |---|---|
 | `Missile` | 同じミサイルの`FSE_MissileController`です。 |
 | `CommandWireRenderer` / `EnableCommandWire` | ワイヤー表示用LineRendererと表示の有効化です。 |
+| `SecondCommandWireRenderer` / `CommandWirePairOffset` | 任意の2本目のLineRendererと、2本の間隔（m）です。Xは発射位置の右方向、Yは上方向です。 |
 | Sag項目 | 線の分割数と見た目の垂れを調整します。 |
 | `EnableWireCutDetection` / `WireCutLayers` | 障害物による切断判定と対象Layerです。 |
 | `WireCutCheckInterval` / `WireCutRadius` | 切断検査の間隔と判定線の太さです。 |
