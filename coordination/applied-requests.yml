@@ -290,3 +290,25 @@ requests:
     task_id: turret-japanese-terminology-20260927
     source_commit: 06d7eb9a55fe9408f6f26d6f11b1c9d3458d44d9
     applied_date: 2026-09-27
+  guided-missiles-20260927-launch-effects-launchpoint:
+    product: guided-missiles
+    task_id: launcher-launchpoint-effects-20260927
+    source_commit: f077050364493d75d04b79160c68620ed9b47ed7
+    applied_date: 2026-09-27
+    documentation_action: no_public_change
+  orchestrator-20260927-notice-minimal-license:
+    product: orchestrator
+    task_id: notice-minimal-license-20260927
+    source_commit: b89fbb706bc8f5a25559ac79a5bac2010643289e
+    applied_date: 2026-09-27
+    documentation_action: no_public_change
+  orchestrator-20260927-notice-remove-optional-labels:
+    product: orchestrator
+    task_id: notice-remove-optional-labels-20260927
+    source_commit: ae5c5217a72ce7ab4699485303985d0cc5b3eb85
+    applied_date: 2026-09-27
+  orchestrator-20260927-v0.5.0-changelog:
+    product: orchestrator
+    task_id: v050-changelog-handoff-20260927
+    source_commit: 804f99645e49e20d156470290a3905972a4e7332
+    applied_date: 2026-09-27

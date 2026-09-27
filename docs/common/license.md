@@ -1,6 +1,6 @@
 # ライセンスとクレジット
 
-Furunin Sacc Extensionsには、Sacchan-VRCのSaccFlightAndVehicles 1.8.1に由来するコードと素材が含まれます。これらにはMIT Licenseが適用されます。
+Furunin Sacc Extensionsには、Sacchan-VRCのSaccFlightAndVehiclesに由来するコードと素材が含まれます。これらにはMIT Licenseが適用されます。
 
 Copyright (c) 2021 Sacchan-VRC
 
