@@ -2,12 +2,12 @@
 
 ## FSE_EXT_Turret
 
-### Primary Aim Rotators
+### Reference Rotator
 
 | Field | 説明 |
 |---|---|
-| `AimYawRotator` | タレットを左右へ動かす主軸です。 |
-| `AimPitchRotator` | タレットを上下へ動かす主軸です。 |
+| `ReferenceRotatorHor` | 基準タレットのローカルY軸で左右に回転するTransformです。 |
+| `ReferenceRotatorVert` | 基準タレットのローカルX軸で上下に回転するTransformです。 |
 | `ControlsRoot` | VR操作で車両回転を相殺し、VR連続式Zoomの前後方向を決める基準Transformです。ローカルの+Z軸を車両前方へ合わせます。 |
 | `AimOrigin` | 最終的な照準方向を示すTransformです。 |
 | `OperatorSeat` | 照準を操作する座席です。 |
@@ -27,19 +27,19 @@
 | Field | 説明 |
 |---|---|
 | `DriveMode` | `Script`は基準タレットと追従タレットを直接回転させます。`Animator`は角度をAnimatorへ出力し、回転をAnimation Clipに任せます。 |
-| `PrimaryAimAnimator` | 基準タレットのAnimatorです。`Animator`モードでは必須です。`Script`モードでも角度出力に使用できます。 |
-| `TurretGunAnimator` | 追従タレットへ角度を出力するAnimatorです。未使用なら空欄にできます。 |
+| `ReferenceRotatorAnimator` | 基準タレットのAnimatorです。`Animator`モードでは必須です。`Script`モードでも角度出力に使用できます。 |
+| `FollowerRotatorsAnimator` | 追従タレットへ角度を出力するAnimatorです。基準タレットと同じAnimatorも指定できます。`Script`モードでも角度出力に使用でき、未使用なら空欄にできます。 |
 | `CurrentYawAnimatorParameter` / `CurrentPitchAnimatorParameter` | 現在の左右・上下角度を出力するFloat Parameter名です。 |
 | `TargetYawAnimatorParameter` / `TargetPitchAnimatorParameter` | 目標角度を出力するFloat Parameter名です。HEAD SLAVEでは追従の平滑化前の角度、手動操作と他の参加者側では現在角度を出力します。空欄にした項目は出力しません。 |
 
-### Turret Gun Followers
+### Follower Rotators
 
 | Field | 説明 |
 |---|---|
-| `TurretGunYawRotators` | 追従タレットの左右軸です。 |
-| `TurretGunPitchRotators` | 同じindexに対応する上下軸です。 |
+| `FollowerRotatorsHor` | 追従タレットのローカルY軸で左右に回転するTransformの配列です。 |
+| `FollowerRotatorsVert` | 同じ番号に対応するローカルX軸で上下に回転するTransformの配列です。 |
 
-同じTransformを同じindexの両配列へ指定すると、一つのTransformを上下左右へ動かします。
+存在しない軸は空欄にできます。同じTransformを同じ番号の両配列へ指定すると、一つのTransformを上下左右へ動かします。
 
 ### 手動照準
 

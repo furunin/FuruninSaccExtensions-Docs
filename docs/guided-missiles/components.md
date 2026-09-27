@@ -12,11 +12,13 @@
 | `LaunchPoints` / `AmmoMeshes` | 発射位置と対応する搭載弾表示です。同じ順序で登録します。 |
 | `ProjectilePool` / `PoolRoot` / `WorldParent` | 再利用するミサイル、待機時の親、飛翔中の親です。 |
 | `EnableOnSelected` | ミサイル機能の選択中だけ有効にする表示物です。 |
-| `LaunchSound` / `LaunchParticle` | 発射地点で再生する任意の音とパーティクルです。 |
+| `LaunchEffectsRoot` | 発射時に再生するParticleSystemとAudioSourceの親Transformです。 |
+| `TriggerEffectsRoot` | 発射入力の開始時に再生する任意のエフェクトの親Transformです。 |
 | `MaxAmmo` | 装填弾と予備弾を合わせた総搭載数です。 |
 | `HUDText_Missile_ammo` / `HUDText_Missile_ammo_TMP` / `HUDText_Missile_ammo_TMPUGUI` | `FSE_DFUNC_MissileLauncher`の総残弾数を表示する任意のText参照です。使用するTextの種類に対応するFieldへ指定します。 |
 | `MissileAnimator` / `AnimFloatName` | `FSE_DFUNC_MissileLauncher`の残弾割合を受け取る任意のAnimatorとFloat Parameter名です。 |
 | `RackReloadTimeSeconds` / `FireCooldown` | ラック再装填時間と発射間隔です。 |
+| `FireTriggerHoldSeconds` | 発射入力を押し続ける時間（秒）です。0なら押した時点で発射します。 |
 | `MaxConcurrentGuidedShots` | 同時に誘導状態を維持できる最大数です。 |
 | `MaxLaunchSightAngle` | 発射方向と誘導基準方向の許容角です。 |
 | `AllowFiringWhenGrounded` | Sacc航空機の`Taxiing`中に発射を許可するかを指定します。 |
@@ -32,7 +34,7 @@
 | `EffectGroupRoots` / `EffectGroupPhaseMasks` | 演出の親Transformと、再生する飛翔段階・着弾時の組み合わせです。 |
 | `FlightEffectsDelaySeconds` / `ExplosionLifeTime` | 飛翔演出の開始までの時間と、着弾後に待機状態へ戻るまでの時間です。 |
 | `StraightBoostTime` / `GuidedBoostTime` / `GuidedCoastTime` / `BallisticFlightTime` | 直進推進、誘導推進、誘導滑空、弾道飛行の継続時間（秒）です。 |
-| `Acceleration` / `MaxSpeed` / `Drag` | 加速度、推進中の最高速度、速度の二乗に応じた抵抗です。`Drag`の単位は1/mで、Rigidbodyの`Drag`と併用できます。 |
+| `Acceleration` / `MaxSpeed` / `Drag` | 加速度、推進中の最高速度、速度の二乗に応じた抵抗です。`Drag`のInspector入力単位は1/kmで、Rigidbodyの`Drag`と併用できます。 |
 | `RemoteVisualTimeout` | 他の参加者側で飛翔表示が残った場合、設定された総飛翔時間とこの時間の両方が過ぎると表示を終了します。 |
 | `AlignToVelocityDuringBallistic` | 弾道飛行中に表示方向を速度方向へ合わせます。 |
 | `AirPhysicsStrength` | 動力飛翔中の横滑りを抑える強さです。 |

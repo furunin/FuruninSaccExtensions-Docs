@@ -10,15 +10,17 @@
 
 `FSE_TurretControl`オブジェクトの`FSE_EXT_Turret`に以下の設定をします。
 
+基準タレットが`Aim Origin`の方向を決め、追従タレットがその方向に追従します。照準器と砲塔のどちらも、いずれの役割にも使用できます。
+
 | Field | 説明 |
 |---|---|
-| `AimYawRotator` | 基準タレットのヨー回転軸となるオブジェクトを指定します。 |
-| `AimPitchRotator` | 基準タレットのピッチ回転軸となるオブジェクトを指定します。 |
+| `Reference Rotator Hor` | 基準タレットのローカルY軸で左右に回転するTransformを指定します。 |
+| `Reference Rotator Vert` | 基準タレットのローカルX軸で上下に回転するTransformを指定します。 |
 | `ControlsRoot` | 対象の乗り物と共に動き、ローカルの+Z軸が車両前方を向くTransformを指定します。 |
 | `OperatorSeat` | タレットを操作する座席のオブジェクトを指定します。 |
 
 !!! note
-    ヨー回転軸またはピッチ回転軸のいずれか一方しかないタレットを制御したい場合は、`AimPitchRotator`または`AimYawRotator`に何も指定しないことで設定ができます。
+    左右または上下の一方の回転軸しかない場合は、存在しない軸の`Reference Rotator Hor`または`Reference Rotator Vert`を空欄にします。
 
 ![FSE_EXT_Turretに参照を設定](../assets/images/turret-control/installation/2-1_1.png){ width="900" loading=lazy }
 
@@ -35,7 +37,7 @@
 #### 2-2-A. スクリプトで制御する場合
 
 - `Drive Mode`のプルダウンから`Script`を選択します（初期値は`Script`です）。
-- 追従タレットを設定する場合は、`Follower Rotators`に追加したいタレットのヨー/ピッチ回転軸を指定します。
+- 追従タレットを設定する場合は、各タレットの左右軸を`Follower Rotators Hor`、上下軸を`Follower Rotators Vert`の同じ番号に指定します。存在しない軸は空欄にできます。1つのTransformで両軸を回転させる場合は、両方へ同じTransformを指定します。
 
 #### 2-2-B. 自作アニメーターで制御する場合
 

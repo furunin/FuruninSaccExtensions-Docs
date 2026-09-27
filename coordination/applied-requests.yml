@@ -254,3 +254,39 @@ requests:
     task_id: guided-legend-wrap-20260925
     source_commit: 3e5e6e37ee1b2dc4c62b216830099a2673ab6e5b
     applied_date: 2026-09-25
+  guided-missiles-20260925-drag-label:
+    product: guided-missiles
+    task_id: guided-drag-label-20260925
+    source_commit: 6af4b595149ba076d5b4d52bfc21aab7799056e1
+    applied_date: 2026-09-27
+  guided-missiles-20260925-drag-per-kilometer:
+    product: guided-missiles
+    task_id: guided-drag-km-display-20260925
+    source_commit: a80dea4ca8e41cf2c4d5715e5210af20d14dcbae
+    applied_date: 2026-09-27
+  guided-missiles-20260926-effect-group-context-menu:
+    product: guided-missiles
+    task_id: guided-effect-group-context-menu-20260925
+    source_commit: 82a3891f67bc64f1a9c10afa2e0a578850a32966
+    applied_date: 2026-09-27
+    documentation_action: no_public_change
+  guided-missiles-20260927-launch-effects-root:
+    product: guided-missiles
+    task_id: launcher-effect-root-20260927
+    source_commit: 3e5df19b21b38593d2b8fd6c7b6bfe1c60411ff0
+    applied_date: 2026-09-27
+  guided-missiles-20260927-trigger-hold:
+    product: guided-missiles
+    task_id: launcher-trigger-hold-20260927
+    source_commit: 04a9c4738565253e053bb3ad15c9b7a0d9e55a15
+    applied_date: 2026-09-27
+  turret-control-20260926-rotator-names:
+    product: turret-control
+    task_id: turret-rotator-names-20260926
+    source_commit: 06d7eb9a55fe9408f6f26d6f11b1c9d3458d44d9
+    applied_date: 2026-09-27
+  turret-control-20260927-rotator-japanese-terminology:
+    product: turret-control
+    task_id: turret-japanese-terminology-20260927
+    source_commit: 06d7eb9a55fe9408f6f26d6f11b1c9d3458d44d9
+    applied_date: 2026-09-27

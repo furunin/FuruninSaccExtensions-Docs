@@ -6,7 +6,7 @@
 
 - `StraightBoostTime`、`GuidedBoostTime`、`GuidedCoastTime`、`BallisticFlightTime`で、4つの飛翔フェーズの継続時間をそれぞれ秒単位で設定します。各フェーズの概要については[飛翔フェーズ](behavior.md#phases)を参照してください。
 - `Acceleration`で発射後の加速度を設定できます。`MaxSpeed`で最高速度を制限します。
-- `Drag`で速度の二乗に比例する抵抗を設定できます。全飛翔フェーズで作用します。
+- `Drag`で速度の二乗に比例する抵抗を設定できます。Inspectorの入力単位は1/kmで、減速度は速度をm/sとしたとき`(Drag / 1000) × 速度²`です。全飛翔フェーズで作用し、既存Prefabの設定値はそのまま引き継がれます。
 - 初速を0 m/sとしたときの各フェーズでのミサイルの速度と飛距離をグラフで確認することができます。
 
 ![FSE_MissileControllerの飛翔特性設定](../assets/images/guided-missiles/basic-settings/missile-property-preview.png){ width="900" loading=lazy }
@@ -18,7 +18,8 @@
 
 ### `FSE_DFUNC_MissileLauncher`
 
-- 発射時に再生する音とパーティクルをそれぞれ`Launch Sound`と`Launch Particle`に設定します。
+- 発射時に再生するParticleSystemとAudioSourceを有効なGameObjectの下にまとめ、その親を`Launch Effects Root`へ指定します。親自身にも配置できます。
+- 配布Prefabでは設定済みです。旧`Launch Sound`／`Launch Particle`を使用した独自Prefabは、エフェクトをまとめた親オブジェクトを`Launch Effects Root`へ指定し直します。
 
 ### `FSE_MissileController`
 
