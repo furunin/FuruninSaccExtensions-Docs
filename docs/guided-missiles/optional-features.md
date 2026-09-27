@@ -42,12 +42,6 @@
 - Animatorを使用する場合は、残弾表示専用のFloat Parameterを作成し、`MissileAnimator`へAnimatorを、`AnimFloatName`へParameter名を指定します。Floatには残弾の割合が0から1で出力されます。
 - AAM、AGM、Bombなど、別の武器DFUNCが制御するTextやAnimator Parameterは使用しないでください。
 
-## 発射トリガーの長押しを設定する
-
-`FSE_DFUNC_MissileLauncher`の`Fire Trigger Hold Seconds`に、発射入力を押し続ける時間を秒単位で設定します。0なら即時発射します。設定時間より前に離すと発射を取り消し、弾薬は消費しません。
-
-発射入力の開始時に演出を再生する場合は、ParticleSystemとAudioSourceを発射エフェクトとは別の有効なGameObjectの下にまとめ、その親を`Trigger Effects Root`へ指定します。親自身にも配置できます。演出は他の参加者にも再生され、発射前に入力を離しても停止しません。配布Prefabではこの参照は未設定です。
-
 ## ミサイル発射による機体の重心位置変化を再現する
 
 `FSE_MissileMassBalance`を使用すると、各Launcherの残弾数と搭載位置に合わせて乗り物の重心位置を変更できます。左右のミサイルを異なる順序で発射する構成にも使用できます。この機能は`SaccEntity.CenterOfMass`の位置だけを変更し、乗り物やミサイルのRigidbodyの質量は変更しません。

@@ -8,9 +8,7 @@
 
 ### 2-1. 共通の設定をする
 
-`FSE_TurretControl`オブジェクトの`FSE_EXT_Turret`に以下の設定をします。
-
-基準タレットが`Aim Origin`の方向を決め、追従タレットがその方向に追従します。照準器と砲塔のどちらも、いずれの役割にも使用できます。
+`FSE_TurretControl`オブジェクトの`FSE_EXT_Turret`に以下の設定をします。基準タレットが`Aim Origin`の方向を決め、追従タレットがその方向に追従します。
 
 | Field | 説明 |
 |---|---|
@@ -37,7 +35,7 @@
 #### 2-2-A. スクリプトで制御する場合
 
 - `Drive Mode`のプルダウンから`Script`を選択します（初期値は`Script`です）。
-- 追従タレットを設定する場合は、各タレットの左右軸を`Follower Rotators Hor`、上下軸を`Follower Rotators Vert`の同じ番号に指定します。存在しない軸は空欄にできます。1つのTransformで両軸を回転させる場合は、両方へ同じTransformを指定します。
+- 追従タレットを設定する場合は、`Follower Rotators Hor / Vert`に追加したいタレットのヨー/ピッチ回転軸を指定します。
 
 #### 2-2-B. 自作アニメーターで制御する場合
 
