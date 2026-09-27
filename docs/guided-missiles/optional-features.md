@@ -26,11 +26,9 @@
 
 ## 指令ワイヤーの表示と切断設定を変更する
 
-飛翔用ミサイルの`FSE_MissileController`内`Command Link`に`FSE_CommandLinkController`を登録し、`EnableCommandWire`を有効にするとミサイルへ操作入力を送る指令ワイヤーが表示されるようになります。`EnableWireCutDetection`を有効にすると、目標と発射位置の間が障害物で遮られた際にワイヤーが切断され、誘導ができなくなります。
-
-配布の飛翔用ミサイルには2本の表示用ワイヤーが設定されています。既存の独自飛翔用Prefabを2本表示にする場合は、`Command Link`の子に2本目の`LineRenderer`を追加し、`FSE_CommandLinkController.SecondCommandWireRenderer`へ指定します。見た目を揃える場合は、1本目と同じ`LineRenderer`設定にします。
-
-`CommandWirePairOffset`には2本の間隔をm単位で指定します。Xは発射位置の右方向、Yは上方向です。2本目を指定しなければ、従来どおり1本で表示されます。
+- 飛翔用ミサイルの`FSE_MissileController`内`Command Link`に`FSE_CommandLinkController`を登録し、`EnableCommandWire`を有効にするとミサイルへ操作入力を送る指令ワイヤーが表示されるようになります。
+- `EnableWireCutDetection`を有効にすると、目標と発射位置の間が障害物で遮られた際にワイヤーが切断され、誘導ができなくなります。
+- 指令ワイヤーは2本まで表示することができます。`CommandWirePairOffset`には2本の間隔をm単位で指定します。Xは発射位置の右方向、Yは上方向です。
 
 表示と切断判定は個別に有効化できます。`CommandWireSegments`、`CommandWireSagRatio`、`CommandWireMaxSag`は見た目だけを調整し、2本表示でも切断判定は発射位置とミサイルを結ぶ中心の直線で行います。
 
