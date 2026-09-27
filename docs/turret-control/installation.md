@@ -4,39 +4,70 @@
 
 セットアップ対象の車両ヒエラルキーに`FSE_TurretControl`がない場合は、`FSE_TurretControl`プレハブを配置します。
 
-## 2. 参照を設定する
+## 2. FSE_EXT_Turretの設定をする
 
-1. `FSE_TurretControl`オブジェクトの`FSE_EXT_Turret`に以下の設定をします。
+### 2-1. 共通の設定をする
 
-    - `ControlsRoot`：車両とともに動き、ローカルの+Z軸が車両前方を向くTransform。VR手動照準とVR連続式Zoomの基準になります。
-    - `OperatorSeat`：砲塔を操作する座席のオブジェクト
+`FSE_TurretControl`オブジェクトの`FSE_EXT_Turret`に以下の設定をします。
 
-    ![FSE_EXT_Turretに参照を設定](../assets/images/turret-control/installation/2-1_1.png){ width="900" loading=lazy }
+| Field | 説明 |
+|---|---|
+| `AimYawRotator` | 基準タレットのヨー回転軸となるオブジェクトを指定します。 |
+| `AimPitchRotator` | 基準タレットのピッチ回転軸となるオブジェクトを指定します。 |
+| `ControlsRoot` | 対象の乗り物と共に動き、ローカルの+Z軸が車両前方を向くTransformを指定します。 |
+| `OperatorSeat` | タレットを操作する座席のオブジェクトを指定します。 |
 
-    !!! Note "ヨー回転/ピッチ回転軸のいずれか1つしかない照準器を登録する方法"
-        ヨー回転軸のみ、またはピッチ回転軸のみを持つ照準器を制御したい場合は`Aim Yaw Rotator`または`Aim Pitch Rotator`の一方にその照準器が持つ回転軸を登録し、他方は空欄にしてください。
-        固定軸とは異なる位置や向きを照準の基準にする場合は`Aim Origin`を指定し、ローカルの+Z軸を照準方向へ合わせます。
+!!! note
+    ヨー回転軸またはピッチ回転軸のいずれか一方しかないタレットを制御したい場合は、`AimPitchRotator`または`AimYawRotator`に何も指定しないことで設定ができます。
 
-2. 今セットアップしている砲塔以外の砲塔やランチャー等の向きをこの砲塔へ追従させる場合は、`TurretGunYawRotators`と`TurretGunPitchRotators`へそのTransformを登録します。
-3. 操作席の`Sacc Vehicle Seat`オブジェクトの`EnableInSeat`へ、以下のオブジェクトを登録します。
+![FSE_EXT_Turretに参照を設定](../assets/images/turret-control/installation/2-1_1.png){ width="900" loading=lazy }
 
-    - `FSE_TurretControl/Yaw Pivot/Pitch Pivot/Aim Origin`
-    - `FSE_TurretControl/Sight Display`
+### 2-2. タレットの制御方式を選択する
 
-    ![Sacc Vehicle SeatのEnableInSeatを設定](../assets/images/turret-control/installation/2-3_1.png){ width="900" loading=lazy }
+タレットの旋回制御をスクリプトによって行うか、アニメーターによって行うかを選択することができます。
+
+!!! note
+    アニメーター制御モードを選択した場合は`FSE_EXT_Turret`が各回転軸の目標回転角度の算出までを行います。タレットの旋回はアニメーターが行います。
+
+!!! note
+    スクリプト制御モードを選択した場合でも、`Reference Rotator Animator`や`Follower Rotators Animator`に指定したアニメーターから各回転軸の角度に関するfloatパラメーター（`Current/Target Yaw/Pitch Animator Parameter`）を取得することができます。
+
+#### 2-2-A. スクリプトで制御する場合
+
+- `Drive Mode`のプルダウンから`Script`を選択します（初期値は`Script`です）。
+- 追従タレットを設定する場合は、`Follower Rotators`に追加したいタレットのヨー/ピッチ回転軸を指定します。
+
+#### 2-2-B. 自作アニメーターで制御する場合
+
+- `Drive Mode`のプルダウンから`Animator`を選択します。
+- `Reference Rotator Animator`に、基準タレットの旋回制御を設定したアニメーターを指定します。
+- アニメーターで`Current/Target Yaw/Pitch Animator Parameter`で指定した名前の各回転軸の角度に関するfloatパラメーターを作成し、モデルに合わせてアニメーションを設定します。
+- 追従タレットを設定する場合は、`Follower Rotators Animator`に追従タレットの旋回制御を設定したアニメーターを指定します。`Reference Rotator Animator`と同じでも構いません。
 
 ## 3. 操作席の設定をする
 
-### PassengerSeatで操作する場合
+### 3-1. 共通の設定をする
 
-- PassengerSeatの`Sacc Vehicle Seat`内`Passenger Functions`が参照する`SAV_PassengerFunctionsController`をクリックします。インスペクターを開き、`PassengerExtensions`に`FSE_TurretControl`オブジェクト（`FSE_EXT_Turret`）を登録します。
+タレットの操作席の`Sacc Vehicle Seat`オブジェクトの`EnableInSeat`へ、以下のオブジェクトを登録します。
+
+- `FSE_TurretControl/Yaw Pivot/Pitch Pivot/Aim Origin`
+- `FSE_TurretControl/Sight Display`
+
+![Sacc Vehicle SeatのEnableInSeatを設定](../assets/images/turret-control/installation/2-3_1.png){ width="900" loading=lazy }
+
+### 3-2. `FSE_EXT_Turret`を`ExtensionUdonBehaviours`に登録する
+
+#### 3-2-A. PassengerSeatで操作する場合
+
+- PassengerSeatの`Sacc Vehicle Seat`内`Passenger Functions`が参照する`SAV_PassengerFunctionsController`をクリックし、インスペクターを開きます。
+- `PassengerExtensions`に`FSE_TurretControl`オブジェクト（`FSE_EXT_Turret`）を登録します。
 
 ![PassengerExtensionsを設定](../assets/images/turret-control/installation/3_1.png){ width="900" loading=lazy }
 
-### PilotSeatで操作する場合
+#### 3-2-B. PilotSeatで操作する場合
 
-- 車両の`SaccEntity`内`ExtensionUdonBehaviours`に`FSE_EXT_Turret`を登録します。
-
+- 対象の乗り物の`SaccEntity`のインスペクターを開きます。
+- `ExtensionUdonBehaviours`に`FSE_TurretControl`オブジェクト（`FSE_EXT_Turret`）を登録します。
 - 単独の砲塔として使用する場合は、`FSE_TurretControl`の子`FSE_DFUNC_TurretControl`を操作席の`Dial_Functions_L`または`Dial_Functions_R`へ登録します。
 
 ## 4. 任意機能を設定する
@@ -54,22 +85,3 @@
 ![HEAD SLAVE、Sight Camera／Zoomを設定](../assets/images/turret-control/installation/4_1.png){ width="900" loading=lazy }
 
 ![任意機能のキー設定](../assets/images/turret-control/installation/4_2.png){ width="900" loading=lazy }
-
-### Turret Follower
-
-照準器とは別の砲塔を同じ照準方向へ向ける機能です。使用する場合は`TurretGunYawRotators`と`TurretGunPitchRotators`に砲塔のヨー回転オブジェクトとピッチ回転オブジェクトを登録します。複数の砲塔を追従させることができます。
-
-!!! Note "ヨー回転/ピッチ回転軸のいずれか1つしかない砲塔を登録する方法"
-    `TurretGunYawRotators`と`TurretGunPitchRotators`は同じ要素数にします。ヨー回転軸のみを持つ砲塔では、`TurretGunYawRotators`へ回転軸を登録し、同じindexの`TurretGunPitchRotators`を空欄にしてください。ピッチ回転軸のみを持つ砲塔では逆に設定します。
-
-### Animatorで砲塔を動かす
-
-Animatorで主照準軸と追従砲塔を動かす場合は、次の手順で角度の出力先とAnimation Clipを設定します。
-
-1. `FSE_EXT_Turret`の`Drive Mode`を`Animator`に設定し、`Primary Aim Animator`に主照準軸を動かすAnimatorを指定します。別のAnimatorで追従砲塔を動かす場合は`Turret Gun Animator`にも指定します。同じAnimatorを両方へ指定することもできます。
-2. `Aim Yaw Rotator`と`Aim Pitch Rotator`を`Primary Aim Animator`の子階層へ配置します。両軸を使用する場合はピッチ軸をヨー軸の子にします。`Aim Origin`と`Sight Camera`は、最後に動く主照準軸の子に配置します。
-3. 割り当てたAnimator Controllerに、`CurrentYawAnimatorParameter`と`CurrentPitchAnimatorParameter`で指定した名前のFloat Parameterを作成します。`TargetYawAnimatorParameter`と`TargetPitchAnimatorParameter`にも名前を設定している場合は、そのFloat Parameterも作成します。
-4. モデルに合わせたヨー・ピッチのAnimation Clipを作成し、各Stateの`Motion Time`で`Parameter`を有効にして対応する現在角度のFloatを指定します。Floatの0から1へ、ヨーは`-SideAngleMax`から`+SideAngleMax`、ピッチは`-UpAngleMax`から`+DownAngleMax`まで動くようにします。
-5. Animatorの`Update Mode`を`Normal`、`Culling Mode`を`Always Animate`にし、`Apply Root Motion`を無効にします。照準軸を動かすStateに追加の遷移やDampingを設定しないでください。
-
-`Drive Mode`が`Script`の場合も、割り当てたAnimatorへ角度を出力できます。この場合、Animatorから主照準軸や追従砲塔のTransformを動かさないでください。

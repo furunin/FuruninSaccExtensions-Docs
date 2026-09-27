@@ -14,5 +14,3 @@
 | 弾薬表示が合わない | `LaunchPoints`と`AmmoMeshes`の数・順序、`MaxAmmo`、再装填状態を確認します。 |
 | 補給されない | Saccの補給通知と、`InVehicleOnly`の下で`ResupplyTrigger`が有効になっていることを確認します。`PilotOnly`の下や、同じ補給範囲へ重複する補給Triggerを配置しないでください。 |
 | 見た目がロールしない | `RollVisualRoot`へ物理rootではなくMeshの共通親を指定し、回転速度が0でないことを確認します。 |
-| 更新後に飛翔時間が変わった | 独自の飛翔用Prefabでは旧時間Fieldが新Fieldへ引き継がれません。旧`FlyStraightTime`を`StraightBoostTime`、旧`BallisticLifetime`を`BallisticFlightTime`へ指定します。旧設定の推進終了時刻を維持するには、`GuidedBoostTime`へ旧`MaxLifetime`から旧`FlyStraightTime`を引いた時間を指定します。 |
-| 更新後に飛翔・着弾演出が再生されない | 旧演出配列の設定は引き継がれません。使用する飛翔用Prefabごとに`Flight & Impact Effect Groups`で演出の親Transformと再生する段階を設定してください。 |

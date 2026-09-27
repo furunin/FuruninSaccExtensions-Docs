@@ -8,14 +8,15 @@ Guided Missileをセットアップする対象の乗り物にSaccをセット�
 
 ## 2. FSE_GuidedMissileを配置する
 
-`Assets/Furunin/SaccExtensions/Prefabs/Guided Missile/SubComponents/FSE_GuidedMissile`を乗り物の`Sacc Entity`の下へ配置します。
+1. `Assets/Furunin/SaccExtensions/Prefabs/Guided Missile/SubComponents/FSE_GuidedMissile`を乗り物の`Sacc Entity`の下へ配置します。
+2. `FSE_GuidedMissile`オブジェクトの`FSE_DFUNC_MissileLauncher`に以下の設定をします。
 
-`FSE_GuidedMissile`オブジェクトの`FSE_DFUNC_MissileLauncher`に以下の設定をします。
-
-- `SAVControl`：乗り物の`Sacc Air Vehicle`コンポーネント
-- `EntityControl`：乗り物の`SaccEntity`コンポーネント
-- `CollisionHostRoot`：発射直後の衝突判定から除外するオブジェクト
-- `OperatorSeat`：ミサイルの発射・誘導を行う操作席のオブジェクト
+    | Field | 説明 |
+    |---|---|
+    | `SAVControl` | 乗り物の`Sacc Air Vehicle`コンポーネントを指定します。 |
+    | `EntityControl` | 乗り物の`SaccEntity`コンポーネントを指定します。 |
+    | `CollisionHostRoot` | 発射直後の衝突判定から除外するオブジェクトを指定します。 |
+    | `OperatorSeat` | ミサイルの発射・誘導を行う操作席のオブジェクトを指定します。 |
 
 ![FSE_DFUNC_MissileLauncherの参照設定](../assets/images/guided-missiles/installation/2_1.png){ width="900" loading=lazy }
 
@@ -23,7 +24,7 @@ Guided Missileをセットアップする対象の乗り物にSaccをセット�
 
 ### 3-A. PassengerSeatで操作する場合
 
-1. PassengerSeatの`Sacc Vehicle Seat`内`Passenger Functions`が参照する`SAV_PassengerFunctionsController`をクリックし、ヒエラルキー上の場所を確認します。
+1. PassengerSeatの`Sacc Vehicle Seat`内`Passenger Functions`が参照する`SAV_PassengerFunctionsController`をクリックし、インスペクターを開きします。
 
     !!! Note "Passenger Functionsが未設定の座席を使用する場合"
 
@@ -58,38 +59,42 @@ PilotSeatでミサイルを選択している間は、機体操作と照準操�
 
 2. ツールの各項目を設定します。
 
+    ![ミサイルのセットアップツール](../assets/images/guided-missiles/installation/4-1_1.png){ width="600" loading=lazy }
+
     | 項目名 | 説明 |
     | --- | --- |
-    | `Operation` | 新規導入では`Create or Replace Setup`を選択します。 |
+    | `Operation` | ツールの動作を選択します。新規セットアップするには`Create or Replace Setup`を選択します。 |
     | `Launcher` | 配置した`FSE_DFUNC_MissileLauncher`を指定します。 |
     | `Guidance Type` | 使用する誘導方式を選択します。 |
     | `Stowed Visual` | 格納状態のミサイルの見た目を指定します。プロジェクト内のプレハブまたはFBXを指定します。 |
     | `Stowed Count` | 格納状態のミサイルの数を指定します。 |
     | `InFlight Visual` | 飛翔状態のミサイルの見た目を指定します。プロジェクト内のプレハブまたはFBXを指定します。 |
     | `InFlight Pool Count` | 飛翔状態のミサイルの数を指定します。`Stowed Count`と同じにする必要はありません。 |
-    | `Output Name` | 作成するミサイルの名前を指定します。新規作成時だけ表示されます。 |
-    | `Output Folder` | 格納状態/飛翔状態ミサイルのプレハブを保存するフォルダを指定します。新規作成時だけ表示されます。 |
-    | `Guidance Reference` | （SACLOSを選択した場合のみ）照準器の`Aim Origin`を指定します。 |
+    | `Output Name` | 作成するミサイルの名前を指定します。 |
+    | `Output Folder` | 格納状態/飛翔状態ミサイルのプレハブを保存するフォルダを指定します。 |
+    | `Guidance Reference` | （SACLOSを選択した場合のみ）ミサイルの誘導の基準となるオブジェクトを指定します。プレハブ付属の`FSE_TurretControl`を利用する場合は`FSE_GuidedMissile/FSE_TurretControl/Yaw Pivot/Pitch Pivot/Aim Origin`を指定してください。 |
 
     !!! Info  "格納状態と飛翔状態のミサイルの数"
         格納状態のミサイルの数（`Stowed Count`）は、ミサイルランチャーなど外から見える（表示したい）分だけ設定してください。飛翔状態のミサイルの数（`InFlight Pool Count`）は、同時にワールドに存在することが想定される分だけ設定してください。ギミックをセットアップした乗り物から発射された飛翔状態ミサイルがワールド中に`InFlight Pool Count`個ある状態でさらにミサイルを発射すると、古いミサイルから消滅して新しく発射したミサイルに割り当てられます。
 
-3. `Create and Setup`を実行します。既存のRoundが登録されている場合は、確認内容を読み、`Replace Listed Rounds and Create`を実行します。生成されたStowedの位置と各`LaunchPoint`の向きを調整します。`Stowed Count`が`MaxAmmo`を超える場合は、画面に表示された値へ`MaxAmmo`が増えます。元から多い場合は減りません。
-4. `Operation`を`Validate Launcher Setup`に切り替え、同名のボタンを実行してエラーがないことを確認します。
-5. 指定したフォルダに生成された格納状態ミサイルのプレハブ（`Missile Round_Stowed`）と飛翔状態ミサイルのプレハブ（`Missile Round_InFlight`）を開き、ミサイルの見た目が各プレハブのZ軸+（青い矢印）方向を向いていることを確認します。向きが合っていない場合はプレハブを開いて見た目の向きを調整し、プレハブを保存してください。
-6. `Missile Launcher`以下に生成された`Missile Round_Stowed`プレハブの位置と回転を調整します。なお、`Missile Round_InFlight`プレハブの位置調整は不要です。
+3. `Create and Setup`を実行します。指定した場所に格納状態と飛翔状態のミサイルのプレハブが生成され、`FSE_DFUNC_MissileLauncher`配下に指定した数のミサイルのプレハブが配置されます。
+    ![プロジェクトに生成されたミサイルのプレハブ](../assets/images/guided-missiles/installation/4-3_1.png){ width="900" loading=lazy }
+    ![ヒエラルキーに配置されたミサイルのプレハブ](../assets/images/guided-missiles/installation/4-3_2.png){ width="900" loading=lazy }
+4. 指定したフォルダに生成された格納状態ミサイルのプレハブ（`Missile Round_Stowed`）と飛翔状態ミサイルのプレハブ（`Missile Round_InFlight`）を開き、ミサイルの見た目が各プレハブのZ軸+（青い矢印）方向を向いていることを確認します。向きが合っていない場合はプレハブを開いて見た目の向きを調整し、プレハブを保存してください。
+    ![ミサイルプレハブの向きの確認](../assets/images/guided-missiles/installation/4-4_1.png){ width="900" loading=lazy }
+5. `Missile Launcher`以下に生成された`Missile Round_Stowed`プレハブの位置と回転を調整します。なお、`Missile Round_InFlight`プレハブの位置調整は不要です。
 
-    !!! Note  "生成済みプレハブを利用した設定変更"
-        セットアップ後にミサイルの見た目や飛翔特性などの設定を変更したいときは、生成される格納状態/飛翔状態ミサイルのプレハブを編集することで配置済みのミサイルへ一括で変更を反映することができます。
+!!! Info  "生成済みプレハブを利用した設定変更"
+    セットアップ後にミサイルの見た目や飛翔特性などの設定を変更したいときは、生成される格納状態/飛翔状態ミサイルのプレハブを編集することで配置済みのミサイルへ一括で変更を反映することができます。
 
-### セットアップツールで既存設定を更新する
+!!! Note  "セットアップツールで既存構成を変更・検証する"
+    - `Operation`で`Update Existing Setup`を選択すると既存セットアップの誘導方式、見た目、格納状態/飛翔状態ミサイルの数を変更することができます。
+    - `Operation`で`Validate Launcher Setup`を選択すると既存セットアップの設定が正しいかを検証することができます。
 
-1. `Operation`で`Update Existing Setup`を選択し、`Launcher`を指定して`Analyze Existing Setup`を実行します。ツールで作成したRound Prefabが認識されると、現在のPrefabの保存先が表示されます。Scene内の乗り物Prefab Variantも解析できます。
-2. 誘導方式、見た目、格納弾と飛翔弾の数を変更し、`Preview Update Existing Setup`の内容を確認してから`Update Existing Setup`を実行します。既存Prefabの保存先が使用されます。共用する格納弾Prefabの見た目を変更すると、そのPrefabを使用するすべての乗り物に反映されます。
-3. `Operation`を`Validate Launcher Setup`に切り替えて検証します。検証はツールで作成していないLauncherにも使用でき、設定を変更しません。ツールで作成した設定なら、更新画面と同じ現在のPrefab保存先も表示されます。
+## 5. 照準器の設定をする
 
-格納弾の数が`MaxAmmo`を超える場合は、更新時も`MaxAmmo`が増えます。SACLOSへ切り替えると既存の`FSE_MCLOSInputController`は無効になり、MCLOSへ戻すと再利用されます。
+- `FSE_GuidedMissile`配下にある`FSE_TurretControl`を使用してタレットを制御し、`Guidance Reference`に指定した`Aim Origin`を任意の方向に指向することができます。[FSE Turret Controlのセットアップ手順](../turret-control/installation.md)を参照してセットアップしてください。
 
-## 5. ギミックのカスタマイズをする
+## 6. ギミックのカスタマイズをする
 
-上記の手順で、ギミックが最低限動作するようになります。ミサイルの飛翔特性や誘導に関する設定は[基本的な設定](basic-settings.md)を、任意機能の導入は[任意の設定](optional-features.md)を参照してください。
+上記の手順で、ギミックが最低限動作するようになります。ミサイルの飛翔特性やエフェクト、誘導に関する設定は[基本的な設定](basic-settings.md)を、任意機能の導入は[任意の設定](optional-features.md)を参照してください。

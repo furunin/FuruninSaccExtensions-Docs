@@ -11,13 +11,6 @@
 
 2. 爆発時に非表示にしたいオブジェクト（ミサイルランチャー、照準器、格納中ミサイルなど）を追加し、チェックを外して表示されないようにします。
 
-## 発射・飛翔・着弾演出を設定する
-
-- 発射地点に残る音とパーティクルは`FSE_DFUNC_MissileLauncher`へ設定します。
-- 飛翔用Prefabの`FSE_MissileController`で`Flight & Impact Effect Groups`の`Add Effect Group`を選び、パーティクル・トレイル・音源を子に持つ親Transformを`Group`へ指定します。
-- 各`Group`で再生する`Straight Boost`、`Guided Boost`、`Guided Coast`、`Ballistic Flight`、`Impact`をチェックします。
-- `Impact`用の親Transformは`MissileVisualRoot`の外に配置します。演出グループ同士を親子に重ねないでください。
-
 ## ミサイルの迎撃
 
 配布の飛翔用ミサイルには迎撃判定用の`Intercept Proxy`が設定されています。Bomb、AGM、AAM、FSEミサイルの弾体が直接当たると、残りの`Health`にかかわらず破壊されます。Particleなどから`SaccTarget`へダメージを受けた場合は、`Health`が0になると破壊されます。耐久度を調整する場合は、飛翔用ミサイルPrefabの`Intercept Proxy`にある`SaccTarget.Health`を変更します。

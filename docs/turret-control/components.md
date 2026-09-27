@@ -6,8 +6,8 @@
 
 | Field | 説明 |
 |---|---|
-| `AimYawRotator` | 照準器を左右へ動かす主軸です。 |
-| `AimPitchRotator` | 照準器を上下へ動かす主軸です。 |
+| `AimYawRotator` | タレットを左右へ動かす主軸です。 |
+| `AimPitchRotator` | タレットを上下へ動かす主軸です。 |
 | `ControlsRoot` | VR操作で車両回転を相殺し、VR連続式Zoomの前後方向を決める基準Transformです。ローカルの+Z軸を車両前方へ合わせます。 |
 | `AimOrigin` | 最終的な照準方向を示すTransformです。 |
 | `OperatorSeat` | 照準を操作する座席です。 |
@@ -26,9 +26,9 @@
 
 | Field | 説明 |
 |---|---|
-| `DriveMode` | `Script`は照準軸と追従砲塔を直接回転させます。`Animator`は角度をAnimatorへ出力し、回転をAnimation Clipに任せます。 |
-| `PrimaryAimAnimator` | 主照準軸のAnimatorです。`Animator`モードでは必須です。`Script`モードでも角度出力に使用できます。 |
-| `TurretGunAnimator` | 追従砲塔へ角度を出力するAnimatorです。未使用なら空欄にできます。 |
+| `DriveMode` | `Script`は基準タレットと追従タレットを直接回転させます。`Animator`は角度をAnimatorへ出力し、回転をAnimation Clipに任せます。 |
+| `PrimaryAimAnimator` | 基準タレットのAnimatorです。`Animator`モードでは必須です。`Script`モードでも角度出力に使用できます。 |
+| `TurretGunAnimator` | 追従タレットへ角度を出力するAnimatorです。未使用なら空欄にできます。 |
 | `CurrentYawAnimatorParameter` / `CurrentPitchAnimatorParameter` | 現在の左右・上下角度を出力するFloat Parameter名です。 |
 | `TargetYawAnimatorParameter` / `TargetPitchAnimatorParameter` | 目標角度を出力するFloat Parameter名です。HEAD SLAVEでは追従の平滑化前の角度、手動操作と他の参加者側では現在角度を出力します。空欄にした項目は出力しません。 |
 
@@ -36,7 +36,7 @@
 
 | Field | 説明 |
 |---|---|
-| `TurretGunYawRotators` | 追従砲塔の左右軸です。 |
+| `TurretGunYawRotators` | 追従タレットの左右軸です。 |
 | `TurretGunPitchRotators` | 同じindexに対応する上下軸です。 |
 
 同じTransformを同じindexの両配列へ指定すると、一つのTransformを上下左右へ動かします。
@@ -49,7 +49,7 @@
 | `MaxJoyAngles` | VR仮想ジョイスティックの最大入力角です。 |
 | `VJoyRollAsYaw` | 右手Controllerのロールを左右入力に使います。 |
 | `TurningResponseDesktop` | Desktop入力の応答速度です。 |
-| `UpAngleMax` / `DownAngleMax` / `SideAngleMax` | 主照準器の可動範囲です。 |
+| `UpAngleMax` / `DownAngleMax` / `SideAngleMax` | 基準タレットの可動範囲です。 |
 | `InvertVRPitch` | VR手動照準と、右GripによるHEAD SLAVEの照準補正の上下方向を反転します。 |
 
 ### 同期
