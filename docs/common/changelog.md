@@ -1,5 +1,9 @@
 # 文書更新履歴
 
+## v0.5.4（2026-10-01）
+
+- FSE Turret ControlがTake Controlによる役割交代に追従し、交代後も担当座席で照準・HEAD SLAVE・Zoom・測距を使用可能に
+
 ## v0.5.3（2026-09-30）
 
 - FSE Guided Missilesの発射位置・搭載弾表示・指令ワイヤー始点を発射ステーションごとの設定へ集約

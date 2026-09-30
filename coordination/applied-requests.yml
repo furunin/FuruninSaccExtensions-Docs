@@ -356,3 +356,26 @@ requests:
       inspected_pages:
         - guided-missiles/optional-features/
         - guided-missiles/components/
+  turret-control-20261001-take-control-role-follow:
+    product: turret-control
+    task_id: turret-take-control-role-follow-20261001
+    source_commit: 1b6af10168f0edfde76629eff5eb5957cba926d2
+    applied_date: 2026-10-01
+  orchestrator-20261001-v0.5.4-changelog:
+    product: orchestrator
+    task_id: orchestrator-20261001-v054-export
+    source_commit: ff26195e3a4aee7e7c2dad2ed4e0e3f2190591f2
+    applied_date: 2026-10-01
+    local_preview:
+      date: 2026-10-01
+      base_documentation_commit: a43a7937639965e8ab53e35581055b4afa068f4c
+      includes_uncommitted_public_changes: true
+      changed_public_markdown_manifest_sha256: 8f4d13ede8242b5cda69486ed2c62b1f1691b09de1f6cd7c4a6e82bff3bbbeca
+      manifest_format: Sorted relative paths and lowercase file SHA256 values joined with LF, without trailing LF.
+      viewport_widths_px: [1440, 500]
+      themes: [default, slate]
+      inspected_pages:
+        - guided-missiles/optional-features/
+        - turret-control/operation/
+        - turret-control/components/
+        - common/changelog/

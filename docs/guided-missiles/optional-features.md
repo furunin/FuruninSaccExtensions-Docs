@@ -38,7 +38,7 @@
 
 `FSE_DFUNC_TakeControl`を使用すると、着席したまま操縦とミサイル操作の担当を交代できます。先に[導入手順](installation.md)のPassengerSeat構成を設定してください。
 
-FSE Turret Controlの照準操作は、`FSE_EXT_Turret.OperatorSeat`へ指定した座席に固定されます。Take Controlでミサイル操作担当が交代しても、砲塔の操作席は交代前の座席のままです。
+FSE Turret Controlを[導入手順](../turret-control/installation.md)に従って操作席へ登録している場合は、砲塔の照準操作も交代後の操作席へ追従します。交代後の操作は[Turret Controlの操作方法](../turret-control/operation.md)を参照してください。
 
 1. 乗り物の`SaccEntity`配下にGameObjectを作成し、`FSE_DFUNC_TakeControl`を追加します。
 2. `EntityControl`へ乗り物の`SaccEntity`を、`ThisSVSeat`へ交代前のミサイル操作席の`SaccVehicleSeat`を指定します。
