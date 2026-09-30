@@ -27,10 +27,28 @@
 ## 指令ワイヤーの表示と切断設定を変更する
 
 - 飛翔用ミサイルの`FSE_MissileController`内`Command Link`に`FSE_CommandLinkController`を登録し、`EnableCommandWire`を有効にするとミサイルへ操作入力を送る指令ワイヤーが表示されるようになります。
-- `EnableWireCutDetection`を有効にすると、目標と発射位置の間が障害物で遮られた際にワイヤーが切断され、誘導ができなくなります。
-- 指令ワイヤーは2本まで表示することができます。`CommandWirePairOffset`には2本の間隔をm単位で指定します。Xは発射位置の右方向、Yは上方向です。
+- `EnableWireCutDetection`を有効にすると、ミサイルと発射位置の間が障害物で遮られた際にワイヤーが切断され、誘導ができなくなります。
+- `FSE_CommandLinkController`の`First Command Wire Renderer`へ1本目のLineRendererを指定します。2本表示する場合は、`Second Command Wire Renderer`へ別のLineRendererを指定します。
+- 発射機側の接続位置は、格納状態ミサイルの`FSE_MissileLaunchStation`にある`First Command Wire Origin`と`Second Command Wire Origin`へ指定したTransformで調整します。未設定の場合は、そのステーションの`Launch Point`を使用します。
+- ミサイル側の接続位置は、飛翔用ミサイルの各LineRendererが付いたGameObjectのTransformで調整します。配布Prefabでは`Command Wire`と`Command Wire 2`が該当します。
 
 表示と切断判定は個別に有効化できます。`CommandWireSegments`、`CommandWireSagRatio`、`CommandWireMaxSag`は見た目だけを調整し、2本表示でも切断判定は発射位置とミサイルを結ぶ中心の直線で行います。
+
+## 操縦席とミサイル操作席の役割を交代する
+
+`FSE_DFUNC_TakeControl`を使用すると、着席したまま操縦とミサイル操作の担当を交代できます。先に[導入手順](installation.md)のPassengerSeat構成を設定してください。
+
+FSE Turret Controlの照準操作は、`FSE_EXT_Turret.OperatorSeat`へ指定した座席に固定されます。Take Controlでミサイル操作担当が交代しても、砲塔の操作席は交代前の座席のままです。
+
+1. 乗り物の`SaccEntity`配下にGameObjectを作成し、`FSE_DFUNC_TakeControl`を追加します。
+2. `EntityControl`へ乗り物の`SaccEntity`を、`ThisSVSeat`へ交代前のミサイル操作席の`SaccVehicleSeat`を指定します。
+3. 同じ`FSE_DFUNC_TakeControl`を、`SaccEntity.Dial_Functions_L`と、ミサイル操作席の`SAV_PassengerFunctionsController.Dial_Functions_L`の両方へ登録します。右Dialを使用する場合は、両方とも`Dial_Functions_R`へ登録してください。両方へ登録することで、交代後も再交代の機能を選択できます。
+4. Desktopの選択キーを設定する場合は、各席で使用する`SAV_KeyboardControls`の空きの機能Field（`Lfunc1`など）へ同じ`FSE_DFUNC_TakeControl`を指定し、対応するキーField（`Lfunc1key`など）へ選択キーを設定します。`SAV_KeyboardControls`がない場合は、各席の`Enable In Seat`に登録されたObjectへ追加してください。`FSE_DFUNC_TakeControl.TakeControlKey`には、選択後に交代を実行するキーを設定します。既存の`DFUNC_TakeControl`を置き換える場合は、Dialと選択キーの参照を新しいComponentへ変更してください。
+5. Take Controlを選択して、VRでは選択した側のControllerのTrigger、Desktopでは`TakeControlKey`に設定したキーで交代します。両席から、交代後の操縦・ミサイル操作と再交代ができることを確認してください。
+
+操縦者の許可を必要にする場合は、操縦者が有効／無効を切り替えられるObjectを`PermissionObject`へ指定します。操縦席に人がいる場合、そのObjectが有効な間だけミサイル操作担当が操縦を引き継げます。未設定の場合、または操縦席が空席の場合は許可なしで交代できます。交代後の操縦者は元の役割へ戻せます。長押しで交代する場合は`HoldToTake`を有効にします。
+
+座席ごとの無線も交代する場合は、操縦席用の`SAV_Radio`を`PilotRadio`へ、ミサイル操作席用を`ThisSeatRadio`へ指定します。交代時に計器などを移動する場合は、`MoveTransforms`へ移動対象を、`MoveTransforms_CoPosition`へ移動先の位置・回転を示すTransformを、同じ要素数・順序で登録します。
 
 ## パイロット席に着席しなくてもミサイルを補給できるようにする
 
@@ -54,6 +72,6 @@
 4. 各Launcherの`ProjectilePool`に登録されている飛翔用ミサイルの`Rigidbody`へ、ミサイル1発分の質量を設定します。同じLauncherに属する飛翔用ミサイルには、すべて同じ値を設定してください。質量は0より大きい値にします。
 5. `VehicleMassWithoutMissiles`へミサイルを含まない乗り物の質量を設定します。0の場合は、初期化時の乗り物のRigidbodyの質量を使用します。
 
-`MissileCenterOfMassOffsets`を使用すると、搭載弾表示のTransformから重心位置を補正できます。`MaxAmmo`が搭載弾表示の数を超える場合は、`ReserveMassPoints`へ予備弾の重心位置を指定できます。これらを使用する場合は、`Launchers`と同じ要素数で、同じ順序に登録してください。
+`MissileCenterOfMassOffsets`を使用すると、各発射ステーションのルートTransformを基準に、そのローカル座標で重心位置を補正できます。`MaxAmmo`が発射ステーションの数を超える場合は、`ReserveMassPoints`へ予備弾の重心位置を指定できます。これらを使用する場合は、`Launchers`と同じ要素数で、同じ順序に登録してください。
 
 `FSE_MissileMassBalance`は1台の乗り物に1つだけ使用してください。`SaccEntity.CenterOfMass`を動的に変更する他のComponentとは併用できません。

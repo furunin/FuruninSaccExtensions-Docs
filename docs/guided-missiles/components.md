@@ -9,7 +9,7 @@
 | `GuidanceReference` | 誘導基準方向を示すTransformです。青いZ軸を使用します。 |
 | `OperatorSeat` | 操作に使用する一席です。 |
 | `PassengerFunctionsController` | PassengerSeat構成で使用します。PilotSeat構成では未設定にします。 |
-| `LaunchPoints` / `AmmoMeshes` | 発射位置と対応する搭載弾表示です。同じ順序で登録します。 |
+| `LaunchStations` | 各格納状態ミサイルの`FSE_MissileLaunchStation`を発射順に登録します。 |
 | `ProjectilePool` / `PoolRoot` / `WorldParent` | 再利用するミサイル、待機時の親、飛翔中の親です。 |
 | `EnableOnSelected` | ミサイル機能の選択中だけ有効にする表示物です。 |
 | `LaunchEffectsRoot` | 発射時に再生するParticleSystemとAudioSourceの親Transformです。 |
@@ -24,6 +24,14 @@
 | `AllowFiringWhenGrounded` | Sacc航空機の`Taxiing`中に発射を許可するかを指定します。 |
 | `MaximumFiringSpeed` | 発射可能な車両合成速度の上限（m/s）です。0以下は無制限です。 |
 | `InheritHostVelocity` | 発射時に車両速度を引き継ぐかを指定します。 |
+
+## FSE_MissileLaunchStation
+
+| Field | 説明 |
+|---|---|
+| `LaunchPoint` | 必須の発射位置です。青いZ軸が発射方向です。 |
+| `VisualRoot` | 任意の搭載弾表示です。残弾に応じてこのオブジェクトだけが非表示になります。未設定なら表示切替は行いません。ステーション本体・その祖先・`LaunchPoint`・ワイヤー始点を含むオブジェクトを指定しないでください。 |
+| `FirstCommandWireOrigin` / `SecondCommandWireOrigin` | 任意のワイヤー始点です。それぞれ未設定なら`LaunchPoint`を使用します。 |
 
 ## FSE_MissileController
 
@@ -77,8 +85,8 @@
 | Field | 説明 |
 |---|---|
 | `Missile` | 同じミサイルの`FSE_MissileController`です。 |
-| `CommandWireRenderer` / `EnableCommandWire` | ワイヤー表示用LineRendererと表示の有効化です。 |
-| `SecondCommandWireRenderer` / `CommandWirePairOffset` | 任意の2本目のLineRendererと、2本の間隔（m）です。Xは発射位置の右方向、Yは上方向です。 |
+| `First Command Wire Renderer`（`CommandWireRenderer`） / `EnableCommandWire` | 1本目のワイヤー表示用LineRendererと表示の有効化です。LineRendererのTransformがミサイル側の接続点です。 |
+| `Second Command Wire Renderer`（`SecondCommandWireRenderer`） | 任意の2本目のLineRendererです。そのTransformが2本目のミサイル側接続点です。 |
 | Sag項目 | 線の分割数と見た目の垂れを調整します。 |
 | `EnableWireCutDetection` / `WireCutLayers` | 障害物による切断判定と対象Layerです。 |
 | `WireCutCheckInterval` / `WireCutRadius` | 切断検査の間隔と判定線の太さです。 |

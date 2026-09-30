@@ -20,7 +20,7 @@
 
 ## 弾薬と再装填
 
-`LaunchPoints`へ装填された弾を撃ち切り、総残弾が残っている場合は、`RackReloadTimeSeconds`経過後に次のラックを装填します。
+`LaunchStations`へ発射順に登録されたステーションの弾を撃ち切り、総残弾が残っている場合は、`RackReloadTimeSeconds`経過後に次のラックを装填します。弾薬がないステーションでは`VisualRoot`だけが非表示になり、発射位置とワイヤー始点は維持されます。
 
 ## 発射制限
 

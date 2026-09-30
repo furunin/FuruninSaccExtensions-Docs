@@ -99,6 +99,7 @@ requests:
     task_id: seat-role-take-control
     source_commit: 1bd9a8e8fd248b7361b542f04cf4e56d92ef21f3
     applied_date: 2026-09-12
+    updated_date: 2026-09-30
   guided-missiles-20260908-take-control-variant-prefab:
     product: guided-missiles
     task_id: take-control-variant-prefab
@@ -317,3 +318,41 @@ requests:
     task_id: command-wire-dual-visual-20260928
     source_commit: e0775c5a692fbe4d788ecd3c36b04c63fef005ef
     applied_date: 2026-09-28
+  guided-missiles-20260929-command-wire-endpoints:
+    product: guided-missiles
+    task_id: command-wire-independent-endpoints-20260929
+    source_commit: 4638c5a253bc7ae978c6c24decbac7bed9d13fe8
+    applied_date: 2026-09-30
+  guided-missiles-20260930-launch-stations:
+    product: guided-missiles
+    task_id: launch-stations-20260930
+    source_commit: dd0ad73459f4cac69d611a4dfca490707a6fac9d
+    applied_date: 2026-09-30
+  turret-control-20260930-unmanned-local-angle-hold:
+    product: turret-control
+    task_id: turret-unmanned-local-angle-hold-20260930
+    source_commit: 4cf5fb672a4e5d2161fe6781f0e0855c9f03bfb8
+    applied_date: 2026-09-30
+    documentation_action: no_public_change
+    reason: User requested no documentation change for this topic.
+  orchestrator-20260930-v0.5.3-changelog:
+    product: orchestrator
+    task_id: orchestrator-20260930-v053-export
+    source_commit: 389f2bf72cd6529daa0db70139082c1c4cd11358
+    applied_date: 2026-09-30
+    documentation_action: partial_public_change
+    omitted_changes:
+      - Turret Control unmanned local-angle hold
+      - SH-1 HEAD SLAVE selection indicator
+    additional_user_requested_content: FSE_DFUNC_TakeControl setup
+    local_preview:
+      date: 2026-09-30
+      base_documentation_commit: 331e2a9c9c17725356bec06a948d7b336d7ea73c
+      includes_uncommitted_public_changes: true
+      changed_public_markdown_manifest_sha256: bcb31cd6b76802dffbed8c947f57dc88678afe1022200963ea47ecdf64602c58
+      manifest_format: Sorted relative paths and lowercase file SHA256 values joined with LF, without trailing LF.
+      viewport_widths_px: [1440, 500]
+      themes: [default, slate]
+      inspected_pages:
+        - guided-missiles/optional-features/
+        - guided-missiles/components/
