@@ -4,8 +4,6 @@
 
 `Missile Launcher`以下の`Missile Round_Stowed`の位置と回転を調整します。各格納状態ミサイルの`FSE_MissileLaunchStation`で、`LaunchPoint`へ発射位置を指定し、そのZ軸+（青い矢印）方向を発射方向へ向けます。`VisualRoot`には搭載弾の見た目だけを指定し、`FSE_DFUNC_MissileLauncher`の`LaunchStations`へ各ステーションを発射順に登録します。メッシュを差し替えることで任意の3Dモデルを使用することができます。
 
-独自の旧構成から更新する場合は、各格納状態ミサイルへ`FSE_MissileLaunchStation`を追加し、従来の発射位置を`LaunchPoint`へ指定します。搭載弾の見た目だけをまとめた子オブジェクトを`VisualRoot`へ指定し、各ステーションを`LaunchStations`へ発射順に再登録してください。ワイヤー始点を個別に配置していた場合は`FirstCommandWireOrigin`と`SecondCommandWireOrigin`へ指定します。未設定ならそれぞれ`LaunchPoint`を使用します。`VisualRoot`にはステーション本体・その祖先・発射位置・ワイヤー始点を含めないでください。
-
 ![ミサイルの位置を確認](../assets/images/guided-missiles/installation/4-B-1_1.png){ width="900" loading=lazy }
 
 ## 2. 照準器を乗り物へ接続する

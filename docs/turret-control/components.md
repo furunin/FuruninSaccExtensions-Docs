@@ -10,7 +10,7 @@
 | `ReferenceRotatorVert` | 基準タレットのローカルX軸で上下に回転するTransformです。 |
 | `ControlsRoot` | VR操作で車両回転を相殺し、VR連続式Zoomの前後方向を決める基準Transformです。ローカルの+Z軸を車両前方へ合わせます。 |
 | `AimOrigin` | 最終的な照準方向を示すTransformです。 |
-| `OperatorSeat` | 初期状態で照準を操作する座席です。[導入手順](installation.md)に従って操作席へ登録している場合は、Take Controlで交代した役割の担当座席を使用します。登録がない場合は、この座席を固定で使用します。 |
+| `OperatorSeat` | 照準を操作する座席です。 |
 
 ### Sight Camera
 

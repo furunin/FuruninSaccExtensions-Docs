@@ -34,8 +34,8 @@ Guided Missileをセットアップする対象の乗り物にSaccをセット�
 
     ![SAV_PassengerFunctionsControllerの参照設定](../assets/images/guided-missiles/installation/3-2_1.png){ width="900" loading=lazy }
 
-    !!! Info  "`FSE_GuidedMissile`と`DFUNC_TakeControl`の共存について"
-        このセットアップ手順ではSacc標準の`DFUNC_TakeControl`を削除しています。操縦席とミサイル操作席の役割を交代する場合は、[任意の設定](optional-features.md)の`FSE_DFUNC_TakeControl`の手順を参照してください。
+    !!! Info  "座席機能の交代について"
+        `FSE_DFUNC_TakeControl`を使用することで任意の座席間の機能を交代させられるようになります。これにより、乗り物の操縦とミサイルの操作をプレイヤー2人で分担することも、1人で全て担当することも出来るようになります。設定手順は[任意の設定](optional-features.md#fse-take-control)を参照してください。
 
 3. `SAV_PassengerFunctionsController`を`FSE_GuidedMissile`の`FSE_DFUNC_MissileLauncher`内`PassengerFunctionsController`へ登録します。
 
@@ -83,8 +83,6 @@ PilotSeatでミサイルを選択している間は、機体操作と照準操�
 4. 指定したフォルダに生成された格納状態ミサイルのプレハブ（`Missile Round_Stowed`）と飛翔状態ミサイルのプレハブ（`Missile Round_InFlight`）を開き、ミサイルの見た目が各プレハブのZ軸+（青い矢印）方向を向いていることを確認します。向きが合っていない場合はプレハブを開いて見た目の向きを調整し、プレハブを保存してください。
     ![ミサイルプレハブの向きの確認](../assets/images/guided-missiles/installation/4-4_1.png){ width="900" loading=lazy }
 5. `Missile Launcher`以下に生成された`Missile Round_Stowed`プレハブの位置と回転を調整します。なお、`Missile Round_InFlight`プレハブの位置調整は不要です。
-
-    生成された格納状態ミサイルの`FSE_MissileLaunchStation`は、`FSE_DFUNC_MissileLauncher`の`LaunchStations`へ自動登録されます。発射位置と方向を変える場合は、各ステーションの`LaunchPoint`へ指定されたTransformを調整してください。
 
 !!! Info  "生成済みプレハブを利用した設定変更"
     セットアップ後にミサイルの見た目や飛翔特性などの設定を変更したいときは、生成される格納状態/飛翔状態ミサイルのプレハブを編集することで配置済みのミサイルへ一括で変更を反映することができます。
