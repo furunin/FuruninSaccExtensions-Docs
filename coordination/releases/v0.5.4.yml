@@ -1,0 +1,30 @@
+release:
+  version: v0.5.4
+  release_date: 2026-10-01
+  product:
+    branch: master
+    commit: ff26195e3a4aee7e7c2dad2ed4e0e3f2190591f2
+    source_commit: 1b6af10168f0edfde76629eff5eb5957cba926d2
+    package:
+      name: FuruninSaccExtension_v0.5.4.unitypackage
+      size_bytes: 733092
+      sha256: 2A775D2671A89A84C72596D9B25E04E7E114A2381557779DFD38D9969A058EB3
+  documentation:
+    branch: main
+    tag: v0.5.4
+    content_commit: e100bffc5c8af5b816e692d9a784ccd2d5aacf56
+    mike_version: 0.5.4
+    aliases:
+      - latest
+    mike_tool_version: 2.2.0
+    local_preview:
+      date: 2026-10-01
+      content_commit: e100bffc5c8af5b816e692d9a784ccd2d5aacf56
+      viewport_widths_px: [1440, 500]
+      themes: [default, slate]
+      inspected_pages:
+        - guided-missiles/optional-features/
+        - guided-missiles/installation/
+        - guided-missiles/behavior/
+        - turret-control/components/
+        - common/changelog/
