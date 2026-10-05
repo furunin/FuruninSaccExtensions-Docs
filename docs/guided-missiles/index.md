@@ -1,11 +1,11 @@
 # FSE Guided Missiles
 
-FSE Guided Missilesは、Saccの乗り物へ誘導ミサイルを搭載するためのギミックです。
+FSE Guided Missilesは、Saccの乗り物に誘導ミサイルを搭載するためのギミックです。
 
 - 共通機能：発射、飛翔、着弾、再装填、補給、発射制限、ミサイルのプール管理
 - 対応する誘導方式
-    - MCLOS：射手が飛翔中のミサイルへ直接上下左右への旋回指令を送ります。
-    - SACLOS：照準線へミサイルを誘導します。
+    - MCLOS：射手が飛翔中のミサイルへ直接上下左右の旋回指令を送信
+    - SACLOS：照準線へ向けてミサイルを自動誘導
 
 ![ミサイルのイメージ](../assets/images/guided-missiles/index/installation-image.png){ width="900" loading=lazy }
 
@@ -24,16 +24,15 @@ FSE Guided Missilesは、Saccの乗り物へ誘導ミサイルを搭載するた
 
 `Assets\Furunin\SaccExtensions\Prefabs\Guided Missile\SubComponents`以下にあります。
 
-
 | ファイル名 | 説明 |
 | --- | --- |
 | `FSE_GuidedMissile` | FSE Guided Missilesの関連コンポーネントをまとめたプレハブ。独自車両にFSE Guided Missilesを搭載する際に利用できます |
-| `Missile Round_Stowed` | 発射前ミサイルの関連コンポーネントをまとめたプレハブ。`FSE_GuidedMissile`に使用されます |
-| `Missile Round_InFlight` | 飛翔中ミサイルの関連コンポーネントをまとめたプレハブ。`FSE_GuidedMissile`に使用されます |
-| `SH-1_GuidedMissile_Base` | 完成品サンプルに誘導方式別設定を行う前のサンプル。完成品サンプルに使用されます |
+| `Missile Round_Stowed` | 発射前ミサイルの関連コンポーネントをまとめたプレハブ。`FSE_GuidedMissile`内で使用します |
+| `Missile Round_InFlight` | 飛翔中ミサイルの関連コンポーネントをまとめたプレハブ。`FSE_GuidedMissile`内で使用します |
+| `SH-1_GuidedMissile_Base` | 完成品サンプルに誘導方式別設定を行う前のサンプル。完成品サンプル内で使用します |
 
 !!! Warning
-    このパッケージのプレハブに変更を加える場合はプレハブを直接編集せず、プレハブバリアントを作成するかプレハブを展開して使用することを推奨します。プレハブを編集して使用すると、バージョンアップ時にギミックが正しく動作しなくなる可能性があります。
+    パッケージ内のプレハブは直接編集せず、プレハブバリアントを作成するか、プレハブを展開して使用してください。元のプレハブを直接編集すると、パッケージ更新時に変更内容が上書きされ、正しく動作しなくなるおそれがあります。
 
 ## ギミック導入手順
 
