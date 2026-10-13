@@ -379,3 +379,136 @@ requests:
         - turret-control/operation/
         - turret-control/components/
         - common/changelog/
+  guided-missiles-20261004-resupply-completion:
+    product: guided-missiles
+    task_id: guided-resupply-completion-20261004
+    source_commit: 50977e6356b5d5b73c288d1d2dded8bfed0d219c
+    applied_date: 2026-10-13
+    documentation_action: no_public_change
+    reason: User declined topic 1.
+  guided-missiles-20261013-animator-parameter-defaults:
+    product: guided-missiles
+    task_id: guided-missiles-20261013-animator-parameter-defaults
+    source_commit: 6e7572a671c8b74557c145f7eeb04550459504be
+    applied_date: 2026-10-13
+  guided-missiles-20261013-optional-reload-animator:
+    product: guided-missiles
+    task_id: optional-reload-animator-finish-20261013
+    source_commit: b303d7aa5bcae26b8a763bb98eb6b3ebef591b9c
+    applied_date: 2026-10-13
+    superseding_defaults_request: guided-missiles-20261013-animator-parameter-defaults
+  turret-control-20261006-ui-data-api:
+    product: turret-control
+    task_id: turret-ui-data-api-20261006
+    source_commit: 6f01c6e5a274201e4f28d0a12bf3fd63504ffb61
+    applied_date: 2026-10-13
+    local_preview:
+      date: 2026-10-13
+      base_documentation_commit: 38e8120554d51a0fba6e24670914dad7c4d55099
+      includes_uncommitted_public_changes: true
+      changed_public_markdown_manifest_sha256: 9fce3293ca04bddeca77fc2ced7fbce450e966dd58cc74f2d12f7da086fc8824
+      manifest_format: Sorted relative paths and lowercase file SHA256 values joined with LF, without trailing LF.
+      viewport_widths_px: [1440, 500]
+      themes: [default, slate]
+      inspected_pages:
+        - guided-missiles/optional-features/
+        - guided-missiles/components/
+        - guided-missiles/troubleshooting/
+        - turret-control/installation/
+        - turret-control/basic-settings/
+        - turret-control/components/
+  turret-control-20261008-sensor-external-aim:
+    product: turret-control
+    task_id: sensor-external-aim-20261008
+    source_commit: 1e8875e3074e7a7567f97fb0f8b95d5e504779a1
+    applied_date: 2026-10-13
+    documentation_action: partial_public_change
+    applied_scope: Local rangefinder result getters only, approved in topic 3.
+    deferred_scope: External aim and tracking integration, held in topic 5.
+  turret-control-20261008-target-tracking-chat-handoff:
+    product: turret-control
+    task_id: target-tracking-chat-handoff-20261008
+    source_commit: 4c1f933c3176ac68b03f828d48745e71bc6d171c
+    applied_date: 2026-10-13
+    documentation_action: no_public_change
+    reason: User declined topic 7.
+
+deferred_requests:
+  guided-missiles-20261009-sensor-hook:
+    product: guided-missiles
+    task_id: guided-sensor-hook-20261009
+    source_commit: 3e59f5c1b13b412e9366028dfd81be17c02442cc
+    status: blocked
+    reviewed_date: 2026-10-13
+    reason: User deferred topic 4 until explicit approval.
+  target-tracking-20261008-common-sensor-implementation:
+    product: target-tracking
+    task_id: target-sensor-core-20261008
+    source_commit: 255b5b4d4e72d6d16a2d0cc62d6556f0a38c381e
+    status: blocked
+    reviewed_date: 2026-10-13
+    reason: User deferred topic 4 until explicit approval.
+  target-tracking-20261009-integration-validation:
+    product: target-tracking
+    task_id: target-validation-20261009
+    source_commit: ddc440754010b5a5fa14fb542f522198a3d85dc7
+    status: blocked
+    reviewed_date: 2026-10-13
+    reason: User deferred topic 4 until explicit approval.
+  target-tracking-20261008-tracker-runtime:
+    product: target-tracking
+    task_id: target-tracking-runtime-20261008
+    source_commit: 824a5f14923bed9d5bb3ed9965b195f548e89e4f
+    status: blocked
+    reviewed_date: 2026-10-13
+    reason: User deferred topic 5 until explicit approval.
+  turret-control-20261008-sensor-external-aim:
+    product: turret-control
+    task_id: sensor-external-aim-20261008
+    source_commit: 1e8875e3074e7a7567f97fb0f8b95d5e504779a1
+    status: blocked
+    reviewed_date: 2026-10-13
+    scope: External aim and tracking integration only; rangefinder getters are documented.
+    reason: User deferred topic 5 until explicit approval.
+  score-manager-20261003-portraits-exit-complete:
+    product: score-manager
+    task_id: score-manager-20261003-finalize-exit-continuation
+    source_commit: ff117ff8b5a0dc4ac5a7683ea85a2a5c2d3907c4
+    status: blocked
+    reviewed_date: 2026-10-13
+    reason: User deferred topic 6 until explicit approval.
+  score-manager-20261004-race-timer:
+    product: score-manager
+    task_id: score-manager-20261004-race-timer
+    source_commit: 738e859eaeb5558b3fccdf3ef2259bded0c3407f
+    status: blocked
+    reviewed_date: 2026-10-13
+    reason: User deferred topic 6 until explicit approval.
+  score-manager-20261004-timer-parity:
+    product: score-manager
+    task_id: score-manager-20261004-timer-parity
+    source_commit: f116c52579621b1605ebd731ad8e419094905906
+    status: blocked
+    reviewed_date: 2026-10-13
+    reason: User deferred topic 6 until explicit approval.
+  score-manager-20261013-timer-labels:
+    product: score-manager
+    task_id: timer-labels-20261013
+    source_commit: 827e46e314a51162e850723a7aacf3e47e2a006f
+    status: blocked
+    reviewed_date: 2026-10-13
+    reason: User deferred topic 6 until explicit approval.
+  proximity-fuze-20260830-future-user-documentation:
+    product: proximity-fuze
+    task_id: proximity-fuze-full-implementation
+    source_commit: 053f94598ad25fe81e8298b1731470336a63d824
+    status: blocked
+    reviewed_date: 2026-10-13
+    reason: Existing user deferral remains in effect until explicit approval.
+  proximity-fuze-20260907-missile-warhead-arming:
+    product: proximity-fuze
+    task_id: proximity-fuze-missile-warhead-arming-20260907
+    source_commit: fda316cc62129d6d256e515132ecc0f65b4310ef
+    status: blocked
+    reviewed_date: 2026-10-13
+    reason: Existing user deferral remains in effect until explicit approval.

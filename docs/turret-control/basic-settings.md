@@ -66,3 +66,17 @@ VRでHEAD SLAVEを使用中に右手コントローラーのグリップ（中�
     - \(\mathrm{FOV}_{\mathrm{reference}}\)：`MaximumFov`へ指定する基準FOV（度）
     - \(M\)：設定したい倍率（1以上）
     - \(\mathrm{FOV}_{\mathrm{target}}\)：`MinimumFov`へ指定するFOV（度）
+
+## 独自UIの測距・姿勢表示 { #custom-ui }
+
+測距結果は[取得メソッド](components.md#rangefinder-data)で読み取ります。先に`HasRangefinderHit()`で有効状態を確認し、有効な場合だけ距離などを表示してください。結果は操作者のローカル情報で、他の参加者の測距結果は取得できません。これらのメソッドは保存済みの結果を読み、追加の測距は行いません。
+
+姿勢表示には、`LateUpdate`で`SightCamera.transform.rotation`を読み取ります。機体固定のトランスフォームの世界回転を`V`、カメラの世界回転を`C`として、次のように計算します。
+
+| 表示する情報 | 計算 |
+|---|---|
+| 機体に対するカメラの相対回転 | `Quaternion.Inverse(V) * C` |
+| カメラに対する機体の相対回転 | `Quaternion.Inverse(C) * V` |
+| カメラ座標での機首方向 | `Quaternion.Inverse(C) * V * Vector3.forward`。機体固定の参照の+Z軸を機首方向へ合わせます。 |
+
+Yaw／Pitch／Rollへの換算、角度の符号、目盛り、画面上の配置は自作UIで決めます。Animatorへ出力する0～1の角度値は、カメラの実際の回転としては使用しないでください。

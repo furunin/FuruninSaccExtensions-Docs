@@ -16,7 +16,10 @@
 | `TriggerEffectsRoot` | 発射入力の開始時に再生する任意エフェクトの親トランスフォームです。 |
 | `MaxAmmo` | 装填弾と予備弾を合わせた総搭載弾数です。 |
 | `HUDText_Missile_ammo` / `HUDText_Missile_ammo_TMP` / `HUDText_Missile_ammo_TMPUGUI` | `FSE_DFUNC_MissileLauncher`の総残弾数を表示する任意のText参照です。使用するTextの種類に対応するFieldへ指定します。 |
-| `MissileAnimator` / `AnimFloatName` | `FSE_DFUNC_MissileLauncher`の残弾割合を受け取る任意のAnimatorとFloat Parameter名です。 |
+| `MissileAnimator` | 残弾割合と任意の装填状態を受け取るAnimatorです。 |
+| `Remaining Ammo Float Name`（`AnimFloatName`） | 総残弾数／`MaxAmmo`を0～1で受け取るFloatパラメーター名です。既定名は`MissileAmmo`です。 |
+| `Reloading Bool Name`（`ReloadingBoolName`） | 装填中かどうかを受け取るBoolパラメーター名です。既定名は`MissileReloading`です。 |
+| `Reload Progress Float Name`（`ReloadProgressFloatName`） | 装填中の進捗を0～1で受け取るFloatパラメーター名です。装填中でなければ1です。既定名は`MissileReloadProgress`です。 |
 | `RackReloadTimeSeconds` / `FireCooldown` | ラック再装填時間と発射間隔（秒）です。 |
 | `FireTriggerHoldSeconds` | 発射入力を保持し続ける時間（秒）です。0ならトリガーを押した時点で即時発射します。 |
 | `MaxConcurrentGuidedShots` | 同時に誘導状態を維持できる最大弾数です。 |
@@ -30,7 +33,7 @@
 | Field | 説明 |
 |---|---|
 | `LaunchPoint` | 必須の発射位置トランスフォームです。青いZ軸（+Z）が発射方向となります。 |
-| `VisualRoot` | 任意の搭載弾表示オブジェクトです。残弾に応じてこのオブジェクトのみが非表示になります。未設定なら表示切替は行いません。ステーション本体・その親階層・`LaunchPoint`・ワイヤー始点を含むオブジェクトは指定しないでください。 |
+| `VisualRoot` | 任意の搭載弾表示オブジェクトです。配布Stowedではモデルをまとめる`Visual`親を指定しています。残弾と[装填アニメーション](optional-features.md#reload-animation)の設定に応じて表示を切り替えます。未設定なら表示切替は行いません。ステーション本体・その親階層・`LaunchPoint`・ワイヤー始点を含むオブジェクトは指定しないでください。 |
 | `FirstCommandWireOrigin` / `SecondCommandWireOrigin` | 任意のワイヤー始点トランスフォームです。未設定の場合は`LaunchPoint`を使用します。 |
 
 ## FSE_MissileController

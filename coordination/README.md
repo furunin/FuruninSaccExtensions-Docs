@@ -33,3 +33,13 @@ and not present in `applied-requests.yml`:
 After applying all requests, run `check-docs.ps1`, update
 `applied-requests.yml`, and commit locally. The intake scripts never edit public
 Markdown, commit, push, or publish.
+
+## Deferred documentation requests
+
+User-deferred requests are kept under `deferred_requests` in
+`applied-requests.yml`, with `status: blocked` and no `applied_date`.
+The intake script excludes these reviewed IDs from the pending-ready list.
+Keep them deferred until the user explicitly approves documentation changes;
+do not treat them as applied or change the product-owned request JSON.
+For a partially applied request, record the applied content under `requests`
+and only the remaining scope under `deferred_requests`.

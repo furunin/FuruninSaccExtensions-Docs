@@ -85,3 +85,12 @@
 ![HEAD SLAVE、Sight Camera／Zoomを設定](../assets/images/turret-control/installation/4_1.png){ width="900" loading=lazy }
 
 ![任意機能のキー設定](../assets/images/turret-control/installation/4_2.png){ width="900" loading=lazy }
+
+### 独自の照準画面・HUD { #custom-ui-setup }
+
+利用者がUdonSharpで作成したUIを使う場合は、次の参照を設定します。
+
+1. 自作UIのスクリプトへ、測距に使用する`FSE_SightController`を参照させます。標準の距離表示を使わない場合は、そのComponentの`Rangefinder Text`を空欄にします。
+2. カメラや機体の姿勢も表示する場合は、UIへ`SightCamera`と、機体に固定されたトランスフォームを参照させます。機体固定の参照には、照準操作で回転しない`ControlsRoot`または`SaccEntity`のトランスフォームを使用します。
+
+測距結果と姿勢の読み取り方は[基本的な設定](basic-settings.md#custom-ui)を参照してください。

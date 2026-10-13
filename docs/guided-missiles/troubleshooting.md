@@ -12,5 +12,7 @@
 | ワイヤーが表示されない | `First Command Wire Renderer`（`CommandWireRenderer`）の指定、Material、`EnableCommandWire`のチェックを確認します。2本目を運用する場合は`Second Command Wire Renderer`（`SecondCommandWireRenderer`）の設定も確認してください。 |
 | ワイヤーがすぐに切断される | `WireCutLayers`に母機自体のレイヤーや、接触不要なTrigger用レイヤーが含まれていないか確認します。 |
 | 弾薬表示が一致しない | `LaunchStations`の登録数・発射順、各ステーションの`VisualRoot`、`MaxAmmo`、および再装填タイマーの状態を確認します。 |
+| 装填アニメーションが動かない | `FSE_DFUNC_MissileLauncher.MissileAnimator`とAnimator Controllerを確認します。`Reloading Bool Name`はBool、`Reload Progress Float Name`はFloatとして、指定した名前と同じパラメーターをAnimatorに作成してください。Animatorを配置したオブジェクトが装填中も有効か確認します。 |
+| 更新後に既存の装填アニメーションが動かなくなった | 配布Stowedのモデルは`Visual`親の配下にあります。旧階層を参照するAnimation Clipは、現在のモデルの参照パスへ更新してください。既存の独自生成プレハブの階層は自動変換されません。 |
 | 補給が行われない | Saccの補給通知、および`InVehicleOnly`直下で`ResupplyTrigger`がアクティブ（有効）になっていることを確認します。`PilotOnly`の配下や、同一の補給領域内に重複する補給トリガーを配置しないでください。 |
 | 見た目がロール回転しない | `RollVisualRoot`に物理挙動のルートオブジェクトではなくMeshの共通親オブジェクトを指定しているか、およびロール回転速度が0以外の値に設定されているかを確認します。 |

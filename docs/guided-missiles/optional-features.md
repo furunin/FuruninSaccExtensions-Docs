@@ -46,8 +46,18 @@ FSE Turret Controlを[導入手順](../turret-control/installation.md)に従っ�
 `FSE_DFUNC_MissileLauncher`は、同期された総残弾数をTextまたはAnimatorへ出力できます。
 
 - Unity UI Textは`HUDText_Missile_ammo`、world-space TextMeshProは`HUDText_Missile_ammo_TMP`、TextMeshProUGUIは`HUDText_Missile_ammo_TMPUGUI`へ、残弾表示専用のオブジェクトを指定します。
-- Animatorを使用する場合は、残弾表示専用のFloatパラメーターを作成し、`MissileAnimator`へAnimatorを、`AnimFloatName`へパラメーター名を指定します。Floatには残弾の割合が0から1の範囲で出力されます。
+- Animatorを使用する場合は、表示対象を子に持つ常時有効なオブジェクトへ配置し、`FSE_DFUNC_MissileLauncher`の`Missile Animator`へ指定します。残弾表示用のFloatパラメーターを作成し、同じ名前を`Remaining Ammo Float Name`へ指定してください。Floatには予備弾を含む総残弾数／`MaxAmmo`が0から1の範囲で出力されます。
 - AAM、AGM、Bombなど、別の武器DFUNCが制御するTextやAnimatorパラメーターは指定しないでください。
+
+## 装填アニメーションを追加する { #reload-animation }
+
+残弾表示と共通の`FSE_DFUNC_MissileLauncher`の`Missile Animator`を使用します。出力名の既定値は[設定項目一覧](components.md#fse_dfunc_missilelauncher)を参照してください。
+
+1. Animator Controllerに、装填中を表すBoolパラメーター、装填進捗を表すFloatパラメーターの一方または両方を作成します。同じ名前をLauncherの`Reloading Bool Name`と`Reload Progress Float Name`へそれぞれ指定します。
+2. 配布の格納状態ミサイルでは、`Visual`配下のモデルの位置やScaleをアニメーションで動かします。モデルは有効な状態に保ち、`VisualRoot`自体の有効／無効はAnimatorで操作しないでください。
+3. 装填中のBoolと、0～1の進捗Floatを使って演出を設定します。進捗は装填中でなければ1です。装填完了時のモデルの姿勢や、粒子・音の終了状態もアニメーションで設定してください。
+
+登録したAnimatorに、指定した名前・型の装填用パラメーターが少なくとも一方ある場合は、装填予定の弾の`VisualRoot`が装填中も有効になります。使用しない出力名は空欄にできます。装填アニメーションを設定しない場合は、装填完了まで弾の見た目は非表示になります。実際の装填確定はラック単位で、装填途中の発射はできません。
 
 ## ミサイルの迎撃に関する設定をする
 

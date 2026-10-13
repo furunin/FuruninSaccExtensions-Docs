@@ -94,12 +94,28 @@ Pilot Seatで単独の砲塔を手動操作するためのDialFunctionです。`
 | Field | 説明 |
 |---|---|
 | `TurretController` / `SightCamera` | 連動する砲塔（`FSE_EXT_Turret`）と照準カメラ（Camera）です。 |
-| `RangefinderOrigin` / `RangefinderText` | 測距方向の基準トランスフォームと、距離表示用のTextMeshProです。 |
+| `RangefinderOrigin` | 測距方向の基準トランスフォームです。 |
+| `Rangefinder Text`（`RangefinderText`） | 任意の距離表示用TextMeshProです。空欄でも測距は動作し、独自UIから結果を読み取れます。 |
 | `MinimumFov` / `MaximumFov` | ズームで使用するSight CameraのFOV範囲です。 |
 | `ZoomPresetMagnifications` | 切替式ズームで使用する倍率一覧です。正数を昇順で指定します。 |
 | `RangefinderDistance` | 距離計の最大測定距離（m）です。 |
 | `RangefinderLayers` | 距離計が障害物・目標として検知するLayerMaskです。 |
 | `RangefinderUpdateInterval` | 距離計の測定・表示更新間隔（秒）です。 |
+
+### 独自UI用の取得メソッド { #rangefinder-data }
+
+`FSE_SightController`から最後の測距結果を取得します。使用手順は[独自の照準画面・HUD](installation.md#custom-ui-setup)を参照してください。
+
+| メソッド | 取得する情報 |
+|---|---|
+| `HasRangefinderHit()` | 現在の操作者として有効な測距結果がある場合に`true`を返します。 |
+| `GetMeasuredDistance()` | 丸め前の測定距離（m）です。`RangefinderDistance`は測定上限の設定値で、測定結果ではありません。 |
+| `GetRangefinderHitCollider()` | 命中したColliderです。 |
+| `GetRangefinderHitOrigin()` / `GetRangefinderHitDirection()` | 測定時の原点と方向です。世界座標で返します。 |
+| `GetRangefinderHitPoint()` | 世界座標の命中位置です。 |
+| `GetRangefinderHitSampleTime()` | 最後に測定した時点の`Time.time`（秒）です。 |
+
+無効な結果では`HasRangefinderHit()`が`false`になり、Colliderは`null`、距離・時刻は0、位置・方向は`Vector3.zero`を返します。
 
 ## FSE_DFUNC_SightZoom
 
