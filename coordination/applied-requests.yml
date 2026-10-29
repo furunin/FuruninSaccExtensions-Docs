@@ -433,6 +433,21 @@ requests:
     documentation_action: no_public_change
     reason: User declined topic 7.
 
+  guided-missiles-20261025-flight-state-sync:
+    product: guided-missiles
+    task_id: guided-missiles-20261025-flight-state-sync
+    source_commit: 71044c1c5e5a94ea7a1a0bd73588f72b34588689
+    applied_date: 2026-10-29
+    documentation_action: no_public_change
+    reason: User declined documentation changes for the new flight-state synchronization request.
+  turret-control-20261025-vr-zoom-sampling:
+    product: turret-control
+    task_id: vr-zoom-postlate-sampling-20261025
+    source_commit: 9380a22610e8f8d0835b79095365bcb7d69c63f3
+    applied_date: 2026-10-29
+    documentation_action: no_public_change
+    reason: User declined documentation changes for the new VR zoom sampling request.
+
 deferred_requests:
   guided-missiles-20261009-sensor-hook:
     product: guided-missiles
