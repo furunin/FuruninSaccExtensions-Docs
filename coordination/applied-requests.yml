@@ -448,6 +448,21 @@ requests:
     documentation_action: no_public_change
     reason: User declined documentation changes for the new VR zoom sampling request.
 
+  guided-missiles-20261029-pilot-saclos-variant:
+    product: guided-missiles
+    task_id: guided-missiles-20261029-pilot-saclos-variant
+    source_commit: 328d687d2e2559019d909058fcf1c75be8d2d2dc
+    applied_date: 2026-10-29
+    documentation_action: no_public_change
+    reason: User declined documentation changes for the pilot joystick override setting and pilot SACLOS sample.
+  orchestrator-20261029-v0.5.7-changelog:
+    product: orchestrator
+    task_id: orchestrator-20261029-v057-export
+    source_commit: 47a44ad0f9377d9227f5ac78aab111d004572d21
+    applied_date: 2026-10-29
+    documentation_action: no_public_change
+    reason: User declined documentation changes for the v0.5.7 changelog request.
+
 deferred_requests:
   guided-missiles-20261009-sensor-hook:
     product: guided-missiles
