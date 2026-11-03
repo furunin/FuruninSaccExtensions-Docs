@@ -15,6 +15,7 @@
 | `LaunchEffectsRoot` | 発射時に再生するParticleSystemやAudioSourceの親トランスフォームです。 |
 | `TriggerEffectsRoot` | 発射入力の開始時に再生する任意エフェクトの親トランスフォームです。 |
 | `MaxAmmo` | 装填弾と予備弾を合わせた総搭載弾数です。 |
+| `UnlimitedAmmo` | 有効にすると、発射しても総残弾数が減らず、補給なしで撃ち続けられます。既定は無効です。有効でも`MaxAmmo`は1以上にしてください。総残弾数の表示と`Remaining Ammo Float Name`の値は減らず、`MaxAmmo`のままです。 |
 | `HUDText_Missile_ammo` / `HUDText_Missile_ammo_TMP` / `HUDText_Missile_ammo_TMPUGUI` | `FSE_DFUNC_MissileLauncher`の総残弾数を表示する任意のText参照です。使用するTextの種類に対応するFieldへ指定します。 |
 | `MissileAnimator` | 残弾割合と任意の装填状態を受け取るAnimatorです。 |
 | `Remaining Ammo Float Name`（`AnimFloatName`） | 総残弾数／`MaxAmmo`を0～1で受け取るFloatパラメーター名です。既定名は`MissileAmmo`です。 |

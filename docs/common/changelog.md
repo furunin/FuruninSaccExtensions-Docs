@@ -1,5 +1,12 @@
 # 文書更新履歴
 
+## v0.6.0（2026-11-03）
+
+- FSE Guided Missilesに、地上に置いて使う固定式SACLOSランチャーのSample（`FixedLauncher_SACLOS`）を追加
+- FSE Guided MissilesのMissile Launcherに、発射で総弾数が減らない`UnlimitedAmmo`設定を追加
+- Take Controlによる役割交代を、操縦席からも開始できるように変更
+- Guided Missile Setupのメニューを`Tools/Furunin Sacc Extensions/Guided Missiles/`へ移動
+
 ## v0.5.4（2026-10-01）
 
 - FSE Turret ControlがTake Controlによる役割交代に追従し、交代後も担当座席で照準・HEAD SLAVE・Zoom・測距を使用可能に

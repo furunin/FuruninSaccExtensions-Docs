@@ -55,7 +55,7 @@ PilotSeatでミサイルを選択している間は、操縦と照準操作が�
 !!! Info "手動でセットアップを行う場合"
     セットアップツールを使わずに導入する場合は、[ミサイルを手動でセットアップする](manual-installation.md)を参照してください。
 
-1. メインメニューの`Tools/Furunin Sacc Extensions/Guided Missile Setup`を選択してセットアップツールを開きます。
+1. メインメニューの`Tools/Furunin Sacc Extensions/Guided Missiles/Guided Missile Setup`を選択してセットアップツールを開きます。
 
 2. ツールの各項目を設定します。
 

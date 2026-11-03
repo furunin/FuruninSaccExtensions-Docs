@@ -463,6 +463,33 @@ requests:
     documentation_action: no_public_change
     reason: User declined documentation changes for the v0.5.7 changelog request.
 
+  guided-missiles-20261103-takecontrol-pilot-initiate:
+    product: guided-missiles
+    task_id: gm-takecontrol-pilot-initiate-20261103
+    source_commit: 2340bfc38d24c3b9a00d257b0fbfe1d03733ee85
+    applied_date: 2026-11-04
+  guided-missiles-20261103-unlimited-ammo:
+    product: guided-missiles
+    task_id: gm-unlimited-ammo-20261103
+    source_commit: 1abd08af6b3bd428a0c54a1d410d2383dfe8f040
+    applied_date: 2026-11-04
+  orchestrator-20261103-editor-menu-hierarchy-public-docs:
+    product: orchestrator
+    task_id: orchestrator-20261103-editor-menu-hierarchy
+    source_commit: a9e142b9f70c98ab96642688a539ce79014553ef
+    applied_date: 2026-11-04
+  orchestrator-20261103-v0.6.0-changelog:
+    product: orchestrator
+    task_id: orchestrator-20261103-v060-export
+    source_commit: 0f66b4900bd83cff69e84935b7c1a09d2598c6e8
+    applied_date: 2026-11-04
+    documentation_action: partial_public_change
+    omitted_changes:
+      - Target Sensor Setup menu move (sensor documentation remains deferred)
+      - Guided Missile Setup sensor option consolidation (sensor documentation remains deferred)
+      - SH-1 sample rack hide fix and sample material colors (optional)
+    not_requested_scope: Fixed launcher product-page description; this request covers the changelog entry only.
+
 deferred_requests:
   guided-missiles-20261009-sensor-hook:
     product: guided-missiles

@@ -22,6 +22,8 @@
 
 `LaunchStations`に登録されたすべての発射ステーションを撃ち切ったとき、総残弾（`Max Ammo`）が残っていれば`RackReloadTimeSeconds`秒の経過後に次のラックが自動装填されます。
 
+`UnlimitedAmmo`が有効な場合は、ラックを撃ち切るたびに`RackReloadTimeSeconds`秒の経過後に再装填されます。一度に装填される数は、`MaxAmmo`と発射ステーション数の小さい方です。
+
 ## 発射制限
 
 - `GuidanceReference`が設定されている場合、発射に用いる`LaunchPoint`の発射方向と`GuidanceReference`の照準方向とのなす角が`MaxLaunchSightAngle`を超えている間は発射できません。
