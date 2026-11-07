@@ -468,6 +468,10 @@ requests:
     task_id: gm-takecontrol-pilot-initiate-20261103
     source_commit: 2340bfc38d24c3b9a00d257b0fbfe1d03733ee85
     applied_date: 2026-11-04
+    updated_date: 2026-11-07
+    documentation_action: partial_public_change
+    omitted_changes:
+      - Empty missile-operator seat warning and Auto Hover advice (removed by the user on 2026-11-07)
   guided-missiles-20261103-unlimited-ammo:
     product: guided-missiles
     task_id: gm-unlimited-ammo-20261103

@@ -39,9 +39,6 @@ FSE Turret Controlを[導入手順](../turret-control/installation.md)に従っ�
 
 交代後の操縦者は、いつでも元の役割へ戻せます。ミサイル操作席へ移った元の操縦者が元へ戻すには、`PermissionObject`が有効である必要があります。`PermissionObject`が未設定の場合は、どちらの席からでも元へ戻せます。長押しで交代する場合は`HoldToTake`を有効にします。
 
-!!! Warning "ミサイル操作席が空席の場合"
-    ミサイル操作席が空席のまま操縦者が交代すると、操縦の役割が空席へ移り、誰も操縦しない状態になります。必要な場合は、交代前にAuto Hoverを有効にしてください。
-
 座席ごとの無線も交代する場合は、操縦席用の`SAV_Radio`を`PilotRadio`へ、ミサイル操作席用を`ThisSeatRadio`へ指定します。交代時に計器などを移動する場合は、`MoveTransforms`へ移動対象を、`MoveTransforms_CoPosition`へ移動先の位置・回転を示すトランスフォームを、同じ要素数・順序で登録してください。
 
 ## パイロット席に着席しなくてもミサイルを補給できるようにする
