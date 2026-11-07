@@ -5,7 +5,7 @@
 ### `FSE_EXT_Turret`
 
 - `TurnSpeedMultiX`と`TurnSpeedMultiY`で、それぞれ上下・左右方向の手動旋回速度を設定します。
-- `UpAngleMax`、`DownAngleMax`、`SideAngleMax`を調整し、車体や機体モデルに干渉しない可動範囲を指定します。
+- `UpAngleMax`、`DownAngleMax`、`SideAngleMax`を調整し、車体や機体モデルに干渉しない可動範囲を指定します。`SideAngleMax`を180以上にすると、左右は全周を回り続けます。
 - `VJoyRollAsYaw`を有効にすると、コントローラーのロール操作を左右照準の入力として扱います。
 - `InvertVRPitch`を有効にすると、VRモード時の手動照準の上下操作を反転します。
 - `ScaleManualAimWithSightFov`を有効にすると、現在のFOVと`Manual Aim Reference FOV`に基づいて、高倍率ズーム時に手動照準速度を下げる補正を行います。無効にした場合、`Manual Aim Reference FOV`は使用されません。

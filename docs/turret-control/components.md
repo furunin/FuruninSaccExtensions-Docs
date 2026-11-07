@@ -32,6 +32,8 @@
 | `CurrentYawAnimatorParameter` / `CurrentPitchAnimatorParameter` | 現在の左右・上下角度を出力するFloat Parameter名です。 |
 | `TargetYawAnimatorParameter` / `TargetPitchAnimatorParameter` | 目標角度を出力するFloat Parameter名です。HEAD SLAVEでは追従の平滑化前の角度を出力し、手動操作時および他の参加者側では現在角度を出力します。空欄にした項目は出力されません。 |
 
+`SideAngleMax`が180以上の場合、左右の角度を出力するFloat Parameterは0と1が真後ろ、0.5が正面になります。Animatorで回転させる場合は、左右の軸を-180°から+180°まで等速で1回転させるAnimation Clipを用意してください。真後ろを通るときに値が1から0（または0から1）へ切り替わるため、この値を遷移条件やUIに使用する場合は注意してください。
+
 ### Follower Rotators
 
 | Field | 説明 |
@@ -45,11 +47,15 @@
 
 | Field | 説明 |
 |---|---|
-| `TurnSpeedMultiX` / `TurnSpeedMultiY` | 上下・左右の基本回転速度です。 |
+| `TurnSpeedMultiX` / `TurnSpeedMultiY` | 上下・左右の基本回転速度（度/秒）です。Sacc `EXT_Turret`の同名項目とは意味が異なるため、値を流用しないでください。 |
 | `MaxJoyAngles` | VR仮想ジョイスティックの最大入力角です。 |
 | `VJoyRollAsYaw` | 右手コントローラーのロール操作を左右照準の入力として扱います。 |
-| `TurningResponseDesktop` | デスクトップ操作時の旋回応答速度です。 |
-| `UpAngleMax` / `DownAngleMax` / `SideAngleMax` | 基準タレットの可動範囲（角度上限）です。 |
+| `TurningResponseDesktop` | デスクトップで照準キーを押したときに、照準が最高速へ近づく速さです。大きいほどすぐ最高速になり、0ではキー照準が動きません。押し始めの動きを速くしたい場合は値を大きくします（例: 20～50）。 |
+| `Keyboard_Up` / `Keyboard_Down` / `Keyboard_Left` / `Keyboard_Right` | デスクトップの照準キーです。既定は`W`/`S`/`A`/`D`です。 |
+| `KeyboardSpeedModifier` | 押している間、デスクトップの照準を遅くするキーです。既定は`LeftShift`です。操縦者が砲塔も操作する飛行機・船では、SaccのスロットルにもLeftShiftを使うため、別のキーへの変更を検討してください。 |
+| `K_ModifierSpeed` | `KeyboardSpeedModifier`を押している間の照準速度の倍率です。既定は0.2です。 |
+| `InvertDesktopPitch` | 有効（既定）では`Keyboard_Up`で照準が上を向きます。無効にすると、Sacc `EXT_Turret`と同じく`Keyboard_Up`で下を向きます。 |
+| `UpAngleMax` / `DownAngleMax` / `SideAngleMax` | 基準タレットの可動範囲（角度上限）です。`SideAngleMax`を180以上にすると、左右は真後ろで止まらず全周を回り続けます。真後ろで止める場合は179以下にします。 |
 | `InvertVRPitch` | VR手動照準、および右グリップによるHEAD SLAVE照準補正の上下方向を反転します。 |
 
 ### 同期
@@ -61,7 +67,7 @@
 | `networkSmoothing` | 他の参加者側で砲塔の動きを滑らかに補間・表示する強さです。 |
 | `maxRemoteExtrapolation` | 次の同期データが届くまで、直前の角速度から表示方向を外挿予測する時間の上限です。 |
 
-これらは、他の参加者から見える砲塔の動きを調整する上級者向け設定です。照準速度や角度制限を変更する項目ではなく、通常は初期値のまま運用します。動きが段階的（カクカク）に見える場合は`updateInterval`を小さくすると滑らかになりますが、通信量が増加します。`networkSmoothing`を大きくすると受信方向へ素早く追従し、小さくすると動きが滑らかになる一方で追従遅れが増えます。`maxRemoteExtrapolation`を大きくするとパケット遅延によるカクつきを抑えられますが、実際の照準方向を行き過ぎる場合があります。変更する際は、複数のクライアントで遅れ・振動・オーバーシュートの度合いを確認してください。
+これらは、他の参加者から見える砲塔の動きを調整する上級者向け設定です。照準速度や角度制限を変更する項目ではなく、通常は初期値のまま運用します。`updateInterval`を0.2秒より小さくしても、送信間隔は0.2秒より短くなりません。`networkSmoothing`を大きくすると受信方向へ素早く追従し、小さくすると動きが滑らかになる一方で追従遅れが増えます。`maxRemoteExtrapolation`を大きくするとパケット遅延によるカクつきを抑えられますが、実際の照準方向を行き過ぎる場合があります。変更する際は、複数のクライアントで遅れ・振動・オーバーシュートの度合いを確認してください。
 
 ### HEAD SLAVE
 

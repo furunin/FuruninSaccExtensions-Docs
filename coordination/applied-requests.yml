@@ -489,6 +489,20 @@ requests:
       - Guided Missile Setup sensor option consolidation (sensor documentation remains deferred)
       - SH-1 sample rack hide fix and sample material colors (optional)
     not_requested_scope: Fixed launcher product-page description; this request covers the changelog entry only.
+  turret-control-20261107-desktop-fine-aim:
+    product: turret-control
+    task_id: tc-desktop-fine-aim-20261107
+    source_commit: d03e0bcbe24d0912a8f2e5f54caf75f40d3de19e
+    applied_date: 2026-11-07
+    documentation_action: partial_public_change
+    omitted_changes:
+      - SideAngleMax 180 stop statement (superseded by turret-control-20261107-unlimited-yaw)
+    additional_correction: updateInterval below 0.2 seconds does not shorten the send interval.
+  turret-control-20261107-unlimited-yaw:
+    product: turret-control
+    task_id: tc07-unlimited-yaw-20261107
+    source_commit: ffd3106675d7896c02d0e8c9c0bb66ddfb5fcdee
+    applied_date: 2026-11-07
 
 deferred_requests:
   guided-missiles-20261009-sensor-hook:
