@@ -14,5 +14,5 @@
 | HUDの描画線が照準画面に映り込んでしまう | HUD用のレイヤーを`SightCameraExcludedLayers`に追加して除外します。 |
 | ズーム操作ができない | プレハブのルートではなく、子オブジェクトの`FSE_DFUNC_SightZoom`をDialFunctionへ登録しているか確認します。あわせて`SightController`の参照、`MinimumFov`と`MaximumFov`の値を確認してください。デスクトップモードでは、DialFunctionでSight Zoomを選択してから`Q`/`E`キーを操作します。 |
 | VR連続式ズームの前後操作の向きが合わない | `ControlsRoot`が車両とともに動くトランスフォームを参照しており、かつローカル+Z軸が車両前方を向いていることを確認します。 |
-| ズーム時の照準感度が合わない | Sight Cameraの実際のFOV、`Manual Aim Reference FOV`、`MinManualAimScale`の設定値を確認します。 |
+| ズーム時の照準感度が合わない | Sight Cameraの実際のFOV、`Zoom Reference Fov`、`MinManualAimScale`の設定値を確認します。 |
 | 距離が表示されない、または`RNG ----`のままになる | 操作席に着席中か、`RangefinderOrigin`（またはSight Camera／Aim Origin）の参照設定、`RangefinderLayers`、および測定限界距離内に対象物が存在するかを確認します。 |

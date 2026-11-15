@@ -10,7 +10,7 @@
 | `ReferenceRotatorVert` | 基準タレットのローカルX軸で上下に回転するトランスフォームです。 |
 | `ControlsRoot` | VR操作で車両回転を相殺し、VR連続式ズームの前後方向を決める基準トランスフォームです。ローカルの+Z軸を車両前方へ合わせます。 |
 | `AimOrigin` | 最終的な照準方向を示すトランスフォームです。 |
-| `OperatorSeat` | 照準を操作する座席です。 |
+| `OperatorSeat` | `FSE_EXT_Turret`をSaccの拡張（`ExtensionUdonBehaviours`またはPassenger Functionsの拡張）として登録しない場合だけ、操作席として使う座席です。登録済みの場合は設定不要で、Pilot席またはPassenger Functionsの席を自動で使います。設定しても動作に影響はありません。 |
 
 ### Sight Camera
 
@@ -19,7 +19,7 @@
 | `SightCamera` | 照準映像とFOV連動感度に使用するCameraです。 |
 | `SightCameraExcludedLayers` | Sight Cameraでのみ描画から除外するLayerです。 |
 | `ScaleManualAimWithSightFov` | Camera FOVに応じて手動照準速度、および右グリップによるHEAD SLAVE照準補正の速度を調整します。 |
-| `Manual Aim Reference FOV`（`ZoomReferenceFov`） | 通常速度の基準とするFOVです。`ScaleManualAimWithSightFov`が無効な場合は使用されません。 |
+| `Zoom Reference Fov`（`ZoomReferenceFov`） | 手動照準が設定どおりの速さになるFOV（度）です。これより狭いFOVでは照準が遅くなります。`ScaleManualAimWithSightFov`が無効な場合は使用されません。 |
 | `MinManualAimScale` | FOV連動速度の下限倍率です。0に設定すると制限を設けず、FOV比をそのまま適用します。 |
 
 ### Drive Mode and Animator
@@ -56,7 +56,13 @@
 | `K_ModifierSpeed` | `KeyboardSpeedModifier`を押している間の照準速度の倍率です。既定は0.2です。 |
 | `InvertDesktopPitch` | 有効（既定）では`Keyboard_Up`で照準が上を向きます。無効にすると、Sacc `EXT_Turret`と同じく`Keyboard_Up`で下を向きます。 |
 | `UpAngleMax` / `DownAngleMax` / `SideAngleMax` | 基準タレットの可動範囲（角度上限）です。`SideAngleMax`を180以上にすると、左右は真後ろで止まらず全周を回り続けます。真後ろで止める場合は179以下にします。 |
+| `MaxDriveYawRate` / `MaxDrivePitchRate` | 砲塔が車体に対して回る左右・上下の最大の速さ（度/秒）です。安定化（`Stabilize`）の動きも含みます。0（既定）で無制限です。手動照準の速さ（`TurnSpeedMultiX/Y`）以上にするのが目安です。 |
+| `MaxDriveYawAcceleration` / `MaxDrivePitchAcceleration` | 砲塔が車体に対して回る左右・上下の最大の加速度（度/秒²）です。0（既定）で無制限です。照準キーを離した後に進む角度は、おおよそ「速さの2乗÷(2×加速度)」です。 |
 | `InvertVRPitch` | VR手動照準、および右グリップによるHEAD SLAVE照準補正の上下方向を反転します。 |
+
+駆動の上限（`MaxDrive...`）を設定すると、砲塔は上限の範囲で回るため、狙っている角度（Target）と実際の角度（Current）が分かれます。照準映像は実際の砲塔の向きに付いているため、操作者には遅れた照準が見えます。SACLOSのミサイルも実際の照準線に従います。車体の揺れに追いつけなかった場合は揺れが収まると、車体が旋回範囲の外まで回った場合は届く向きに戻ると、元の照準方向へ戻ります。速く細かい揺れは打ち消しきれず、条件によっては安定化しない場合より照準が揺れることがあるため、値は実際の車両で調整してください。
+
+駆動の上限は、上下の回転部（`ReferenceRotatorVert`）が左右の回転部（`ReferenceRotatorHor`）の子で、`AimOrigin`がその下にある構成（片軸の場合はその軸の下）で使用できます。それ以外の構成では上限が無視され、エラーが1回表示されます。
 
 ### 同期
 
@@ -131,4 +137,4 @@ Pilot Seatで単独の砲塔を手動操作するためのDialFunctionです。`
 | `UsePresetSteps` | 切替式ズームを使用します。無効時は連続式ズームになります。 |
 | `AllowZoomWhileDeselected` | 有効にすると、Sight Zoom以外のDialFunctionを選択している最中でもズーム入力を受け付けます。 |
 | `ContinuousZoomRate` | 連続式ズームの倍率変化速度です。 |
-| `VrHandZForFullSpeed` | VR連続式ズームで最大速度に達する手の前後移動量（m、車両前方基準）です。 |
+| `VrHandZForFullSpeed` | VR連続式ズームで、ズームの全範囲（最小倍率から最大倍率まで）に相当する手の前後移動量（m、`ControlsRoot`の前方基準）です。倍率の変化の速さは`ContinuousZoomRate`で制限されます。 |

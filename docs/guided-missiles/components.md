@@ -5,7 +5,7 @@
 | Field | 説明 |
 |---|---|
 | `SAVControl` / `EntityControl` | 搭載車両のSacc制御コンポーネントと`SaccEntity`です。 |
-| `CollisionHostRoot` | 発射直後の衝突判定対象から除外する車両階層のオブジェクトです。 |
+| `CollisionHostRoot` | ミサイル（指令ワイヤーを含む）が飛翔中ずっと衝突しない機体の階層です。未設定の場合は、そのLauncherを持つ機体全体が対象になります。 |
 | `GuidanceReference` | 誘導基準方向を示すトランスフォームです。青いZ軸（+Z）方向を使用します。 |
 | `OperatorSeat` | 操作に使用する座席オブジェクトです。 |
 | `PassengerFunctionsController` | PassengerSeat構成で使用します。PilotSeat構成では未設定にします。 |
@@ -24,6 +24,7 @@
 | `RackReloadTimeSeconds` / `FireCooldown` | ラック再装填時間と発射間隔（秒）です。 |
 | `FireTriggerHoldSeconds` | 発射入力を保持し続ける時間（秒）です。0ならトリガーを押した時点で即時発射します。 |
 | `MaxConcurrentGuidedShots` | 同時に誘導状態を維持できる最大弾数です。 |
+| `AllowDetachOnFireInput` | 有効（既定）にすると、誘導中のミサイル数が`MaxConcurrentGuidedShots`に達しているときの発射操作で、最も古い誘導中ミサイルの誘導（指令ワイヤー）が切れます。無効にすると、この発射操作では何も起きず、発射操作で誘導を切れません。 |
 | `MaxLaunchSightAngle` | 発射方向と誘導基準方向の許容誤差角度です。 |
 | `AllowFiringWhenGrounded` | Sacc航空機の地上滑走中（`Taxiing`）に発射を許可するかを指定します。 |
 | `MaximumFiringSpeed` | 発射可能な車両合成速度の上限（m/s）です。0以下の場合は無制限となります。 |

@@ -1,5 +1,20 @@
 # 文書更新履歴
 
+## v0.6.5（2026-11-11）
+
+- FSE Turret Controlに、砲塔の駆動の最大の速さと最大の加速度を設定する項目（`MaxDriveYawRate`・`MaxDrivePitchRate`・`MaxDriveYawAcceleration`・`MaxDrivePitchAcceleration`）を追加。既定0（無制限）で従来どおり
+- Guided Missile Setupの`Update Existing Setup`で、固定ランチャーのように外側のプレハブの中にあるミサイルも誘導方式を変更できるように変更
+
+## v0.6.4（2026-11-08）
+
+- FSE Guided MissilesのMissile Launcherに`AllowDetachOnFireInput`設定を追加。無効にすると、誘導中のミサイル数が上限に達しているときの発射操作で誘導が切れない（既定は有効で従来どおり）
+- 固定ランチャーのSample（`FixedLauncher_SACLOS`）の座席設定を修正
+
+## v0.6.2（2026-11-07）
+
+- FSE Turret Controlのデスクトップ照準に、押し続けると加速する動きと、`Shift`キーによる微調整、照準キーの設定を追加
+- FSE Turret Controlの`SideAngleMax`を180以上にすると、左右に全周を回れるように変更
+
 ## v0.6.0（2026-11-03）
 
 - FSE Guided Missilesに、地上に置いて使う固定式SACLOSランチャーのSample（`FixedLauncher_SACLOS`）を追加

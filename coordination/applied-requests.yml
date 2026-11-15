@@ -507,6 +507,48 @@ requests:
     task_id: tc07-unlimited-yaw-20261107
     source_commit: ffd3106675d7896c02d0e8c9c0bb66ddfb5fcdee
     applied_date: 2026-11-07
+  guided-missiles-20261108-allow-detach-on-fire-input:
+    product: guided-missiles
+    task_id: gm-allow-fire-detach-20261108
+    source_commit: 9718834b2e84dfd659a7a25102a255e9d8155329
+    applied_date: 2026-11-15
+  turret-control-20261110-drive-limits:
+    product: turret-control
+    task_id: tc-drive-limits-20261110
+    source_commit: f27f1be50f1e98baf22d16424306467c8e0147db
+    applied_date: 2026-11-15
+  guided-missiles-20261112-round-template-sync:
+    product: guided-missiles
+    task_id: gm-round-template-sync-20261111
+    source_commit: 5b02f943331b5596db4de96326c456fb6ba58d79
+    applied_date: 2026-11-15
+    publication_note: Not included in any distributed package as of v0.6.5; publish the site only with or after the next package.
+  guided-missiles-20261113-collision-host-root:
+    product: guided-missiles
+    task_id: gm-tooltip-sc06-20261113
+    source_commit: f88af39d46f26eb050f15845e07182ced10d0582
+    applied_date: 2026-11-15
+  turret-control-20261113-tooltip-doc-corrections:
+    product: turret-control
+    task_id: tc-tooltip-sc06-20261113
+    source_commit: a3674a38ab61e338df30309173dc82b89687d787
+    applied_date: 2026-11-15
+    additional_correction: Zoom Reference Fov label also corrected in components.md and troubleshooting.md.
+  orchestrator-20261108-v0.6.4-changelog:
+    product: orchestrator
+    task_id: orchestrator-20261108-v064-export
+    source_commit: ce022e91c036d658c44e1ec52bc83cd705a13cda
+    applied_date: 2026-11-15
+    intermediate_versions_decision: Added v0.6.2 (Turret Control desktop fine aim and unlimited yaw); omitted v0.6.1 and v0.6.3 sample-only fixes.
+  orchestrator-20261111-v0.6.5-changelog:
+    product: orchestrator
+    task_id: orchestrator-20261111-v065-export-and-version-rule
+    source_commit: 715bb4c22e92d0efbf29f1200bbbadf82e7cb9c9
+    applied_date: 2026-11-15
+    documentation_action: partial_public_change
+    omitted_changes:
+      - MaxSplashTargets counting fix (optional entry)
+      - FireCooldown and ProjectilePool warnings (optional entry)
 
 deferred_requests:
   guided-missiles-20261009-sensor-hook:

@@ -15,7 +15,7 @@
 | `Reference Rotator Hor` | 基準タレットのローカルY軸で左右に回転するトランスフォームを指定します。 |
 | `Reference Rotator Vert` | 基準タレットのローカルX軸で上下に回転するトランスフォームを指定します。 |
 | `ControlsRoot` | 対象の乗り物と共に動き、ローカルの+Z軸が車両前方を向くトランスフォームを指定します。 |
-| `OperatorSeat` | タレットを操作する座席のオブジェクトを指定します。 |
+| `OperatorSeat` | 通常は設定不要です。`FSE_EXT_Turret`をSaccの拡張（`ExtensionUdonBehaviours`またはPassenger Functionsの拡張）として登録しない場合だけ、操作席のオブジェクトを指定します。 |
 
 !!! note
     左右または上下のどちらか一方しか回転軸がない場合は、不要な側の`Reference Rotator Hor`または`Reference Rotator Vert`を空欄のままにします。
@@ -40,7 +40,8 @@
 #### 2-2-B. 自作アニメーターで制御する場合
 
 - `Drive Mode`のドロップダウンで`Animator`を選択します。
-- `Reference Rotator Animator`に、基準タレットの旋回アニメーションを設定したアニメーターを指定します。
+- `Reference Rotator Animator`に、基準タレットの旋回アニメーションを設定したアニメーターを指定します。このAnimatorの`Culling Mode`は`Always Animate`にしてください。他の設定では、画面外で砲塔が動かないことがあります。
+- モデルは、中立の姿勢（正面・水平）で配置した状態から始めてください。
 - アニメーター側に`Current/Target Yaw/Pitch Animator Parameter`で指定した名前のFloatパラメーターを作成し、モデルの動きに合わせてアニメーションを組みます。
 - 追従タレットを設定する場合は、`Follower Rotators Animator`に追従タレット用のアニメーターを指定します（`Reference Rotator Animator`と同一でも構いません）。
 
