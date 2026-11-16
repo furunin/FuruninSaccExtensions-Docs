@@ -47,21 +47,21 @@ FSE Turret Controlを[導入手順](../turret-control/installation.md)に従っ�
 
 ## 残弾表示を追加する
 
-`FSE_DFUNC_MissileLauncher`は、同期された総残弾数をTextまたはAnimatorへ出力できます。
+`FSE_DFUNC_MissileLauncher`は、同期された総残弾数をTextまたはアニメーターへ出力できます。
 
-- Unity UI Textは`HUDText_Missile_ammo`、world-space TextMeshProは`HUDText_Missile_ammo_TMP`、TextMeshProUGUIは`HUDText_Missile_ammo_TMPUGUI`へ、残弾表示専用のオブジェクトを指定します。
-- Animatorを使用する場合は、表示対象を子に持つ常時有効なオブジェクトへ配置し、`FSE_DFUNC_MissileLauncher`の`Missile Animator`へ指定します。残弾表示用のFloatパラメーターを作成し、同じ名前を`Remaining Ammo Float Name`へ指定してください。Floatには予備弾を含む総残弾数／`MaxAmmo`が0から1の範囲で出力されます。
-- AAM、AGM、Bombなど、別の武器DFUNCが制御するTextやAnimatorパラメーターは指定しないでください。
+- Unity UI Textは`HUDText_Missile_ammo`、ワールド空間のTextMeshProは`HUDText_Missile_ammo_TMP`、TextMeshProUGUIは`HUDText_Missile_ammo_TMPUGUI`へ、残弾表示専用のオブジェクトを指定します。
+- アニメーターを使用する場合は、表示対象を子に持つ常時有効なオブジェクトへ配置し、`FSE_DFUNC_MissileLauncher`の`Missile Animator`へ指定します。残弾表示用のFloatパラメーターを作成し、同じ名前を`Remaining Ammo Float Name`へ指定してください。Floatには予備弾を含む総残弾数／`MaxAmmo`が0から1の範囲で出力されます。
+- AAM、AGM、Bombなど、別の武器DFUNCが制御するTextやアニメーターパラメーターは指定しないでください。
 
 ## 装填アニメーションを追加する { #reload-animation }
 
 残弾表示と共通の`FSE_DFUNC_MissileLauncher`の`Missile Animator`を使用します。出力名の既定値は[設定項目一覧](components.md#fse_dfunc_missilelauncher)を参照してください。
 
-1. Animator Controllerに、装填中を表すBoolパラメーター、装填進捗を表すFloatパラメーターの一方または両方を作成します。同じ名前をLauncherの`Reloading Bool Name`と`Reload Progress Float Name`へそれぞれ指定します。
-2. 配布の格納状態ミサイルでは、`Visual`配下のモデルの位置やScaleをアニメーションで動かします。モデルは有効な状態に保ち、`VisualRoot`自体の有効／無効はAnimatorで操作しないでください。
+1. アニメーターコントローラーに、装填中を表すBoolパラメーター、装填進捗を表すFloatパラメーターの一方または両方を作成します。同じ名前をランチャーの`Reloading Bool Name`と`Reload Progress Float Name`へそれぞれ指定します。
+2. 配布の格納状態ミサイルでは、`Visual`配下のモデルの位置やスケールをアニメーションで動かします。モデルは有効な状態に保ち、`VisualRoot`自体の有効／無効はアニメーターで操作しないでください。
 3. 装填中のBoolと、0～1の進捗Floatを使って演出を設定します。進捗は装填中でなければ1です。装填完了時のモデルの姿勢や、粒子・音の終了状態もアニメーションで設定してください。
 
-登録したAnimatorに、指定した名前・型の装填用パラメーターが少なくとも一方ある場合は、装填予定の弾の`VisualRoot`が装填中も有効になります。使用しない出力名は空欄にできます。装填アニメーションを設定しない場合は、装填完了まで弾の見た目は非表示になります。実際の装填確定はラック単位で、装填途中の発射はできません。
+登録したアニメーターに、指定した名前・型の装填用パラメーターが少なくとも一方ある場合は、装填予定の弾の`VisualRoot`が装填中も有効になります。使用しない出力名は空欄にできます。装填アニメーションを設定しない場合は、装填完了まで弾の見た目は非表示になります。実際の装填確定はラック単位で、装填途中の発射はできません。
 
 ## ミサイルの迎撃に関する設定をする
 
@@ -76,12 +76,12 @@ FSE Turret Controlを[導入手順](../turret-control/installation.md)に従っ�
 
 ## ミサイル発射による機体の重心位置変化を再現する
 
-`FSE_MissileMassBalance`を使用すると、各Launcherの残弾数と搭載位置に合わせて乗り物の重心位置を動的に変更できます。左右のミサイルを異なる順序で発射する構成にも利用可能です。この機能は`SaccEntity.CenterOfMass`の位置のみを変更し、乗り物やミサイルのRigidbodyの質量自体は変更しません。
+`FSE_MissileMassBalance`を使用すると、各ランチャーの残弾数と搭載位置に合わせて乗り物の重心位置を動的に変更できます。左右のミサイルを異なる順序で発射する構成にも利用可能です。この機能は`SaccEntity.CenterOfMass`の位置のみを変更し、乗り物やミサイルのRigidbodyの質量自体は変更しません。
 
 1. `SaccEntity.CenterOfMass`へ、ミサイルを含まない状態の重心位置に配置した専用の子トランスフォームを指定します。乗り物のルートは指定しないでください。
 2. 乗り物内のオブジェクトへ`FSE_MissileMassBalance`コンポーネントを追加し、`SaccEntity.ExtensionUdonBehaviours`へ登録します。
-3. `EntityControl`へ乗り物の`SaccEntity`を指定し、`Launchers`へ重心計算に使用する`FSE_DFUNC_MissileLauncher`を登録します。同じLauncherを重複して登録しないでください。
-4. 各Launcherの`ProjectilePool`に登録されている飛翔用ミサイルの`Rigidbody`へ、ミサイル1発分の質量を設定します。同じLauncherに属する飛翔用ミサイルには、すべて同じ値を設定してください（質量は0より大きい値にします）。
+3. `EntityControl`へ乗り物の`SaccEntity`を指定し、`Launchers`へ重心計算に使用する`FSE_DFUNC_MissileLauncher`を登録します。同じランチャーを重複して登録しないでください。
+4. 各ランチャーの`ProjectilePool`に登録されている飛翔用ミサイルの`Rigidbody`へ、ミサイル1発分の質量を設定します。同じランチャーに属する飛翔用ミサイルには、すべて同じ値を設定してください（質量は0より大きい値にします）。
 5. `VehicleMassWithoutMissiles`へミサイルを含まない乗り物の基本質量を設定します。0の場合は、初期化時の乗り物のRigidbodyの質量が使用されます。
 
 `MissileCenterOfMassOffsets`を使用すると、各発射ステーションのルートトランスフォームを基準に、そのローカル座標で重心位置を補正できます。`MaxAmmo`が`Launch Stations`の数を超える場合は、`ReserveMassPoints`へ予備弾の重心位置を指定できます。これらを使用する場合は、`Launchers`と同じ要素数・順序で登録してください。

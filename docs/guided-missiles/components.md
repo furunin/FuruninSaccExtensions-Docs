@@ -5,7 +5,7 @@
 | Field | 説明 |
 |---|---|
 | `SAVControl` / `EntityControl` | 搭載車両のSacc制御コンポーネントと`SaccEntity`です。 |
-| `CollisionHostRoot` | ミサイル（指令ワイヤーを含む）が飛翔中ずっと衝突しない機体の階層です。未設定の場合は、そのLauncherを持つ機体全体が対象になります。 |
+| `CollisionHostRoot` | ミサイル（指令ワイヤーを含む）が飛翔中ずっと衝突しない機体の階層です。未設定の場合は、そのランチャーを持つ機体全体が対象になります。 |
 | `GuidanceReference` | 誘導基準方向を示すトランスフォームです。青いZ軸（+Z）方向を使用します。 |
 | `OperatorSeat` | 操作に使用する座席オブジェクトです。 |
 | `PassengerFunctionsController` | PassengerSeat構成で使用します。PilotSeat構成では未設定にします。 |
@@ -16,8 +16,8 @@
 | `TriggerEffectsRoot` | 発射入力の開始時に再生する任意エフェクトの親トランスフォームです。 |
 | `MaxAmmo` | 装填弾と予備弾を合わせた総搭載弾数です。 |
 | `UnlimitedAmmo` | 有効にすると、発射しても総残弾数が減らず、補給なしで撃ち続けられます。既定は無効です。有効でも`MaxAmmo`は1以上にしてください。総残弾数の表示と`Remaining Ammo Float Name`の値は減らず、`MaxAmmo`のままです。 |
-| `HUDText_Missile_ammo` / `HUDText_Missile_ammo_TMP` / `HUDText_Missile_ammo_TMPUGUI` | `FSE_DFUNC_MissileLauncher`の総残弾数を表示する任意のText参照です。使用するTextの種類に対応するFieldへ指定します。 |
-| `MissileAnimator` | 残弾割合と任意の装填状態を受け取るAnimatorです。 |
+| `HUDText_Missile_ammo` / `HUDText_Missile_ammo_TMP` / `HUDText_Missile_ammo_TMPUGUI` | `FSE_DFUNC_MissileLauncher`の総残弾数を表示する任意のText参照です。使用するTextの種類に対応するフィールドへ指定します。 |
+| `MissileAnimator` | 残弾割合と任意の装填状態を受け取るアニメーターです。 |
 | `Remaining Ammo Float Name`（`AnimFloatName`） | 総残弾数／`MaxAmmo`を0～1で受け取るFloatパラメーター名です。既定名は`MissileAmmo`です。 |
 | `Reloading Bool Name`（`ReloadingBoolName`） | 装填中かどうかを受け取るBoolパラメーター名です。既定名は`MissileReloading`です。 |
 | `Reload Progress Float Name`（`ReloadProgressFloatName`） | 装填中の進捗を0～1で受け取るFloatパラメーター名です。装填中でなければ1です。既定名は`MissileReloadProgress`です。 |
@@ -42,8 +42,8 @@
 
 | Field | 説明 |
 |---|---|
-| `MissileRigidbody` / `MissileCollider` / `MissileAnimator` / `MissileVisualRoot` | 飛翔物理、衝突判定、Animator、外観表示を担当する参照です。 |
-| `RollVisualRoot` / `RollRateDegreesPerSecond` | ロール回転させるMeshの共通親オブジェクトと、見た目のロール速度（度/秒）です。物理挙動のルートオブジェクトは指定しません。 |
+| `MissileRigidbody` / `MissileCollider` / `MissileAnimator` / `MissileVisualRoot` | 飛翔物理、衝突判定、アニメーター、外観表示を担当する参照です。 |
+| `RollVisualRoot` / `RollRateDegreesPerSecond` | ロール回転させるメッシュの共通親オブジェクトと、見た目のロール速度（度/秒）です。物理挙動のルートオブジェクトは指定しません。 |
 | `EffectGroupRoots` / `EffectGroupPhaseMasks` | 演出の親トランスフォームと、再生する飛翔段階・着弾時の組み合わせです。 |
 | `FlightEffectsDelaySeconds` / `ExplosionLifeTime` | 飛翔演出開始までの遅延時間と、着弾後に待機状態へ戻るまでの時間（秒）です。 |
 | `StraightBoostTime` / `GuidedBoostTime` / `GuidedCoastTime` / `BallisticFlightTime` | 直進推進、誘導推進、誘導滑空、弾道飛行の継続時間（秒）です。 |

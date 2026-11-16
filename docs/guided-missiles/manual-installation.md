@@ -38,7 +38,7 @@ MCLOSでは、射手が飛翔中のミサイルへ直接上下左右の旋回指
 
     ![FSE_MCLOS Guidanceを複製](../assets/images/guided-missiles/mclos/2-3_1.png){ width="900" loading=lazy }
 
-4. Missile Pool配下のすべてのミサイルについて、以下の設定を行います。
+4. ミサイルプール配下のすべてのミサイルについて、以下の設定を行います。
   
     - `FSE_MCLOS Guidance`の`Missile`に、同じミサイルの`Missile Round_InFlight`オブジェクト（`FSE_MissileController`）を指定します。
 
@@ -60,7 +60,7 @@ SACLOSでは、ミサイルが`GuidanceReference`の示す照準線へ向けて�
 
 1. `FSE_GuidedMissile`オブジェクトの`FSE_DFUNC_MissileLauncher`コンポーネントをインスペクターで開きます。`ProjectilePool`に登録されている1番目のオブジェクト配下に空のオブジェクトを作成し、名前を`FSE_SACLOS Guidance`に変更します。
 2. `FSE_SACLOS Guidance`オブジェクトに`FSE_SACLOS Guidance`コンポーネントを追加します。
-3. Missile Pool配下のすべてのミサイルについて、以下の設定を行います。
+3. ミサイルプール配下のすべてのミサイルについて、以下の設定を行います。
   
     - `FSE_SACLOS Guidance`の`Missile`に、同じミサイルの`Missile Round_InFlight`オブジェクトを指定します。
     - `Missile Round_InFlight`オブジェクトの`FSE_MissileController`コンポーネントにある`GuidanceModule`に、同じミサイルの`FSE_SACLOSGuidance`オブジェクトを指定します。

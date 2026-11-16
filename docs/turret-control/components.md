@@ -10,15 +10,15 @@
 | `ReferenceRotatorVert` | 基準タレットのローカルX軸で上下に回転するトランスフォームです。 |
 | `ControlsRoot` | VR操作で車両回転を相殺し、VR連続式ズームの前後方向を決める基準トランスフォームです。ローカルの+Z軸を車両前方へ合わせます。 |
 | `AimOrigin` | 最終的な照準方向を示すトランスフォームです。 |
-| `OperatorSeat` | `FSE_EXT_Turret`をSaccの拡張（`ExtensionUdonBehaviours`またはPassenger Functionsの拡張）として登録しない場合だけ、操作席として使う座席です。登録済みの場合は設定不要で、Pilot席またはPassenger Functionsの席を自動で使います。設定しても動作に影響はありません。 |
+| `OperatorSeat` | `FSE_EXT_Turret`をSaccの拡張（`ExtensionUdonBehaviours`またはPassenger Functionsの拡張）として登録しない場合だけ、操作席として使う座席です。登録済みの場合は設定不要で、PilotSeatまたはPassenger Functionsの席を自動で使います。設定しても動作に影響はありません。 |
 
 ### Sight Camera
 
 | Field | 説明 |
 |---|---|
-| `SightCamera` | 照準映像とFOV連動感度に使用するCameraです。 |
-| `SightCameraExcludedLayers` | Sight Cameraでのみ描画から除外するLayerです。 |
-| `ScaleManualAimWithSightFov` | Camera FOVに応じて手動照準速度、および右グリップによるHEAD SLAVE照準補正の速度を調整します。 |
+| `SightCamera` | 照準映像とFOV連動感度に使用するカメラです。 |
+| `SightCameraExcludedLayers` | Sight Cameraでのみ描画から除外するレイヤーです。 |
+| `ScaleManualAimWithSightFov` | カメラのFOVに応じて手動照準速度、および右グリップによるHEAD SLAVE照準補正の速度を調整します。 |
 | `Zoom Reference Fov`（`ZoomReferenceFov`） | 手動照準が設定どおりの速さになるFOV（度）です。これより狭いFOVでは照準が遅くなります。`ScaleManualAimWithSightFov`が無効な場合は使用されません。 |
 | `MinManualAimScale` | FOV連動速度の下限倍率です。0に設定すると制限を設けず、FOV比をそのまま適用します。 |
 
@@ -26,13 +26,13 @@
 
 | Field | 説明 |
 |---|---|
-| `DriveMode` | `Script`は基準タレットと追従タレットを直接回転させます。`Animator`は各軸の角度をAnimatorへ出力し、回転動作をAnimation Clipに任せます。 |
-| `ReferenceRotatorAnimator` | 基準タレットのAnimatorです。`Animator`モードでは必須です。`Script`モードでも角度パラメーターの出力先として利用できます。 |
-| `FollowerRotatorsAnimator` | 追従タレットへ角度を出力するAnimatorです。基準タレットと同じAnimatorも指定できます。`Script`モードでも角度出力に利用でき、不要なら空欄にできます。 |
-| `CurrentYawAnimatorParameter` / `CurrentPitchAnimatorParameter` | 現在の左右・上下角度を出力するFloat Parameter名です。 |
-| `TargetYawAnimatorParameter` / `TargetPitchAnimatorParameter` | 目標角度を出力するFloat Parameter名です。HEAD SLAVEでは追従の平滑化前の角度を出力し、手動操作時および他の参加者側では現在角度を出力します。空欄にした項目は出力されません。 |
+| `DriveMode` | `Script`は基準タレットと追従タレットを直接回転させます。`Animator`は各軸の角度をアニメーターへ出力し、回転動作をAnimation Clipに任せます。 |
+| `ReferenceRotatorAnimator` | 基準タレットのアニメーターです。`Animator`モードでは必須です。`Script`モードでも角度パラメーターの出力先として利用できます。 |
+| `FollowerRotatorsAnimator` | 追従タレットへ角度を出力するアニメーターです。基準タレットと同じアニメーターも指定できます。`Script`モードでも角度出力に利用でき、不要なら空欄にできます。 |
+| `CurrentYawAnimatorParameter` / `CurrentPitchAnimatorParameter` | 現在の左右・上下角度を出力するFloatパラメーター名です。 |
+| `TargetYawAnimatorParameter` / `TargetPitchAnimatorParameter` | 目標角度を出力するFloatパラメーター名です。HEAD SLAVEでは追従の平滑化前の角度を出力し、手動操作時および他の参加者側では現在角度を出力します。空欄にした項目は出力されません。 |
 
-`SideAngleMax`が180以上の場合、左右の角度を出力するFloat Parameterは0と1が真後ろ、0.5が正面になります。Animatorで回転させる場合は、左右の軸を-180°から+180°まで等速で1回転させるAnimation Clipを用意してください。真後ろを通るときに値が1から0（または0から1）へ切り替わるため、この値を遷移条件やUIに使用する場合は注意してください。
+`SideAngleMax`が180以上の場合、左右の角度を出力するFloatパラメーターは0と1が真後ろ、0.5が正面になります。アニメーターで回転させる場合は、左右の軸を-180°から+180°まで等速で1回転させるAnimation Clipを用意してください。真後ろを通るときに値が1から0（または0から1）へ切り替わるため、この値を遷移条件やUIに使用する場合は注意してください。
 
 ### Follower Rotators
 
@@ -94,7 +94,7 @@
 
 ## FSE_DFUNC_TurretControl
 
-Pilot Seatで単独の砲塔を手動操作するためのDialFunctionです。`FSE_TurretControl`プレハブでは専用の子オブジェクトに設定済みです。Guided Missilesと組み合わせるパイロット構成や、同乗者席（Passenger）構成では通常は登録しません。
+PilotSeatで単独の砲塔を手動操作するためのDialFunctionです。`FSE_TurretControl`プレハブでは専用の子オブジェクトに設定済みです。Guided Missilesと組み合わせるパイロット構成や、同乗者席（Passenger）構成では通常は登録しません。
 
 | Field | 説明 |
 |---|---|
@@ -105,7 +105,7 @@ Pilot Seatで単独の砲塔を手動操作するためのDialFunctionです。`
 
 | Field | 説明 |
 |---|---|
-| `TurretController` / `SightCamera` | 連動する砲塔（`FSE_EXT_Turret`）と照準カメラ（Camera）です。 |
+| `TurretController` / `SightCamera` | 連動する砲塔（`FSE_EXT_Turret`）と照準カメラです。 |
 | `RangefinderOrigin` | 測距方向の基準トランスフォームです。 |
 | `Rangefinder Text`（`RangefinderText`） | 任意の距離表示用TextMeshProです。空欄でも測距は動作し、独自UIから結果を読み取れます。 |
 | `MinimumFov` / `MaximumFov` | ズームで使用するSight CameraのFOV範囲です。 |

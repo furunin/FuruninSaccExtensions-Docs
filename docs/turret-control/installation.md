@@ -40,7 +40,7 @@
 #### 2-2-B. 自作アニメーターで制御する場合
 
 - `Drive Mode`のドロップダウンで`Animator`を選択します。
-- `Reference Rotator Animator`に、基準タレットの旋回アニメーションを設定したアニメーターを指定します。このAnimatorの`Culling Mode`は`Always Animate`にしてください。他の設定では、画面外で砲塔が動かないことがあります。
+- `Reference Rotator Animator`に、基準タレットの旋回アニメーションを設定したアニメーターを指定します。このアニメーターの`Culling Mode`は`Always Animate`にしてください。他の設定では、画面外で砲塔が動かないことがあります。
 - モデルは、中立の姿勢（正面・水平）で配置した状態から始めてください。
 - アニメーター側に`Current/Target Yaw/Pitch Animator Parameter`で指定した名前のFloatパラメーターを作成し、モデルの動きに合わせてアニメーションを組みます。
 - 追従タレットを設定する場合は、`Follower Rotators Animator`に追従タレット用のアニメーターを指定します（`Reference Rotator Animator`と同一でも構いません）。
@@ -91,7 +91,7 @@
 
 利用者がUdonSharpで作成したUIを使う場合は、次の参照を設定します。
 
-1. 自作UIのスクリプトへ、測距に使用する`FSE_SightController`を参照させます。標準の距離表示を使わない場合は、そのComponentの`Rangefinder Text`を空欄にします。
+1. 自作UIのスクリプトへ、測距に使用する`FSE_SightController`を参照させます。標準の距離表示を使わない場合は、そのコンポーネントの`Rangefinder Text`を空欄にします。
 2. カメラや機体の姿勢も表示する場合は、UIへ`SightCamera`と、機体に固定されたトランスフォームを参照させます。機体固定の参照には、照準操作で回転しない`ControlsRoot`または`SaccEntity`のトランスフォームを使用します。
 
 測距結果と姿勢の読み取り方は[基本的な設定](basic-settings.md#custom-ui)を参照してください。

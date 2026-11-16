@@ -1,6 +1,6 @@
 # 導入手順
 
-以下は各誘導方式に共通する導入手順です。共通セットアップを完了した後に、各誘導方式固有の設定を行います。
+以下は各誘導方式に共通する導入手順です。この共通セットアップを完了した後に、各誘導方式固有の設定を行います。
 
 ## 1. 乗り物の事前準備
 
@@ -15,7 +15,7 @@ Guided Missileをセットアップする対象の乗り物にSaccを導入し�
     |---|---|
     | `SAVControl` | 乗り物の`Sacc Air Vehicle`コンポーネントを指定します。 |
     | `EntityControl` | 乗り物の`SaccEntity`コンポーネントを指定します。 |
-    | `CollisionHostRoot` | ミサイルが飛翔中ずっと衝突しないようにする機体の階層を指定します。 |
+    | `CollisionHostRoot` | ミサイルの衝突判定から除外するオブジェクトの階層を指定します。 |
     | `OperatorSeat` | ミサイルの発射・誘導を行う操作席のオブジェクトを指定します。 |
 
 ![FSE_DFUNC_MissileLauncherの参照設定](../assets/images/guided-missiles/installation/2_1.png){ width="900" loading=lazy }
@@ -28,7 +28,7 @@ Guided Missileをセットアップする対象の乗り物にSaccを導入し�
 
     !!! Note "Passenger Functionsが未設定の座席を使用する場合"
 
-        乗り物内のオブジェクトへ`SAV_PassengerFunctionsController`を追加し、そのコンポーネントを対象の`PassengerSeat`にある`Sacc Vehicle Seat`の`Passenger Functions`へ指定してください。以降の手順では、ここで指定したControllerを使用します。
+        乗り物内のオブジェクトへ`SAV_PassengerFunctionsController`を追加し、そのコンポーネントを対象の`PassengerSeat`にある`Sacc Vehicle Seat`の`Passenger Functions`へ指定してください。以降の手順では、ここで指定したコントローラーを使用します。
 
 2. `SAV_PassengerFunctionsController`の`Dial_Functions_L`または`Dial_Functions_R`に、`FSE_GuidedMissile`オブジェクト（`FSE_DFUNC_MissileLauncher`）を登録します。
 

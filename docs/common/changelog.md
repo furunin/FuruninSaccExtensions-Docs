@@ -8,7 +8,7 @@
 ## v0.6.4（2026-11-08）
 
 - FSE Guided MissilesのMissile Launcherに`AllowDetachOnFireInput`設定を追加。無効にすると、誘導中のミサイル数が上限に達しているときの発射操作で誘導が切れない（既定は有効で従来どおり）
-- 固定ランチャーのSample（`FixedLauncher_SACLOS`）の座席設定を修正
+- 固定ランチャーのサンプル（`FixedLauncher_SACLOS`）の座席設定を修正
 
 ## v0.6.2（2026-11-07）
 
@@ -17,14 +17,14 @@
 
 ## v0.6.0（2026-11-03）
 
-- FSE Guided Missilesに、地上に置いて使う固定式SACLOSランチャーのSample（`FixedLauncher_SACLOS`）を追加
+- FSE Guided Missilesに、地上に置いて使う固定式SACLOSランチャーのサンプル（`FixedLauncher_SACLOS`）を追加
 - FSE Guided MissilesのMissile Launcherに、発射で総弾数が減らない`UnlimitedAmmo`設定を追加
 - Take Controlによる役割交代を、操縦席からも開始できるように変更
 - Guided Missile Setupのメニューを`Tools/Furunin Sacc Extensions/Guided Missiles/`へ移動
 
 ## v0.5.4（2026-10-01）
 
-- FSE Turret ControlがTake Controlによる役割交代に追従し、交代後も担当座席で照準・HEAD SLAVE・Zoom・測距を使用可能に
+- FSE Turret ControlがTake Controlによる役割交代に追従し、交代後も担当座席で照準・HEAD SLAVE・ズーム・測距を使用可能に
 
 ## v0.5.3（2026-09-30）
 
@@ -34,13 +34,13 @@
 ## v0.5.0（2026-09-27）
 
 - FSE Guided Missilesに4段階の飛翔設定、線形・二乗の空気抵抗、速度・飛距離グラフ、飛翔段階別のエフェクト設定を追加
-- FSE Guided Missilesのセットアップ用テンプレートとSampleを更新し、発射ボタンの長押し設定と発射前エフェクトを追加
-- FSE Turret ControlにAnimatorによる旋回と角度出力を追加し、基準タレット・追従タレットの設定を整理
+- FSE Guided Missilesのセットアップ用テンプレートとサンプルを更新し、発射ボタンの長押し設定と発射前エフェクトを追加
+- FSE Turret Controlにアニメーターによる旋回と角度出力を追加し、基準タレット・追従タレットの設定を整理
 
 ## v0.3.4（2026-09-13）
 
 - FSE Guided Missilesのセットアップ支援、弾頭の作動、残弾表示、重心変化機能の説明を追加
-- FSE Turret ControlのFOV設定、Zoom操作、単軸砲塔設定の説明を追加
+- FSE Turret ControlのFOV設定、ズーム操作、単軸砲塔設定の説明を追加
 
 ## v0.1.0（2026-08-23）
 

@@ -21,7 +21,7 @@ VRモード時は、右手グリップ（中指ボタン）を押した時点を
 ## Sight Camera／Zoom
 
 - 照準映像の倍率は「連続式」と「切替式」の2つの方式から選んで制御できます。連続式では操作に応じて映像のFOVが滑らかに変化し、切替式ではあらかじめ設定された倍率へ瞬時に切り替わります。
-- 通常は操作前にDialFunctionでSight Zoomを選択します。SH-1 SampleのCopilot Seatでは、`B`キーでSight Zoomを選択してから`Q/E`キーを操作します。
+- 通常は操作前にDialFunctionでSight Zoomを選択します。SH-1サンプルのCopilot Seatでは、`B`キーでSight Zoomを選択してから`Q/E`キーを操作します。
 - `AllowZoomWhileDeselected`を有効にすると、別のDialFunctionを選択している最中でもデスクトップやVRからズーム操作を行えます。VRでは、選択中のDialFunctionが同じトリガー入力を使用していると操作が重複するため注意してください。
 
 | 倍率制御方式 | VR | デスクトップ |
