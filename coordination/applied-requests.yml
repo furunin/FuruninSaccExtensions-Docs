@@ -549,6 +549,36 @@ requests:
     omitted_changes:
       - MaxSplashTargets counting fix (optional entry)
       - FireCooldown and ProjectilePool warnings (optional entry)
+  orchestrator-20261115-v0.6.6-changelog:
+    product: orchestrator
+    task_id: release-v0.6.6
+    source_commit: 0ec4ed1ab7e6b6a0af05d28619eba2194e409175
+    applied_date: 2026-11-20
+    documentation_action: partial_public_change
+    omitted_changes:
+      - Launch effect simulation space fix (optional entry)
+      - Launch sound logarithmic rolloff (optional entry)
+    wording_note: Requested "Preview" written as Analyze Selected to match the Round Template Sync UI.
+  orchestrator-20261118-fse-mit-license:
+    product: orchestrator
+    task_id: add-fse-mit-license
+    source_commit: cd919e80f8227528b6b544a30cee6a9169024ef1
+    applied_date: 2026-11-20
+    documentation_action: partial_public_change
+    omitted_changes:
+      - Self-made or CC0 bundled assets statement (optional text)
+    publication_note: LICENSE.md is first included in v1.0.0; publish the site with or after the v1.0.0 release.
+  orchestrator-20261118-v1.0.0-changelog:
+    product: orchestrator
+    task_id: release-v1.0.0-r3
+    source_commit: 34a6c297fd9bf6487d303c778d511a8c18de2af4
+    applied_date: 2026-11-20
+    documentation_action: partial_public_change
+    omitted_changes:
+      - FixedLauncher model import setting fix (optional entry)
+    release_date_decision: User set the public date to 2026-11-22.
+    history_decision: Existing pre-1.0 history kept as is.
+    publication_note: v1.0.0 may be re-exported before the public date; check for request updates before publishing the site.
 
 deferred_requests:
   guided-missiles-20261009-sensor-hook:

@@ -1,5 +1,17 @@
 # 文書更新履歴
 
+## v1.0.0（2026-11-22）
+
+- FSE Guided Missilesに、地上に置いて使う固定式MCLOSランチャーのサンプル（`FixedLauncher_MCLOS`）を追加
+- SH-1サンプルのミサイル操作席の右Dialで、ランチャーの前に何もしない項目（NONE）を追加し、搭乗しただけでランチャーが選ばれて不意に発射しないように変更。VRでは右スティックを下へ倒してランチャーを選び、上へ倒すと解除（誘導中は解除不可）。デスクトップでは`1`キーで選択と解除を切り替え
+- FSE本体のライセンス文（`LICENSE.md`、MIT License）を同梱
+
+## v0.6.6（2026-11-15）
+
+- FSE Guided Missilesに、Guided Missile Setupで作成した格納状態／飛翔状態ミサイルのプレハブへ配布テンプレートの更新を反映する`Round Template Sync`（`Tools/Furunin Sacc Extensions/Guided Missiles/Round Template Sync`）を追加。`Analyze Selected`で変更内容を確認してから適用でき、`Restore Last Backup`で適用前の状態へ戻せる
+- 飛翔状態ミサイルのテンプレートと同梱のサンプル弾に、着弾エフェクト（閃光・火球・煙・破片）を追加。作成済みのプレハブは自動では変わらないため、取り込む場合は`Round Template Sync`を使用
+- 各スクリプトとツールのツールチップを短く整理
+
 ## v0.6.5（2026-11-11）
 
 - FSE Turret Controlに、砲塔の駆動の最大の速さと最大の加速度を設定する項目（`MaxDriveYawRate`・`MaxDrivePitchRate`・`MaxDriveYawAcceleration`・`MaxDrivePitchAcceleration`）を追加。既定0（無制限）で従来どおり
