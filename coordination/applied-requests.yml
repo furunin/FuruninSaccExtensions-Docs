@@ -570,15 +570,22 @@ requests:
     publication_note: LICENSE.md is first included in v1.0.0; publish the site with or after the v1.0.0 release.
   orchestrator-20261118-v1.0.0-changelog:
     product: orchestrator
-    task_id: release-v1.0.0-r3
-    source_commit: 34a6c297fd9bf6487d303c778d511a8c18de2af4
-    applied_date: 2026-11-20
+    task_id: release-v1.0.0-r4
+    source_commit: 18454902b7bce0e15691dd0fc7e01917193e34fb
+    applied_date: 2026-11-21
     documentation_action: partial_public_change
     omitted_changes:
-      - FixedLauncher model import setting fix (optional entry)
+      - FixedLauncher model update, shape keys and import settings (optional entry)
     release_date_decision: User set the public date to 2026-11-22.
     history_decision: Existing pre-1.0 history kept as is.
     publication_note: v1.0.0 may be re-exported before the public date; check for request updates before publishing the site.
+  guided-missiles-20261120-fixed-launcher-vehicle-mount:
+    product: guided-missiles
+    task_id: gm-fixedlauncher-vehicle-mount-doc-20261120
+    source_commit: 5184b8c8aba458828414521370ff1e8737342787
+    applied_date: 2026-11-21
+    placement: optional-features.md#fixed-launcher-on-vehicle, index.md component table row, troubleshooting.md row.
+    publication_note: Applies to the v1.0.0 package; publish the site with or after the v1.0.0 release.
 
 deferred_requests:
   guided-missiles-20261009-sensor-hook:

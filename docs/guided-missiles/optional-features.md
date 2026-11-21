@@ -87,3 +87,23 @@ FSE Turret Controlを[導入手順](../turret-control/installation.md)に従っ�
 `MissileCenterOfMassOffsets`を使用すると、各発射ステーションのルートトランスフォームを基準に、そのローカル座標で重心位置を補正できます。`MaxAmmo`が`Launch Stations`の数を超える場合は、`ReserveMassPoints`へ予備弾の重心位置を指定できます。これらを使用する場合は、`Launchers`と同じ要素数・順序で登録してください。
 
 `FSE_MissileMassBalance`は1台の乗り物に1つだけ使用してください。`SaccEntity.CenterOfMass`を動的に変更する他のコンポーネントとは併用できません。
+
+## 固定ランチャーを車両に載せる { #fixed-launcher-on-vehicle }
+
+固定ランチャーのサンプルは、置き方によって使用するプレハブが異なります。
+
+| 置き方 | 使用するプレハブ |
+|---|---|
+| 地面などに単体で置く | `FixedLauncher_SACLOS`または`FixedLauncher_MCLOS`をそのまま配置します。 |
+| 別のSacc車両に載せる | `SubComponents/FixedLauncher_Component`を車両の中に配置します。 |
+
+車両に載せる場合は、`FixedLauncher_Component`内の次の3項目に、載せる車両を指定します。
+
+| 対象 | Field | 指定するもの |
+|---|---|---|
+| `OperatorSeat`の`SaccVehicleSeat` | `Entity Control` | 車両の`SaccEntity` |
+| `FSE_GuidedMissile`の`FSE_DFUNC_MissileLauncher` | `Entity Control` | 車両の`SaccEntity` |
+| `FSE_GuidedMissile`の`FSE_DFUNC_MissileLauncher` | `Collision Host Root` | 車両のルート |
+
+!!! Warning "単体設置用のプレハブを車両に載せない"
+    `FixedLauncher_SACLOS`、`FixedLauncher_MCLOS`、`SubComponents/FixedLauncher_Base`は、独自の`SaccEntity`と`Rigidbody`を持つ単体設置用のプレハブです。そのまま別の車両の子にすると、車両が旋回できなくなるなどの不具合が起きます。ランチャーの`Rigidbody`の設定を変えて回避しないでください。単体で置いたときの動作が不安定になります。

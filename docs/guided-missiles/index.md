@@ -30,6 +30,7 @@ FSE Guided Missilesは、Saccの乗り物に誘導ミサイルを搭載するた
 | `Missile Round_Stowed` | 発射前ミサイルの関連コンポーネントをまとめたプレハブ。`FSE_GuidedMissile`内で使用します |
 | `Missile Round_InFlight` | 飛翔中ミサイルの関連コンポーネントをまとめたプレハブ。`FSE_GuidedMissile`内で使用します |
 | `SH-1_GuidedMissile_Base` | 完成品サンプルに誘導方式別設定を行う前のサンプル。完成品サンプル内で使用します |
+| `FixedLauncher_Component` | 固定ランチャーを別のSacc車両に載せる際に使用するプレハブ。[固定ランチャーを車両に載せる](optional-features.md#fixed-launcher-on-vehicle)を参照してください |
 
 !!! Warning
     パッケージ内のプレハブは直接編集せず、プレハブバリアントを作成するか、プレハブを展開して使用してください。元のプレハブを直接編集すると、パッケージ更新時に変更内容が上書きされ、正しく動作しなくなるおそれがあります。

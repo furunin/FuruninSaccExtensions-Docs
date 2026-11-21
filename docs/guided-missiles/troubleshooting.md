@@ -16,3 +16,4 @@
 | 更新後に既存の装填アニメーションが動かなくなった | 配布Stowedのモデルは`Visual`親の配下にあります。旧階層を参照するAnimation Clipは、現在のモデルの参照パスへ更新してください。既存の独自生成プレハブの階層は自動変換されません。 |
 | 補給が行われない | Saccの補給通知、および`InVehicleOnly`直下で`ResupplyTrigger`がアクティブ（有効）になっていることを確認します。`PilotOnly`の配下や、同一の補給領域内に重複する補給トリガーを配置しないでください。 |
 | 見た目がロール回転しない | `RollVisualRoot`に物理挙動のルートオブジェクトではなくメッシュの共通親オブジェクトを指定しているか、およびロール回転速度が0以外の値に設定されているかを確認します。 |
+| 固定ランチャーを載せた車両が旋回できない | `FixedLauncher_SACLOS`、`FixedLauncher_MCLOS`、`FixedLauncher_Base`は、独自の`SaccEntity`と`Rigidbody`を持つ単体設置用のプレハブです。そのまま車両の子にしている場合は`SubComponents/FixedLauncher_Component`に置き換え、[3項目](optional-features.md#fixed-launcher-on-vehicle)に載せる車両を指定してください。 |
