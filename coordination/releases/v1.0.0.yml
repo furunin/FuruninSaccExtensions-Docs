@@ -1,0 +1,30 @@
+release:
+  version: v1.0.0
+  release_date: 2026-11-22
+  product:
+    branch: master
+    commit: 18454902b7bce0e15691dd0fc7e01917193e34fb
+    source_commit: 27b862e801f9dcde4c42219eedc55908824127a8
+    package:
+      name: FuruninSaccExtension_v1.0.0.unitypackage
+      size_bytes: 1376773
+      sha256: 6EEA2D37C7EA8689F60223033EEEDFAD9100E63D3B62A4308539D82F5E8435BE
+  documentation:
+    branch: main
+    tag: v1.0.0
+    content_commit: e4f5d168d6ee78aa1adfb6adf6214bfecbba6cd2
+    published_date: 2026-11-21
+    mike_version: 1.0.0
+    aliases:
+      - latest
+    mike_tool_version: 2.2.0
+    local_preview:
+      date: 2026-11-21
+      content_commit: e4f5d168d6ee78aa1adfb6adf6214bfecbba6cd2
+      viewport_widths_px: [1440, 500]
+      themes: [default, slate]
+      inspected_pages:
+        - guided-missiles/optional-features/
+        - guided-missiles/troubleshooting/
+        - common/changelog/
+        - common/license/
