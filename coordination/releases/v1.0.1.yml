@@ -1,0 +1,22 @@
+release:
+  version: v1.0.1
+  release_date: 2026-11-28
+  product:
+    branch: master
+    commit: 896173b8ddba991d24db86ec322b6853fa933d7b
+    source_commit: 86c5b9bc0fc92a18a0511265ffd548218ba106a8
+    package:
+      name: FuruninSaccExtension_v1.0.1.unitypackage
+      size_bytes: 1380037
+      sha256: FB5EED3B7C17B5FE4DE16CBABCED20DF551B9B2D7DD88DE24652E6E0B2E5808E
+  documentation:
+    branch: main
+    tag: v1.0.1
+    content_commit: 9c98165fa461b75f95544d96bd5ab53e0146b02a
+    published_date: 2026-11-28
+    mike_version: 1.0.1
+    aliases:
+      - latest
+    mike_tool_version: 2.2.0
+    local_preview:
+      skipped_reason: Changelog bullet text only since v1.0.0; no layout-affecting change.
