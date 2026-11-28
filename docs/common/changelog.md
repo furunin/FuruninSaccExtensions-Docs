@@ -1,5 +1,10 @@
 # 文書更新履歴
 
+## v1.0.1（2026-11-28）
+
+- 固定ランチャーのサンプル（`FixedLauncher_SACLOS`・`FixedLauncher_MCLOS`）で、照準映像が横に縮んで表示される問題を修正
+- 飛翔中のミサイルの迎撃判定（`Intercept Proxy`）が、各ミサイルの最初の発射で効かないことがある問題を修正
+
 ## v1.0.0（2026-11-22）
 
 - FSE Guided Missilesに、地上に置いて使う固定式MCLOSランチャーのサンプル（`FixedLauncher_MCLOS`）を追加

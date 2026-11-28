@@ -586,6 +586,15 @@ requests:
     applied_date: 2026-11-21
     placement: optional-features.md#fixed-launcher-on-vehicle, index.md component table row, troubleshooting.md row.
     publication_note: Applies to the v1.0.0 package; publish the site with or after the v1.0.0 release.
+  orchestrator-20261128-v1.0.1-changelog:
+    product: orchestrator
+    task_id: release-v1.0.1
+    source_commit: 896173b8ddba991d24db86ec322b6853fa933d7b
+    applied_date: 2026-11-28
+    documentation_action: partial_public_change
+    omitted_changes:
+      - Note that duplicated custom fixed launcher prefabs may keep the shared sight texture (optional note)
+    publication_note: Site is published as 1.0.0; publish as 1.0.1 only on explicit instruction.
 
 deferred_requests:
   guided-missiles-20261009-sensor-hook:
