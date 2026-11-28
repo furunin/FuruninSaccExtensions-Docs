@@ -1,0 +1,85 @@
+.fov-calculator {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.8rem 0;
+  padding: 0.8rem;
+  border: 0.05rem solid var(--md-default-fg-color--lightest);
+  border-radius: 0.2rem;
+  background-color: var(--md-default-bg-color);
+}
+
+.fov-calculator__fields {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.fov-calculator__field {
+  display: grid;
+  gap: 0.25rem;
+  font-weight: 700;
+}
+
+.fov-calculator__input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.fov-calculator input {
+  width: 100%;
+  min-width: 0;
+  padding: 0.4rem 0.5rem;
+  color: var(--md-default-fg-color);
+  background-color: var(--md-default-bg-color);
+  border: 0.05rem solid var(--md-default-fg-color--lighter);
+  border-radius: 0.2rem;
+  font: inherit;
+  font-variant-numeric: tabular-nums;
+}
+
+.fov-calculator input:focus-visible {
+  border-color: var(--md-accent-fg-color);
+  outline: 0.1rem solid var(--md-accent-fg-color);
+  outline-offset: 0.05rem;
+}
+
+.fov-calculator input[aria-invalid="true"] {
+  border-color: var(--md-accent-fg-color);
+}
+
+.fov-calculator__help,
+.fov-calculator__message,
+.fov-calculator__result {
+  margin: 0;
+}
+
+.fov-calculator__help {
+  color: var(--md-default-fg-color--light);
+  font-size: 0.85em;
+}
+
+.fov-calculator__result {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.4rem 1rem;
+  padding-top: 0.65rem;
+  border-top: 0.05rem solid var(--md-default-fg-color--lightest);
+}
+
+.fov-calculator__result strong {
+  font-size: 1.25em;
+  font-variant-numeric: tabular-nums;
+}
+
+.fov-calculator__message:not(:empty) {
+  color: var(--md-accent-fg-color);
+  font-weight: 700;
+}
+
+@media screen and (min-width: 40rem) {
+  .fov-calculator__fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

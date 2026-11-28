@@ -1,0 +1,2006 @@
+
+<!doctype html>
+<html lang="ja" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="SaccFlightAndVehicles向け拡張ギミックの利用者向けドキュメント">
+      
+      
+      
+        <link rel="canonical" href="https://furunin.github.io/FuruninSaccExtensions-Docs/1.0.1/turret-control/components/">
+      
+      
+        <link rel="prev" href="../basic-settings/">
+      
+      
+        <link rel="next" href="../operation/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>設定項目一覧 - Furunin Sacc Extensions</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          コンテンツにスキップ
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="ヘッダー">
+    <a href="../.." title="Furunin Sacc Extensions" class="md-header__button md-logo" aria-label="Furunin Sacc Extensions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Furunin Sacc Extensions
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              設定項目一覧
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="ダークテーマに切り替える"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="ダークテーマに切り替える" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="ライトテーマに切り替える"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="ライトテーマに切り替える" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="検索" placeholder="検索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="検索">
+        
+        <button type="reset" class="md-search__icon md-icon" title="クリア" aria-label="クリア" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            検索を初期化
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/furunin/FuruninSaccExtensions-Docs" title="リポジトリへ" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    furunin/FuruninSaccExtensions-Docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="ナビゲーション" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Furunin Sacc Extensions" class="md-nav__button md-logo" aria-label="Furunin Sacc Extensions" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Furunin Sacc Extensions
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/furunin/FuruninSaccExtensions-Docs" title="リポジトリへ" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    furunin/FuruninSaccExtensions-Docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ホーム
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    ホーム
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ギミック概要
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FSE Guided Missiles
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    FSE Guided Missiles
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guided-missiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概要
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    導入・基本設定
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    導入・基本設定
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guided-missiles/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    導入手順
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guided-missiles/basic-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本的な設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guided-missiles/optional-features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    任意機能の導入
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guided-missiles/components/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    設定項目一覧
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guided-missiles/operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    操作方法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guided-missiles/behavior/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ミサイルの動作
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guided-missiles/troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    トラブルシューティング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FSE Turret Control
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    FSE Turret Control
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    概要
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    導入・基本設定
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    導入・基本設定
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    導入手順
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic-settings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    基本的な設定
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    設定項目一覧
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    設定項目一覧
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fse_ext_turret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FSE_EXT_Turret
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FSE_EXT_Turret">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference-rotator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference Rotator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sight-camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sight Camera
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drive-mode-and-animator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drive Mode and Animator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#follower-rotators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Follower Rotators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手動照準
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        同期
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#head-slave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HEAD SLAVE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fse_dfunc_headslave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FSE_DFUNC_HeadSlave
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fse_dfunc_turretcontrol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FSE_DFUNC_TurretControl
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fse_sightcontroller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FSE_SightController
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FSE_SightController">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rangefinder-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        独自UI用の取得メソッド
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fse_dfunc_sightzoom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FSE_DFUNC_SightZoom
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    操作方法
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    トラブルシューティング
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    共通情報
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    共通情報
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common/license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    ライセンスとクレジット
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../common/changelog/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    更新履歴
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目次">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目次
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fse_ext_turret" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FSE_EXT_Turret
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FSE_EXT_Turret">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reference-rotator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reference Rotator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sight-camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sight Camera
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#drive-mode-and-animator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Drive Mode and Animator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#follower-rotators" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Follower Rotators
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        手動照準
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        同期
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#head-slave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HEAD SLAVE
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fse_dfunc_headslave" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FSE_DFUNC_HeadSlave
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fse_dfunc_turretcontrol" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FSE_DFUNC_TurretControl
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fse_sightcontroller" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FSE_SightController
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="FSE_SightController">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rangefinder-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        独自UI用の取得メソッド
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fse_dfunc_sightzoom" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        FSE_DFUNC_SightZoom
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+
+  <nav class="md-path" aria-label="ナビゲーション" >
+    <ol class="md-path__list">
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    FSE Turret Control
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../installation/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    導入・基本設定
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="_1">設定項目一覧<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="fse_ext_turret">FSE_EXT_Turret<a class="headerlink" href="#fse_ext_turret" title="Permanent link">&para;</a></h2>
+<h3 id="reference-rotator">Reference Rotator<a class="headerlink" href="#reference-rotator" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ReferenceRotatorHor</code></td>
+<td>基準タレットのローカルY軸で左右に回転するトランスフォームです。</td>
+</tr>
+<tr>
+<td><code>ReferenceRotatorVert</code></td>
+<td>基準タレットのローカルX軸で上下に回転するトランスフォームです。</td>
+</tr>
+<tr>
+<td><code>ControlsRoot</code></td>
+<td>VR操作で車両回転を相殺し、VR連続式ズームの前後方向を決める基準トランスフォームです。ローカルの+Z軸を車両前方へ合わせます。</td>
+</tr>
+<tr>
+<td><code>AimOrigin</code></td>
+<td>最終的な照準方向を示すトランスフォームです。</td>
+</tr>
+<tr>
+<td><code>OperatorSeat</code></td>
+<td><code>FSE_EXT_Turret</code>をSaccの拡張（<code>ExtensionUdonBehaviours</code>またはPassenger Functionsの拡張）として登録しない場合だけ、操作席として使う座席です。登録済みの場合は設定不要で、PilotSeatまたはPassenger Functionsの席を自動で使います。設定しても動作に影響はありません。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sight-camera">Sight Camera<a class="headerlink" href="#sight-camera" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SightCamera</code></td>
+<td>照準映像とFOV連動感度に使用するカメラです。</td>
+</tr>
+<tr>
+<td><code>SightCameraExcludedLayers</code></td>
+<td>Sight Cameraでのみ描画から除外するレイヤーです。</td>
+</tr>
+<tr>
+<td><code>ScaleManualAimWithSightFov</code></td>
+<td>カメラのFOVに応じて手動照準速度、および右グリップによるHEAD SLAVE照準補正の速度を調整します。</td>
+</tr>
+<tr>
+<td><code>Zoom Reference Fov</code>（<code>ZoomReferenceFov</code>）</td>
+<td>手動照準が設定どおりの速さになるFOV（度）です。これより狭いFOVでは照準が遅くなります。<code>ScaleManualAimWithSightFov</code>が無効な場合は使用されません。</td>
+</tr>
+<tr>
+<td><code>MinManualAimScale</code></td>
+<td>FOV連動速度の下限倍率です。0に設定すると制限を設けず、FOV比をそのまま適用します。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drive-mode-and-animator">Drive Mode and Animator<a class="headerlink" href="#drive-mode-and-animator" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DriveMode</code></td>
+<td><code>Script</code>は基準タレットと追従タレットを直接回転させます。<code>Animator</code>は各軸の角度をアニメーターへ出力し、回転動作をAnimation Clipに任せます。</td>
+</tr>
+<tr>
+<td><code>ReferenceRotatorAnimator</code></td>
+<td>基準タレットのアニメーターです。<code>Animator</code>モードでは必須です。<code>Script</code>モードでも角度パラメーターの出力先として利用できます。</td>
+</tr>
+<tr>
+<td><code>FollowerRotatorsAnimator</code></td>
+<td>追従タレットへ角度を出力するアニメーターです。基準タレットと同じアニメーターも指定できます。<code>Script</code>モードでも角度出力に利用でき、不要なら空欄にできます。</td>
+</tr>
+<tr>
+<td><code>CurrentYawAnimatorParameter</code> / <code>CurrentPitchAnimatorParameter</code></td>
+<td>現在の左右・上下角度を出力するFloatパラメーター名です。</td>
+</tr>
+<tr>
+<td><code>TargetYawAnimatorParameter</code> / <code>TargetPitchAnimatorParameter</code></td>
+<td>目標角度を出力するFloatパラメーター名です。HEAD SLAVEでは追従の平滑化前の角度を出力し、手動操作時および他の参加者側では現在角度を出力します。空欄にした項目は出力されません。</td>
+</tr>
+</tbody>
+</table>
+<p><code>SideAngleMax</code>が180以上の場合、左右の角度を出力するFloatパラメーターは0と1が真後ろ、0.5が正面になります。アニメーターで回転させる場合は、左右の軸を-180°から+180°まで等速で1回転させるAnimation Clipを用意してください。真後ろを通るときに値が1から0（または0から1）へ切り替わるため、この値を遷移条件やUIに使用する場合は注意してください。</p>
+<h3 id="follower-rotators">Follower Rotators<a class="headerlink" href="#follower-rotators" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FollowerRotatorsHor</code></td>
+<td>追従タレットのローカルY軸で左右に回転するトランスフォームの配列です。</td>
+</tr>
+<tr>
+<td><code>FollowerRotatorsVert</code></td>
+<td>同じインデックスに対応するローカルX軸で上下に回転するトランスフォームの配列です。</td>
+</tr>
+</tbody>
+</table>
+<p>存在しない軸は空欄にできます。同じトランスフォームを同じインデックスの両配列へ指定すると、単一のトランスフォームを上下左右へ動かします。</p>
+<h3 id="_2">手動照準<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TurnSpeedMultiX</code> / <code>TurnSpeedMultiY</code></td>
+<td>上下・左右の基本回転速度（度/秒）です。Sacc <code>EXT_Turret</code>の同名項目とは意味が異なるため、値を流用しないでください。</td>
+</tr>
+<tr>
+<td><code>MaxJoyAngles</code></td>
+<td>VR仮想ジョイスティックの最大入力角です。</td>
+</tr>
+<tr>
+<td><code>VJoyRollAsYaw</code></td>
+<td>右手コントローラーのロール操作を左右照準の入力として扱います。</td>
+</tr>
+<tr>
+<td><code>TurningResponseDesktop</code></td>
+<td>デスクトップで照準キーを押したときに、照準が最高速へ近づく速さです。大きいほどすぐ最高速になり、0ではキー照準が動きません。押し始めの動きを速くしたい場合は値を大きくします（例: 20～50）。</td>
+</tr>
+<tr>
+<td><code>Keyboard_Up</code> / <code>Keyboard_Down</code> / <code>Keyboard_Left</code> / <code>Keyboard_Right</code></td>
+<td>デスクトップの照準キーです。既定は<code>W</code>/<code>S</code>/<code>A</code>/<code>D</code>です。</td>
+</tr>
+<tr>
+<td><code>KeyboardSpeedModifier</code></td>
+<td>押している間、デスクトップの照準を遅くするキーです。既定は<code>LeftShift</code>です。操縦者が砲塔も操作する飛行機・船では、SaccのスロットルにもLeftShiftを使うため、別のキーへの変更を検討してください。</td>
+</tr>
+<tr>
+<td><code>K_ModifierSpeed</code></td>
+<td><code>KeyboardSpeedModifier</code>を押している間の照準速度の倍率です。既定は0.2です。</td>
+</tr>
+<tr>
+<td><code>InvertDesktopPitch</code></td>
+<td>有効（既定）では<code>Keyboard_Up</code>で照準が上を向きます。無効にすると、Sacc <code>EXT_Turret</code>と同じく<code>Keyboard_Up</code>で下を向きます。</td>
+</tr>
+<tr>
+<td><code>UpAngleMax</code> / <code>DownAngleMax</code> / <code>SideAngleMax</code></td>
+<td>基準タレットの可動範囲（角度上限）です。<code>SideAngleMax</code>を180以上にすると、左右は真後ろで止まらず全周を回り続けます。真後ろで止める場合は179以下にします。</td>
+</tr>
+<tr>
+<td><code>MaxDriveYawRate</code> / <code>MaxDrivePitchRate</code></td>
+<td>砲塔が車体に対して回る左右・上下の最大の速さ（度/秒）です。安定化（<code>Stabilize</code>）の動きも含みます。0（既定）で無制限です。手動照準の速さ（<code>TurnSpeedMultiX/Y</code>）以上にするのが目安です。</td>
+</tr>
+<tr>
+<td><code>MaxDriveYawAcceleration</code> / <code>MaxDrivePitchAcceleration</code></td>
+<td>砲塔が車体に対して回る左右・上下の最大の加速度（度/秒²）です。0（既定）で無制限です。照準キーを離した後に進む角度は、おおよそ「速さの2乗÷(2×加速度)」です。</td>
+</tr>
+<tr>
+<td><code>InvertVRPitch</code></td>
+<td>VR手動照準、および右グリップによるHEAD SLAVE照準補正の上下方向を反転します。</td>
+</tr>
+</tbody>
+</table>
+<p>駆動の上限（<code>MaxDrive...</code>）を設定すると、砲塔は上限の範囲で回るため、狙っている角度（Target）と実際の角度（Current）が分かれます。照準映像は実際の砲塔の向きに付いているため、操作者には遅れた照準が見えます。SACLOSのミサイルも実際の照準線に従います。車体の揺れに追いつけなかった場合は揺れが収まると、車体が旋回範囲の外まで回った場合は届く向きに戻ると、元の照準方向へ戻ります。速く細かい揺れは打ち消しきれず、条件によっては安定化しない場合より照準が揺れることがあるため、値は実際の車両で調整してください。</p>
+<p>駆動の上限は、上下の回転部（<code>ReferenceRotatorVert</code>）が左右の回転部（<code>ReferenceRotatorHor</code>）の子で、<code>AimOrigin</code>がその下にある構成（片軸の場合はその軸の下）で使用できます。それ以外の構成では上限が無視され、エラーが1回表示されます。</p>
+<h3 id="_3">同期<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Stabilize</code></td>
+<td>車体が回転したときの照準安定化を有効にします。</td>
+</tr>
+<tr>
+<td><code>updateInterval</code></td>
+<td>操作者の照準方向を他の参加者へ送信する間隔（秒）です。</td>
+</tr>
+<tr>
+<td><code>networkSmoothing</code></td>
+<td>他の参加者側で砲塔の動きを滑らかに補間・表示する強さです。</td>
+</tr>
+<tr>
+<td><code>maxRemoteExtrapolation</code></td>
+<td>次の同期データが届くまで、直前の角速度から表示方向を外挿予測する時間の上限です。</td>
+</tr>
+</tbody>
+</table>
+<p>これらは、他の参加者から見える砲塔の動きを調整する上級者向け設定です。照準速度や角度制限を変更する項目ではなく、通常は初期値のまま運用します。<code>updateInterval</code>を0.2秒より小さくしても、送信間隔は0.2秒より短くなりません。<code>networkSmoothing</code>を大きくすると受信方向へ素早く追従し、小さくすると動きが滑らかになる一方で追従遅れが増えます。<code>maxRemoteExtrapolation</code>を大きくするとパケット遅延によるカクつきを抑えられますが、実際の照準方向を行き過ぎる場合があります。変更する際は、複数のクライアントで遅れ・振動・オーバーシュートの度合いを確認してください。</p>
+<h3 id="head-slave">HEAD SLAVE<a class="headerlink" href="#head-slave" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HeadSlaveVROnly</code></td>
+<td>有効にするとVR限定、無効にするとデスクトップとVRの両方でHEAD SLAVEを使用できます。</td>
+</tr>
+<tr>
+<td><code>HeadSlaveSmoothingHalfLife</code> / <code>HeadSlaveDeadZoneDeg</code></td>
+<td>頭または視点への追従の平滑化度合いと、微小な動きを無視する不感帯角度です。</td>
+</tr>
+<tr>
+<td><code>HeadSlaveMaxYawSlewRate</code> / <code>HeadSlaveMaxPitchSlewRate</code></td>
+<td>最大追従速度です。</td>
+</tr>
+<tr>
+<td><code>HeadSlaveYawOffsetLimit</code> / <code>HeadSlavePitchOffsetLimit</code></td>
+<td>HMDの追従方向に対して、右グリップ操作で追加できる左右・上下の照準補正角の上限です。</td>
+</tr>
+<tr>
+<td><code>HeadSlaveTrimRate</code></td>
+<td>右グリップ操作による照準補正が反映される速度です。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fse_dfunc_headslave">FSE_DFUNC_HeadSlave<a class="headerlink" href="#fse_dfunc_headslave" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TurretController</code></td>
+<td>操作対象の<code>FSE_EXT_Turret</code>です。</td>
+</tr>
+<tr>
+<td><code>EnableFunconObjects</code></td>
+<td>HEAD SLAVE選択中のみ有効化するオブジェクトの配列です。不要なら空配列にします。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fse_dfunc_turretcontrol">FSE_DFUNC_TurretControl<a class="headerlink" href="#fse_dfunc_turretcontrol" title="Permanent link">&para;</a></h2>
+<p>PilotSeatで単独の砲塔を手動操作するためのDialFunctionです。<code>FSE_TurretControl</code>プレハブでは専用の子オブジェクトに設定済みです。Guided Missilesと組み合わせるパイロット構成や、同乗者席（Passenger）構成では通常は登録しません。</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TurretController</code></td>
+<td>操作対象の<code>FSE_EXT_Turret</code>です。プレハブ内では設定済みです。</td>
+</tr>
+<tr>
+<td><code>EnableFunconObjects</code></td>
+<td>選択中のみ有効化するオブジェクトの配列です。不要なら空配列にします。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="fse_sightcontroller">FSE_SightController<a class="headerlink" href="#fse_sightcontroller" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TurretController</code> / <code>SightCamera</code></td>
+<td>連動する砲塔（<code>FSE_EXT_Turret</code>）と照準カメラです。</td>
+</tr>
+<tr>
+<td><code>RangefinderOrigin</code></td>
+<td>測距方向の基準トランスフォームです。</td>
+</tr>
+<tr>
+<td><code>Rangefinder Text</code>（<code>RangefinderText</code>）</td>
+<td>任意の距離表示用TextMeshProです。空欄でも測距は動作し、独自UIから結果を読み取れます。</td>
+</tr>
+<tr>
+<td><code>MinimumFov</code> / <code>MaximumFov</code></td>
+<td>ズームで使用するSight CameraのFOV範囲です。</td>
+</tr>
+<tr>
+<td><code>ZoomPresetMagnifications</code></td>
+<td>切替式ズームで使用する倍率一覧です。正数を昇順で指定します。</td>
+</tr>
+<tr>
+<td><code>RangefinderDistance</code></td>
+<td>距離計の最大測定距離（m）です。</td>
+</tr>
+<tr>
+<td><code>RangefinderLayers</code></td>
+<td>距離計が障害物・目標として検知するLayerMaskです。</td>
+</tr>
+<tr>
+<td><code>RangefinderUpdateInterval</code></td>
+<td>距離計の測定・表示更新間隔（秒）です。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rangefinder-data">独自UI用の取得メソッド<a class="headerlink" href="#rangefinder-data" title="Permanent link">&para;</a></h3>
+<p><code>FSE_SightController</code>から最後の測距結果を取得します。使用手順は<a href="../installation/#custom-ui-setup">独自の照準画面・HUD</a>を参照してください。</p>
+<table>
+<thead>
+<tr>
+<th>メソッド</th>
+<th>取得する情報</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HasRangefinderHit()</code></td>
+<td>現在の操作者として有効な測距結果がある場合に<code>true</code>を返します。</td>
+</tr>
+<tr>
+<td><code>GetMeasuredDistance()</code></td>
+<td>丸め前の測定距離（m）です。<code>RangefinderDistance</code>は測定上限の設定値で、測定結果ではありません。</td>
+</tr>
+<tr>
+<td><code>GetRangefinderHitCollider()</code></td>
+<td>命中したColliderです。</td>
+</tr>
+<tr>
+<td><code>GetRangefinderHitOrigin()</code> / <code>GetRangefinderHitDirection()</code></td>
+<td>測定時の原点と方向です。世界座標で返します。</td>
+</tr>
+<tr>
+<td><code>GetRangefinderHitPoint()</code></td>
+<td>世界座標の命中位置です。</td>
+</tr>
+<tr>
+<td><code>GetRangefinderHitSampleTime()</code></td>
+<td>最後に測定した時点の<code>Time.time</code>（秒）です。</td>
+</tr>
+</tbody>
+</table>
+<p>無効な結果では<code>HasRangefinderHit()</code>が<code>false</code>になり、Colliderは<code>null</code>、距離・時刻は0、位置・方向は<code>Vector3.zero</code>を返します。</p>
+<h2 id="fse_dfunc_sightzoom">FSE_DFUNC_SightZoom<a class="headerlink" href="#fse_dfunc_sightzoom" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SightController</code></td>
+<td>操作対象の<code>FSE_SightController</code>です。</td>
+</tr>
+<tr>
+<td><code>UsePresetSteps</code></td>
+<td>切替式ズームを使用します。無効時は連続式ズームになります。</td>
+</tr>
+<tr>
+<td><code>AllowZoomWhileDeselected</code></td>
+<td>有効にすると、Sight Zoom以外のDialFunctionを選択している最中でもズーム入力を受け付けます。</td>
+</tr>
+<tr>
+<td><code>ContinuousZoomRate</code></td>
+<td>連続式ズームの倍率変化速度です。</td>
+</tr>
+<tr>
+<td><code>VrHandZForFullSpeed</code></td>
+<td>VR連続式ズームで、ズームの全範囲（最小倍率から最大倍率まで）に相当する手の前後移動量（m、<code>ControlsRoot</code>の前方基準）です。倍率の変化の速さは<code>ContinuousZoomRate</code>で制限されます。</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  ページトップへ戻る
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.sections", "navigation.path", "navigation.top", "navigation.expand", "content.code.copy", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u30b3\u30d4\u30fc\u3057\u307e\u3057\u305f", "clipboard.copy": "\u30af\u30ea\u30c3\u30d7\u30dc\u30fc\u30c9\u3078\u30b3\u30d4\u30fc", "search.result.more.one": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3082\u30461\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.more.other": "\u3053\u306e\u30da\u30fc\u30b8\u5185\u306b\u3042\u3068#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.none": "\u4f55\u3082\u898b\u3064\u304b\u308a\u307e\u305b\u3093\u3067\u3057\u305f", "search.result.one": "1\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.other": "#\u4ef6\u898b\u3064\u304b\u308a\u307e\u3057\u305f", "search.result.placeholder": "\u691c\u7d22\u30ad\u30fc\u30ef\u30fc\u30c9\u3092\u5165\u529b\u3057\u3066\u304f\u3060\u3055\u3044", "search.result.term.missing": "\u691c\u7d22\u306b\u542b\u307e\u308c\u306a\u3044", "select.version": "\u30d0\u30fc\u30b8\u30e7\u30f3\u5207\u308a\u66ff\u3048"}, "version": {"alias": true, "default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="../../javascripts/fov-calculator.js"></script>
+      
+        <script src="https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
